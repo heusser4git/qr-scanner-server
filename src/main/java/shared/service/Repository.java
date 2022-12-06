@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface Repository<T> {
     List<T> all();
-    ModelId add(T object);
+    T add(T object);
     T get(Long id);
     Boolean update(T object);
+    Boolean delete(T object);
 }

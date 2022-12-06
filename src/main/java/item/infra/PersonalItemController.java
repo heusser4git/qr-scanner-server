@@ -24,7 +24,6 @@ public class PersonalItemController {
 
         server.get("/personal/items", "*",
                 (request, response) -> {
-                    System.out.println("called Route: get -> /personal/items");
                     return personalItemService.all();
                 },
                 jsonSerializer::serialize);
@@ -36,11 +35,14 @@ public class PersonalItemController {
 
         server.post("/personal/items", (request, response) -> {
             PersonalItem item = jsonSerializer.deserialize(request.body(), new TypeReference<PersonalItem>() {});
-            if(item.id!=null) {
+            System.out.println("POST: " + item);
+            if(item.getId()!=null) {
                 // update
+                System.out.println("UPDATE: " + item);
                 response.status(HttpStatus.ACCEPTED_202);
                 return personalItemService.update(item);
             } else {
+                System.out.println("CREATE: " + item);
                 response.status(HttpStatus.CREATED_201);
                 return personalItemService.create(item);
             }

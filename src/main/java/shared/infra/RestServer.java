@@ -24,10 +24,10 @@ public class RestServer {
         new PersonalItemController(isTest).createRoutes(server);
 
         server.before((((request, response) -> {
-//            final boolean clientWantsJSON = request.headers("Accept").contains("application/json");
-//            if(!clientWantsJSON) {
-//                server.halt(HttpStatus.NOT_ACCEPTABLE_406);
-//            }
+            final boolean clientWantsJSON = request.headers("Accept").contains("application/json");
+            if(!clientWantsJSON) {
+                server.halt(HttpStatus.NOT_ACCEPTABLE_406);
+            }
         })));
 
         server.before(((request, response) -> response.header("Access-Control-Allow-Origin", "*")));
