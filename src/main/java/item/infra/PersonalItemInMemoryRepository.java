@@ -25,6 +25,8 @@ public class PersonalItemInMemoryRepository implements PersonalItemRepository<Pe
 
     @Override
     public PersonalItem add(PersonalItem object) {
+        Long nextId = all().size() + 1L;
+        object.setId(nextId);
         personalItems.add(object);
         // TODO remove sout
         System.out.println(all());
@@ -48,7 +50,8 @@ public class PersonalItemInMemoryRepository implements PersonalItemRepository<Pe
                 personalitem.setNachname(object.getNachname());
                 personalitem.setVorname(object.getVorname());
                 personalitem.setGeburtsdatum(object.getGeburtsdatum());
-                personalitem.setStatus(object.getStatus());
+                personalitem.setStatus(object.isStatus());
+                personalitem.setAnzahlEintritte(object.getAnzahlEintritte());
                 // TODO remove sout
                 System.out.println(all());
                 return true;

@@ -17,10 +17,6 @@ public class PersonalItemService {
 
     public PersonalItem create(PersonalItem item) {
         // TODO item data check
-
-        Long nextId = repository.all().size() + 1L;
-        item.setId(nextId);
-
         return repository.add(item);
     }
 

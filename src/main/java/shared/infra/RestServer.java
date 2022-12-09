@@ -23,23 +23,24 @@ public class RestServer {
         server.port(Integer.parseInt(port));
 
         new PersonalItemController(isTest).createRoutes(server);
+        // TODO ScannerRoute einbauen -> mit zaehler anzahlEintritte
 
         server.before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
 
         server.before(((request, response) -> {
-            // exclude .../image from requiring to accept application/json
-            System.out.println(request.pathInfo());
-//            final boolean isImage = request.pathInfo().equalsIgnoreCase("/personal/items/1");
-            // TODO weshalb OPTIONS und nicht DELETE?
-            final boolean isDelete = request.requestMethod().equalsIgnoreCase("OPTIONS");
-            System.out.println(request.requestMethod());
-            if(!isDelete){
-                final boolean clientWantsJson = request.headers("Accept").contains("application/json");
-                if(!clientWantsJson){
-                    System.out.println("was not json");
-                    server.halt(HttpStatus.NOT_ACCEPTABLE_406);
-                }
-            }
+//            // exclude .../image from requiring to accept application/json
+//            System.out.println(request.pathInfo());
+////            final boolean isImage = request.pathInfo().equalsIgnoreCase("/personal/items/1");
+//            // TODO weshalb OPTIONS und nicht DELETE?
+//            final boolean isDelete = request.requestMethod().equalsIgnoreCase("DELETE");
+//            System.out.println(request.requestMethod());
+//            if(!isDelete){
+//                final boolean clientWantsJson = request.headers("Accept").contains("application/json");
+//                if(!clientWantsJson){
+//                    System.out.println("was not json");
+//                    server.halt(HttpStatus.NOT_ACCEPTABLE_406);
+//                }
+//            }
         }));
 
 

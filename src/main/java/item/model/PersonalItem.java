@@ -8,6 +8,7 @@ public class PersonalItem {
     private String vorname;
     private Date geburtsdatum;
     private boolean status;
+    private int anzahlEintritte;
 
     public static PersonalItem create(Long id, String nachname, String vorname, Date geburtsdatum, Boolean status) {
         PersonalItem personalItem = new PersonalItem();
@@ -55,12 +56,21 @@ public class PersonalItem {
         return this;
     }
 
-    public boolean getStatus() {
+    public boolean isStatus() {
         return status;
     }
 
     public PersonalItem setStatus(boolean status) {
         this.status = status;
+        return this;
+    }
+
+    public int getAnzahlEintritte() {
+        return anzahlEintritte;
+    }
+
+    public PersonalItem setAnzahlEintritte(int anzahlEintritte) {
+        this.anzahlEintritte = anzahlEintritte;
         return this;
     }
 
@@ -72,6 +82,7 @@ public class PersonalItem {
                 ", vorname='" + vorname + '\'' +
                 ", geburtsdatum=" + geburtsdatum +
                 ", status=" + status +
+                ", anzahlEintritte=" + anzahlEintritte +
                 '}';
     }
 }
