@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import item.infra.PersonalItemController;
 import item.service.ValidationError;
 import org.eclipse.jetty.http.HttpStatus;
+import spark.Filter;
 import spark.Service;
 
 public class RestServer {
@@ -23,26 +24,39 @@ public class RestServer {
 
         new PersonalItemController(isTest).createRoutes(server);
 
-        server.before((((request, response) -> {
-            final boolean clientWantsJSON = request.headers("Accept").contains("application/json");
-            if(!clientWantsJSON) {
-                server.halt(HttpStatus.NOT_ACCEPTABLE_406);
-            }
-        })));
+        server.before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
 
-        server.before(((request, response) -> response.header("Access-Control-Allow-Origin", "*")));
+        server.before(((request, response) -> {
+            // exclude .../image from requiring to accept application/json
+            System.out.println(request.pathInfo());
+//            final boolean isImage = request.pathInfo().equalsIgnoreCase("/personal/items/1");
+            // TODO weshalb OPTIONS und nicht DELETE?
+            final boolean isDelete = request.requestMethod().equalsIgnoreCase("OPTIONS");
+            System.out.println(request.requestMethod());
+            if(!isDelete){
+                final boolean clientWantsJson = request.headers("Accept").contains("application/json");
+                if(!clientWantsJson){
+                    System.out.println("was not json");
+                    server.halt(HttpStatus.NOT_ACCEPTABLE_406);
+                }
+            }
+        }));
+
 
         server.options("/*", ((request, response) -> {
-            String requestHeadersAccessControl = request.headers("Access-Control-Request-Headers");
-            if(requestHeadersAccessControl != null) {
-                response.header("Access-Control-Allow-Headers", requestHeadersAccessControl);
+            String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
+            if (accessControlRequestHeaders != null) {
+                response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
             }
-            String requestMethodAccessControl = request.headers("Access-Control-Request-Methods");
-            if(requestMethodAccessControl != null) {
-                response.header("Access-Control-Allow-Methods", requestMethodAccessControl);
+
+            String accessControlRequestMethod = request.headers("Access-Control-Request-Method");
+            if (accessControlRequestMethod != null) {
+                response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
             }
+
             return "OK";
         }));
+
 
         server.afterAfter((((request, response) -> response.type("application/json"))));
 

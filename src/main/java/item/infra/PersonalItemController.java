@@ -7,6 +7,9 @@ import org.eclipse.jetty.http.HttpStatus;
 import shared.service.JsonSerializer;
 import spark.Service;
 
+import javax.servlet.MultipartConfigElement;
+import java.io.InputStream;
+
 public class PersonalItemController {
     private PersonalItemService personalItemService;
 
@@ -34,19 +37,32 @@ public class PersonalItemController {
         }, jsonSerializer::serialize);
 
         server.post("/personal/items", (request, response) -> {
-            PersonalItem item = jsonSerializer.deserialize(request.body(), new TypeReference<PersonalItem>() {});
-            System.out.println("POST: " + item);
-            if(item.getId()!=null) {
-                // update
-                System.out.println("UPDATE: " + item);
-                response.status(HttpStatus.ACCEPTED_202);
-                return personalItemService.update(item);
-            } else {
-                System.out.println("CREATE: " + item);
-                response.status(HttpStatus.CREATED_201);
-                return personalItemService.create(item);
+            try {
+                PersonalItem item = jsonSerializer.deserialize(request.body(), new TypeReference<PersonalItem>() {});
+
+                System.out.println("POST: " + item);
+                if(item.getId()!=null) {
+                    // update
+                    System.out.println("UPDATE: " + item);
+                    response.status(HttpStatus.ACCEPTED_202);
+                    return personalItemService.update(item);
+                } else {
+                    System.out.println("CREATE: " + item);
+                    response.status(HttpStatus.CREATED_201);
+                    return personalItemService.create(item);
+                }
+            } catch (Exception e) {
+                // TODO domain spezifische exception bei falschem datenformat vom client
+                response.status(HttpStatus.NOT_ACCEPTABLE_406);
+                return jsonSerializer.serialize(e);
             }
         }, jsonSerializer::serialize);
 
+        server.delete("/personal/items/:id", (request, response) -> {
+            long id = Long.parseLong(request.params("id"));
+            boolean result = personalItemService.delete(id);
+            System.out.println(personalItemService.all());
+            return result;
+        }, jsonSerializer::serialize);
     }
 }

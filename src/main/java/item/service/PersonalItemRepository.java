@@ -1,6 +1,5 @@
 package item.service;
 
-import item.model.ModelId;
 import item.model.PersonalItem;
 import shared.service.Repository;
 
@@ -11,5 +10,5 @@ public interface PersonalItemRepository<T extends PersonalItem> extends Reposito
     T add(T object);
     T get(Long id);
     Boolean update(T object);
-    Boolean delete(T object);
+    Boolean delete(Long id);
 }

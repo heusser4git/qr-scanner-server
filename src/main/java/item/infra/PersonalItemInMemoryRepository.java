@@ -1,9 +1,9 @@
 package item.infra;
 
-import item.model.ModelId;
 import item.model.PersonalItem;
 import item.service.PersonalItemRepository;
 
+import java.sql.Date;
 import java.util.*;
 
 public class PersonalItemInMemoryRepository implements PersonalItemRepository<PersonalItem> {
@@ -11,9 +11,10 @@ public class PersonalItemInMemoryRepository implements PersonalItemRepository<Pe
 
     public PersonalItemInMemoryRepository(boolean isTest) {
         if(isTest) {
-            this.add(PersonalItem.create(1L, "Heusser", "Urs"));
-            this.add(PersonalItem.create(2L, "Perko", "Mitja"));
-            this.add(PersonalItem.create(3L, "Ogi", "Adolf"));
+            Date geb = Date.valueOf("1970-01-10");
+            this.add(PersonalItem.create(1L, "Heusser", "Urs", Date.valueOf("1970-01-10"), true));
+            this.add(PersonalItem.create(2L, "Perko", "Mitja", Date.valueOf("1993-05-16"), true));
+            this.add(PersonalItem.create(3L, "Ogi", "Adolf", Date.valueOf("1951-09-18"), false));
         }
     }
 
@@ -25,6 +26,7 @@ public class PersonalItemInMemoryRepository implements PersonalItemRepository<Pe
     @Override
     public PersonalItem add(PersonalItem object) {
         personalItems.add(object);
+        // TODO remove sout
         System.out.println(all());
         return object;
     }
@@ -45,7 +47,9 @@ public class PersonalItemInMemoryRepository implements PersonalItemRepository<Pe
             if(personalitem.getId()==object.getId()) {
                 personalitem.setNachname(object.getNachname());
                 personalitem.setVorname(object.getVorname());
-                // Todo ergaenze parameter
+                personalitem.setGeburtsdatum(object.getGeburtsdatum());
+                personalitem.setStatus(object.getStatus());
+                // TODO remove sout
                 System.out.println(all());
                 return true;
             }
@@ -54,7 +58,8 @@ public class PersonalItemInMemoryRepository implements PersonalItemRepository<Pe
     }
 
     @Override
-    public Boolean delete(PersonalItem object) {
-        return null;
+    public Boolean delete(Long id) {
+        PersonalItem personalItem = this.get(id);
+        return this.personalItems.remove(personalItem);
     }
 }

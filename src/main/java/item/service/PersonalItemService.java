@@ -1,6 +1,5 @@
 package item.service;
 
-import item.model.ModelId;
 import item.model.PersonalItem;
 
 import java.util.List;
@@ -33,5 +32,9 @@ public class PersonalItemService {
         // TODO item data check
         repository.update(item);
         return true;
+    }
+
+    public boolean delete(long id) {
+        return repository.delete(id);
     }
 }

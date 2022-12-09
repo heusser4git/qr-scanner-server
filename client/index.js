@@ -1,11 +1,17 @@
 let button = document.getElementById('button');
+let deletebutton = document.getElementById('delete');
 let vorname = document.getElementById('vorname');
 let nachname = document.getElementById('nachname');
+let geburtsdatum = document.getElementById('geburtsdatum');
+let status = document.getElementById('status');
 let id = document.getElementById('id');
+
 button.addEventListener('click', function () {
     let data = {
         nachname: nachname.value,
-        vorname: vorname.value
+        vorname: vorname.value,
+        geburtsdatum: geburtsdatum.value,
+        status: status.value
     }
     if(id.value>0) {
         data.id = id.value;
@@ -23,4 +29,21 @@ button.addEventListener('click', function () {
    }).then(response => response.json())
        .then(response => console.log(JSON.stringify(response)))
        .catch(error => console.error(error));
+});
+
+
+deletebutton.addEventListener('click', function () {
+    let headers = new Headers({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    });
+    console.log(id.value);
+    if(id.value>0) {
+        fetch('http://localhost:7777/personal/items/' + id.value, {
+            method: 'DELETE',
+            headers: headers,
+            credentials: 'same-origin',
+            body: JSON.stringify({id: 2})
+        }).then(()=>console.log("removed")).catch(error => console.error(error));
+    }
 });
