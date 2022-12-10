@@ -38,12 +38,13 @@ public class PersonalItemController {
         server.get("/personal/items/:id", (request, response) -> {
             long id = Long.parseLong(request.params("id"));
             PersonalItem personalItem = personalItemService.getById(id);
-            if(personalItem.getId()==id) {
+            if(personalItem != null && personalItem.getId()==id) {
                 response.status(HttpStatus.OK_200);
+                return personalItem;
             } else {
-                response.status(HttpStatus.BAD_GATEWAY_502);
+                response.status(HttpStatus.NOT_FOUND_404);
+                return "";
             }
-            return personalItem;
         }, jsonSerializer::serialize);
 
         server.post("/personal/items", (request, response) -> {
@@ -71,6 +72,7 @@ public class PersonalItemController {
         }, jsonSerializer::serialize);
 
         server.delete("/personal/items/:id", (request, response) -> {
+            System.out.println("DO NE");
             long id = Long.parseLong(request.params("id"));
             boolean result = personalItemService.delete(id);
             if(result) {

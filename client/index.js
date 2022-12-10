@@ -42,8 +42,7 @@ deletebutton.addEventListener('click', function () {
         fetch('http://localhost:7777/personal/items/' + id.value, {
             method: 'DELETE',
             headers: headers,
-            credentials: 'same-origin',
-            body: JSON.stringify({id: 2})
+            credentials: 'same-origin'
         }).then(()=>console.log("removed")).catch(error => console.error(error));
     }
 });

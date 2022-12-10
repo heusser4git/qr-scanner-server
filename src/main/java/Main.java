@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         String port = getCLIArgument(args, "server.port", "7777");
         Boolean isTest = Boolean.parseBoolean(getCLIArgument(args, "test", "false"));
-isTest = false;
+        System.out.println("Testmode: "+isTest);
         new RestServer(port, isTest).run();
     }
 

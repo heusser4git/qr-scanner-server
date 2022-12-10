@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import item.infra.PersonalItemController;
 import item.service.ValidationError;
 import org.eclipse.jetty.http.HttpStatus;
-import spark.Filter;
 import spark.Service;
 
 public class RestServer {
@@ -28,18 +27,21 @@ public class RestServer {
         server.before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
 
         server.before(((request, response) -> {
-//            // exclude .../image from requiring to accept application/json
-//            System.out.println(request.pathInfo());
-////            final boolean isImage = request.pathInfo().equalsIgnoreCase("/personal/items/1");
-//            // TODO weshalb OPTIONS und nicht DELETE?
-//            final boolean isDelete = request.requestMethod().equalsIgnoreCase("DELETE");
-//            System.out.println(request.requestMethod());
-//            if(!isDelete){
-//                final boolean clientWantsJson = request.headers("Accept").contains("application/json");
-//                if(!clientWantsJson){
-//                    System.out.println("was not json");
-//                    server.halt(HttpStatus.NOT_ACCEPTABLE_406);
-//                }
+            // exclude .../image from requiring to accept application/json
+            String acceptHeader = request.headers("Accept");
+            System.out.println("acceptHeader: " + acceptHeader);
+            if(acceptHeader==null) {
+                System.out.println("no accept header set by client");
+                server.halt(HttpStatus.NOT_ACCEPTABLE_406);
+            }
+            final boolean isOptions = request.requestMethod().equalsIgnoreCase("OPTIONS");
+            System.out.println(request.requestMethod());
+//            if(!isOptions){
+                final boolean clientWantsJson = acceptHeader.contains("application/json");
+                if(!clientWantsJson){
+                    System.out.println("was not json");
+                    server.halt(HttpStatus.NOT_ACCEPTABLE_406);
+                }
 //            }
         }));
 
