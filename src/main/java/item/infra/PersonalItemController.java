@@ -30,37 +30,54 @@ public class PersonalItemController {
 
         server.get("/personal/items", "*",
                 (request, response) -> {
+                    response.status(HttpStatus.OK_200);
                     return personalItemService.all();
                 },
                 jsonSerializer::serialize);
 
         server.get("/personal/items/:id", (request, response) -> {
             long id = Long.parseLong(request.params("id"));
-            return personalItemService.getById(id);
+            PersonalItem personalItem = personalItemService.getById(id);
+            if(personalItem.getId()==id) {
+                response.status(HttpStatus.OK_200);
+            } else {
+                response.status(HttpStatus.BAD_GATEWAY_502);
+            }
+            return personalItem;
         }, jsonSerializer::serialize);
 
         server.post("/personal/items", (request, response) -> {
                 PersonalItem item = jsonSerializer.deserialize(request.body(), new TypeReference<PersonalItem>() {});
-
                 System.out.println("POST: " + item);
                 if(item.getId()!=null) {
                     // update
                     System.out.println("UPDATE: " + item);
-                    response.status(HttpStatus.ACCEPTED_202);
-                    return personalItemService.update(item);
+                    if(personalItemService.update(item)) {
+                        response.status(HttpStatus.ACCEPTED_202);
+                    } else {
+                        response.status(HttpStatus.INTERNAL_SERVER_ERROR_500);
+                    }
+                    return item;
                 } else {
                     System.out.println("CREATE: " + item);
-                    response.status(HttpStatus.CREATED_201);
-                    PersonalItem ret = personalItemService.create(item);
-                    System.out.println("result:" + ret);
-                    return ret;
+                    PersonalItem personalItem = personalItemService.create(item);
+                    if(personalItem.getId()>0) {
+                        response.status(HttpStatus.CREATED_201);
+                    } else {
+                        response.status(HttpStatus.INTERNAL_SERVER_ERROR_500);
+                    }
+                    return personalItem;
                 }
         }, jsonSerializer::serialize);
 
         server.delete("/personal/items/:id", (request, response) -> {
             long id = Long.parseLong(request.params("id"));
             boolean result = personalItemService.delete(id);
-            System.out.println(personalItemService.all());
+            if(result) {
+                response.status(HttpStatus.OK_200);
+            } else {
+                response.status(HttpStatus.INSUFFICIENT_STORAGE_507);
+            }
             return result;
         }, jsonSerializer::serialize);
     }
