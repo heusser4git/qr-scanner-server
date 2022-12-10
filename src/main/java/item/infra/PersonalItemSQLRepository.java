@@ -13,22 +13,41 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
         if(isTest) {
             System.out.println("MySQL läuft nicht im Testmode!!!");
         } else {
-            System.out.println("MySQL läuft!");
-            String defaultURI = "jdbc:mysql://localhost:3306";
-            String jdbcURI = System.getenv("JDBC_URI");
-            if (jdbcURI == null || jdbcURI.isEmpty()) {
-                jdbcURI = defaultURI;
-            }
-            System.out.println("JDBC URI:" + jdbcURI);
-
-            this.connection = DriverManager.getConnection(jdbcURI + "/personal", "personal", "123456");
+            setupMySqlConnection();
         }
     }
+
+    private void setupMySqlConnection() {
+        System.out.println("MySQL läuft!");
+        String defaultURI = "jdbc:mysql://localhost:3306";
+        String jdbcURI = System.getenv("JDBC_URI");
+        if (jdbcURI == null || jdbcURI.isEmpty()) {
+            jdbcURI = defaultURI;
+        }
+        System.out.println("JDBC URI:" + jdbcURI);
+        try {
+            this.connection = DriverManager.getConnection(jdbcURI + "/personal", "personal", "123456");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public boolean isConnected() throws SQLException {
         return this.connection.isValid(10);
     }
 
+    private void connectDbifOffline() {
+        try {
+            if(!isConnected()) {
+                setupMySqlConnection();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private ArrayList<PersonalItem> getPersonalItemsOfDb(PreparedStatement preparedStatement) {
+        connectDbifOffline();
         try {
             ResultSet resultSet = preparedStatement.executeQuery();
             return getPersonalItemFromResultSet(resultSet);
@@ -56,6 +75,7 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
 
     @Override
     public List all() {
+        connectDbifOffline();
         String query = "SELECT * FROM tblPerson";
         try {
             PreparedStatement preparedStatement = this.connection.prepareStatement(query);
@@ -73,18 +93,15 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
 
     @Override
     public PersonalItem add(PersonalItem personalItem) {
-        System.out.println("was kunnt do: " + personalItem);
+        connectDbifOffline();
         String query = "INSERT INTO tblPerson (name, vorname, geburtsdatum) VALUES (?,?,?)";
         try {
             PreparedStatement preparedStatement = this.connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, personalItem.getNachname());
             preparedStatement.setString(2, personalItem.getVorname());
             preparedStatement.setDate(3, personalItem.getGeburtsdatum());
-            System.out.println(preparedStatement.getWarnings());
-            System.out.println(preparedStatement.executeUpdate());
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
             if(resultSet.next()) {
-                System.out.println("genID: " +resultSet.getLong(1));
                 personalItem.setId(resultSet.getLong(1));
                 return personalItem;
             }
@@ -97,6 +114,7 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
 
     @Override
     public PersonalItem get(Long id) {
+        connectDbifOffline();
         String query = "SELECT * FROM tblPerson WHERE id=?";
         try {
             PreparedStatement preparedStatement = this.connection.prepareStatement(query);
@@ -115,6 +133,7 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
 
     @Override
     public Boolean update(PersonalItem personalItem) {
+        connectDbifOffline();
         String query = "UPDATE tblPerson SET name=?, vorname=?, geburtsdatum=?, status=?, count=? WHERE id=?";
         try {
             PreparedStatement preparedStatement = this.connection.prepareStatement(query);
@@ -134,6 +153,7 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
 
     @Override
     public Boolean delete(Long id) {
+        connectDbifOffline();
         String query = "DELETE FROM tblPerson WHERE id=?";
         try {
             PreparedStatement preparedStatement = this.connection.prepareStatement(query);
