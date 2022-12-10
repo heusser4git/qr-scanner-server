@@ -22,7 +22,7 @@ public class PersonalItemTest extends TestCase {
     public void testSetId() {
         PersonalItem personalItem = new PersonalItem();
         personalItem.setId(2L);
-        assertEquals(Long.valueOf(2), personalItem.getId());
+        assertEquals(Long.valueOf(3), personalItem.getId());
     }
 
     public void testGetNachname() {
