@@ -18,7 +18,6 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
     }
 
     private void setupMySqlConnection() {
-        System.out.println("MySQL läuft!");
         String defaultURI = "jdbc:mysql://localhost:3306";
         String jdbcURI = System.getenv("JDBC_URI");
         if (jdbcURI == null || jdbcURI.isEmpty()) {

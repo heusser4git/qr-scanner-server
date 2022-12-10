@@ -16,7 +16,6 @@ public class PersonalItemController {
         if(isTest) {
             personalItemService = new PersonalItemService(new PersonalItemInMemoryRepository(isTest));
         } else {
-            // TODO noTestVersion???
             try {
                 personalItemService = new PersonalItemService(new PersonalItemSQLRepository(isTest));
             } catch (SQLException e) {
@@ -72,7 +71,6 @@ public class PersonalItemController {
         }, jsonSerializer::serialize);
 
         server.delete("/personal/items/:id", (request, response) -> {
-            System.out.println("DO NE");
             long id = Long.parseLong(request.params("id"));
             boolean result = personalItemService.delete(id);
             if(result) {

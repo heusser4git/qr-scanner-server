@@ -28,8 +28,6 @@ public class PersonalItemInMemoryRepository implements PersonalItemRepository<Pe
         Long nextId = all().size() + 1L;
         object.setId(nextId);
         personalItems.add(object);
-        // TODO remove sout
-        System.out.println(all());
         return object;
     }
 
@@ -52,8 +50,6 @@ public class PersonalItemInMemoryRepository implements PersonalItemRepository<Pe
                 personalitem.setGeburtsdatum(object.getGeburtsdatum());
                 personalitem.setStatus(object.isStatus());
                 personalitem.setAnzahlEintritte(object.getAnzahlEintritte());
-                // TODO remove sout
-                System.out.println(all());
                 return true;
             }
         }

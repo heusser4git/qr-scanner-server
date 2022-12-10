@@ -13,7 +13,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 
-public class PersonalTest extends FunctionalTest {
+public class PersonalControllerTest extends FunctionalTest {
     @Test
     public void notAcceptable() {
         HttpRequest.Builder method = httpClient.get("/personal/items");
