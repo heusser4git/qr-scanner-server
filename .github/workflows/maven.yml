@@ -50,10 +50,10 @@ jobs:
           uses: actions/checkout@v2
           with:
             repository: heusser4git/qr-scanner-client
-            path: '/home/runner/work/qr-scanner-server/qr-scanner-client'
+            path: './qr-scanner-client'
         - name: Install deps and run
           run: |
-            cd /home/runner/work/qr-scanner-server/qr-scanner-client
+            cd ./qr-scanner-client
             npm install
             npm start      
 
