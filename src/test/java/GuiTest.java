@@ -1,23 +1,35 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
-import javax.swing.table.TableRowSorter;
+import java.time.Duration;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class GuiTest {
+    private static WebDriver driver;
+    @BeforeClass
+    public static void setUp()
+    {
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
+        driver.navigate().to("https://www.malans.ch");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(120));
+    }
+
     @Test
     public void testOne() throws InterruptedException {
-        String path = System.getProperty("user.dir");
-        System.setProperty("webdriver.chrome.driver", path + "\\chromedriver.exe");
-
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://www.malans.ch");
-
         WebElement searchMenu = driver.findElement(By.className("search"));
         searchMenu.click();
 
@@ -29,8 +41,12 @@ public class GuiTest {
         System.out.println(resultCount.getText());
 
         assertTrue(resultCount.getText().contains("Ergebnisse"));
+    }
 
-        Thread.sleep(5000);
-        driver.quit();
+    @AfterClass
+    public static void tearDown(){
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
