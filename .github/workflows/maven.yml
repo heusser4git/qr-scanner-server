@@ -40,6 +40,7 @@ jobs:
         run: |
            cd target
            ls -a
+           java -jar qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar --test=true
 
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
       - name: Update dependency graph
