@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class ScannerController {
     private PersonalItemService personalItemService;
     public ScannerController(Boolean isTest) {
-        if(isTest) {
+        if(Boolean.TRUE.equals(isTest)) {
             personalItemService = new PersonalItemService(new PersonalItemInMemoryRepository(isTest));
         } else {
             try {

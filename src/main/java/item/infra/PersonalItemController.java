@@ -13,7 +13,7 @@ public class PersonalItemController {
     private PersonalItemService personalItemService;
 
     public PersonalItemController(Boolean isTest) {
-        if(isTest) {
+        if(Boolean.TRUE.equals(isTest)) {
             personalItemService = new PersonalItemService(new PersonalItemInMemoryRepository(isTest));
         } else {
             try {

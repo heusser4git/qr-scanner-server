@@ -10,7 +10,7 @@ import java.util.List;
 public class PersonalItemSQLRepository implements PersonalItemRepository{
     private Connection connection;
     public PersonalItemSQLRepository(boolean isTest) throws SQLException {
-        if(isTest) {
+        if(Boolean.TRUE.equals(isTest)) {
             System.out.println("MySQL läuft nicht im Testmode!!!");
         } else {
             setupMySqlConnection();

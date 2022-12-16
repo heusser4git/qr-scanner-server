@@ -10,7 +10,7 @@ public class PersonalItemInMemoryRepository implements PersonalItemRepository<Pe
     private ArrayList<PersonalItem> personalItems = new ArrayList<>();
 
     public PersonalItemInMemoryRepository(boolean isTest) {
-        if(isTest) {
+        if(Boolean.TRUE.equals(isTest)) {
             Date geb = Date.valueOf("1970-01-10");
             this.add(PersonalItem.create(1L, "Heusser", "Urs", Date.valueOf("1970-01-10"), true));
             this.add(PersonalItem.create(2L, "Perko", "Mitja", Date.valueOf("1993-05-16"), true));
