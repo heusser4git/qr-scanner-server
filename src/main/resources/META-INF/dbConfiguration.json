@@ -1,0 +1,6 @@
+[{
+  "defaultURI":  "jdbc:mysql://localhost:3306",
+  "database": "personal",
+  "user": "",
+  "password": ""
+}]
