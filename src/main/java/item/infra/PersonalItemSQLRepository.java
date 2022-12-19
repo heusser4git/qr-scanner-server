@@ -4,7 +4,10 @@ import item.model.PersonalItem;
 import item.service.PersonalItemRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import shared.model.DbConfiguration;
+import shared.service.ReadJsonFile;
 
+import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +15,11 @@ import java.util.List;
 public class PersonalItemSQLRepository implements PersonalItemRepository{
     private Connection connection;
     private Logger logger;
+    private DbConfiguration dbConfig;
+
     public PersonalItemSQLRepository(boolean isTest) throws SQLException {
+        getDbConfigurationOffJsonFile();
+
         if(Boolean.TRUE.equals(isTest)) {
             System.out.println("MySQL läuft nicht im Testmode!!!");
         } else {
@@ -21,15 +28,21 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
         logger = LoggerFactory.getLogger(PersonalItemSQLRepository.class);
     }
 
+    private void getDbConfigurationOffJsonFile() {
+        String path = new File("target/classes/META-INF/dbConfiguration.json").getAbsolutePath();
+        ReadJsonFile readJsonFile = new ReadJsonFile();
+        this.dbConfig = readJsonFile.getConfig(path);
+    }
+
     private void setupMySqlConnection() {
-        String defaultURI = "jdbc:mysql://localhost:3306";
+        String defaultURI = dbConfig.getDefaultURI();
         String jdbcURI = System.getenv("JDBC_URI");
         if (jdbcURI == null || jdbcURI.isEmpty()) {
             jdbcURI = defaultURI;
         }
         System.out.println("JDBC URI:" + jdbcURI);
         try {
-            this.connection = DriverManager.getConnection(jdbcURI + "/personal", "personal", "123456");
+            this.connection = DriverManager.getConnection(jdbcURI + "/"+ dbConfig.getDatabase(), dbConfig.getUser(), dbConfig.getPassword());
         } catch (SQLException e) {
             logger.error("SQLException while trying open Database-Connection", e);
         }
