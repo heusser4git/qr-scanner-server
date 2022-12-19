@@ -1,6 +1,7 @@
 package item.infra;
 
 import item.model.PersonalItem;
+import item.service.ConnectionException;
 import item.service.PersonalItemRepository;
 
 import java.sql.*;
@@ -47,13 +48,12 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
 
     private ArrayList<PersonalItem> getPersonalItemsOfDb(PreparedStatement preparedStatement) {
         connectDbifOffline();
-        try {
-            ResultSet resultSet = preparedStatement.executeQuery();
+        try(ResultSet resultSet = preparedStatement.executeQuery()) {
             return getPersonalItemFromResultSet(resultSet);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        throw new NullPointerException("Could not Connect to Database");
     }
 
     private ArrayList<PersonalItem> getPersonalItemFromResultSet(ResultSet resultSet) throws SQLException {
@@ -76,13 +76,12 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
     public List all() {
         connectDbifOffline();
         String query = "SELECT * FROM tblPerson";
-        try {
-            PreparedStatement preparedStatement = this.connection.prepareStatement(query);
+        try(PreparedStatement preparedStatement = this.connection.prepareStatement(query);) {
             return this.getPersonalItemsOfDb(preparedStatement);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        throw new NullPointerException("Could not Connect to Database");
     }
 
     @Override
@@ -94,8 +93,7 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
     public PersonalItem add(PersonalItem personalItem) {
         connectDbifOffline();
         String query = "INSERT INTO tblPerson (name, vorname, geburtsdatum) VALUES (?,?,?)";
-        try {
-            PreparedStatement preparedStatement = this.connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        try(PreparedStatement preparedStatement = this.connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, personalItem.getNachname());
             preparedStatement.setString(2, personalItem.getVorname());
             preparedStatement.setDate(3, personalItem.getGeburtsdatum());
@@ -107,7 +105,7 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        throw new NullPointerException("Could not Connect to Database");
     }
 
 
@@ -115,14 +113,13 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
     public PersonalItem get(Long id) {
         connectDbifOffline();
         String query = "SELECT * FROM tblPerson WHERE id=?";
-        try {
-            PreparedStatement preparedStatement = this.connection.prepareStatement(query);
+        try(PreparedStatement preparedStatement = this.connection.prepareStatement(query)) {
             preparedStatement.setLong(1, id);
             return this.getPersonalItemsOfDb(preparedStatement).get(0);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        throw new NullPointerException("Could not Connect to Database");
     }
 
     @Override
@@ -134,8 +131,7 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
     public Boolean update(PersonalItem personalItem) {
         connectDbifOffline();
         String query = "UPDATE tblPerson SET name=?, vorname=?, geburtsdatum=?, status=?, count=? WHERE id=?";
-        try {
-            PreparedStatement preparedStatement = this.connection.prepareStatement(query);
+        try(PreparedStatement preparedStatement = this.connection.prepareStatement(query)) {
             preparedStatement.setString(1, personalItem.getNachname());
             preparedStatement.setString(2, personalItem.getVorname());
             preparedStatement.setDate(3, personalItem.getGeburtsdatum());
@@ -154,8 +150,7 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
     public Boolean delete(Long id) {
         connectDbifOffline();
         String query = "DELETE FROM tblPerson WHERE id=?";
-        try {
-            PreparedStatement preparedStatement = this.connection.prepareStatement(query);
+        try(PreparedStatement preparedStatement = this.connection.prepareStatement(query)) {
             preparedStatement.setLong(1, id);
             if(preparedStatement.executeUpdate()==1) {
                 preparedStatement.close();
