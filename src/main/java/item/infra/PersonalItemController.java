@@ -18,12 +18,7 @@ public class PersonalItemController {
         if(Boolean.TRUE.equals(isTest)) {
             personalItemService = new PersonalItemService(new PersonalItemInMemoryRepository(isTest));
         } else {
-            try {
-                personalItemService = new PersonalItemService(new PersonalItemSQLRepository(isTest));
-            } catch (SQLException e) {
-                Logger logger = LoggerFactory.getLogger(PersonalItemController.class);
-                logger.error("SQLException while inject SQL-Repository", e);
-            }
+            personalItemService = new PersonalItemService(new PersonalItemSQLRepository(isTest));
         }
     }
 
@@ -40,7 +35,8 @@ public class PersonalItemController {
         server.get("/personal/items/:id", (request, response) -> {
             long id = Long.parseLong(request.params("id"));
             PersonalItem personalItem = personalItemService.getById(id);
-            if(personalItem != null && personalItem.getId()==id) {
+            boolean isTheSameItem = personalItem != null && personalItem.getId().equals(id);
+            if(isTheSameItem) {
                 response.status(HttpStatus.OK_200);
                 return personalItem;
             } else {
@@ -50,27 +46,27 @@ public class PersonalItemController {
         }, jsonSerializer::serialize);
 
         server.post("/personal/items", (request, response) -> {
-                PersonalItem item = jsonSerializer.deserialize(request.body(), new TypeReference<PersonalItem>() {});
-                System.out.println("POST: " + item);
-                if(item.getId()!=null) {
-                    // update
-                    System.out.println("UPDATE: " + item);
-                    if(personalItemService.update(item)) {
-                        response.status(HttpStatus.ACCEPTED_202);
-                    } else {
-                        response.status(HttpStatus.INTERNAL_SERVER_ERROR_500);
-                    }
-                    return item;
+            PersonalItem item = jsonSerializer.deserialize(request.body(), new TypeReference<PersonalItem>() {});
+            boolean isAnItem = item.getId() != null;
+            if(isAnItem) {
+                // update
+                Boolean updateTheItem = personalItemService.update(item);
+                if(updateTheItem) {
+                    response.status(HttpStatus.ACCEPTED_202);
                 } else {
-                    System.out.println("CREATE: " + item);
-                    PersonalItem personalItem = personalItemService.create(item);
-                    if(personalItem.getId()>0) {
-                        response.status(HttpStatus.CREATED_201);
-                    } else {
-                        response.status(HttpStatus.INTERNAL_SERVER_ERROR_500);
-                    }
-                    return personalItem;
+                    response.status(HttpStatus.INTERNAL_SERVER_ERROR_500);
                 }
+                return item;
+            } else {
+                PersonalItem personalItem = personalItemService.create(item);
+                boolean hasNowAnId = personalItem.getId() > 0;
+                if(hasNowAnId) {
+                    response.status(HttpStatus.CREATED_201);
+                } else {
+                    response.status(HttpStatus.INTERNAL_SERVER_ERROR_500);
+                }
+                return personalItem;
+            }
         }, jsonSerializer::serialize);
 
         server.delete("/personal/items/:id", (request, response) -> {

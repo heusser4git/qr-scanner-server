@@ -11,7 +11,6 @@ public class PersonalItemInMemoryRepository implements PersonalItemRepository<Pe
 
     public PersonalItemInMemoryRepository(boolean isTest) {
         if(Boolean.TRUE.equals(isTest)) {
-            Date geb = Date.valueOf("1970-01-10");
             this.add(PersonalItem.create(1L, "Heusser", "Urs", Date.valueOf("1970-01-10"), true));
             this.add(PersonalItem.create(2L, "Perko", "Mitja", Date.valueOf("1993-05-16"), true));
             this.add(PersonalItem.create(3L, "Ogi", "Adolf", Date.valueOf("1951-09-18"), false));

@@ -38,8 +38,7 @@ public class PersonalItemService {
 
     public Boolean update(PersonalItem item) {
         if(checkPersonalItemData(item)) {
-            repository.update(item);
-            return true;
+            return repository.update(item);
         }
         return false;
     }

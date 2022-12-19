@@ -12,20 +12,21 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonalItemSQLRepository implements PersonalItemRepository{
+public class PersonalItemSQLRepository implements PersonalItemRepository<PersonalItem>{
+    public static final String COULD_NOT_CONNECT_TO_DATABASE = "Could not Connect to Database";
     private Connection connection;
     private Logger logger;
     private DbConfiguration dbConfig;
 
-    public PersonalItemSQLRepository(boolean isTest) throws SQLException {
+    public PersonalItemSQLRepository(boolean isTest) {
+        logger = LoggerFactory.getLogger(PersonalItemSQLRepository.class);
         getDbConfigurationOffJsonFile();
 
         if(Boolean.TRUE.equals(isTest)) {
-            System.out.println("MySQL läuft nicht im Testmode!!!");
+            logger.info("MySQL läuft nicht im Testmode!!!");
         } else {
             setupMySqlConnection();
         }
-        logger = LoggerFactory.getLogger(PersonalItemSQLRepository.class);
     }
 
     private void getDbConfigurationOffJsonFile() {
@@ -40,7 +41,7 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
         if (jdbcURI == null || jdbcURI.isEmpty()) {
             jdbcURI = defaultURI;
         }
-        System.out.println("JDBC URI:" + jdbcURI);
+        logger.info("JDBC URI:" + jdbcURI);
         try {
             this.connection = DriverManager.getConnection(jdbcURI + "/"+ dbConfig.getDatabase(), dbConfig.getUser(), dbConfig.getPassword());
         } catch (SQLException e) {
@@ -69,7 +70,7 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
         } catch (SQLException e) {
             logger.error("SQLException while running a preparedStatement.", e);
         }
-        throw new NullPointerException("Could not Connect to Database");
+        throw new NullPointerException(COULD_NOT_CONNECT_TO_DATABASE);
     }
 
     private ArrayList<PersonalItem> getPersonalItemFromResultSet(ResultSet resultSet) throws SQLException {
@@ -98,11 +99,6 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
             logger.error("SQLException while doing a preparedStatement.", e);
         }
         throw new NullPointerException("Could not Connect to Database");
-    }
-
-    @Override
-    public Object add(Object object) {
-        return null;
     }
 
     @Override
@@ -138,10 +134,6 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
         throw new NullPointerException("Could not Connect to Database");
     }
 
-    @Override
-    public Boolean update(Object object) {
-        return false;
-    }
 
     @Override
     public Boolean update(PersonalItem personalItem) {
@@ -168,7 +160,6 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
         try(PreparedStatement preparedStatement = this.connection.prepareStatement(query)) {
             preparedStatement.setLong(1, id);
             if(preparedStatement.executeUpdate()==1) {
-                preparedStatement.close();
                 return true;
             }
         } catch (SQLException e) {
