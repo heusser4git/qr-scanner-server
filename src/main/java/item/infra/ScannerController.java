@@ -16,12 +16,7 @@ public class ScannerController {
         if(Boolean.TRUE.equals(isTest)) {
             personalItemService = new PersonalItemService(new PersonalItemInMemoryRepository(isTest));
         } else {
-            try {
-                personalItemService = new PersonalItemService(new PersonalItemSQLRepository(isTest));
-            } catch (SQLException e) {
-                Logger logger = LoggerFactory.getLogger(ScannerController.class);
-                logger.error("SQLException while checking if DB is offline.", e);
-            }
+            personalItemService = new PersonalItemService(new PersonalItemSQLRepository(isTest));
         }
     }
 
