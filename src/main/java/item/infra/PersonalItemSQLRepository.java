@@ -54,7 +54,7 @@ public class PersonalItemSQLRepository implements PersonalItemRepository{
         try(ResultSet resultSet = preparedStatement.executeQuery()) {
             return getPersonalItemFromResultSet(resultSet);
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("SQLException while running a preparedStatement.", e);
         }
         throw new NullPointerException("Could not Connect to Database");
     }

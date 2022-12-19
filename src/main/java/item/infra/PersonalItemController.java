@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import item.model.PersonalItem;
 import item.service.PersonalItemService;
 import org.eclipse.jetty.http.HttpStatus;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import shared.service.JsonSerializer;
 import spark.Service;
 
@@ -19,7 +21,8 @@ public class PersonalItemController {
             try {
                 personalItemService = new PersonalItemService(new PersonalItemSQLRepository(isTest));
             } catch (SQLException e) {
-                e.printStackTrace();
+                Logger logger = LoggerFactory.getLogger(PersonalItemController.class);
+                logger.error("SQLException while inject SQL-Repository", e);
             }
         }
     }

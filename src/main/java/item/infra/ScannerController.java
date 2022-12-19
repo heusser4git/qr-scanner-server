@@ -2,6 +2,8 @@ package item.infra;
 
 import item.model.PersonalItem;
 import org.eclipse.jetty.http.HttpStatus;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import spark.Service;
 import item.service.PersonalItemService;
 import shared.service.JsonSerializer;
@@ -17,7 +19,8 @@ public class ScannerController {
             try {
                 personalItemService = new PersonalItemService(new PersonalItemSQLRepository(isTest));
             } catch (SQLException e) {
-                e.printStackTrace();
+                Logger logger = LoggerFactory.getLogger(ScannerController.class);
+                logger.error("SQLException while checking if DB is offline.", e);
             }
         }
     }

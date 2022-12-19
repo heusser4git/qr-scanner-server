@@ -34,7 +34,7 @@ public class PersonalItemInMemoryRepository implements PersonalItemRepository<Pe
     @Override
     public PersonalItem get(Long id) {
         for(PersonalItem personalItem: personalItems) {
-            if(personalItem.getId()==id) {
+            if(personalItem.getId().equals(id)) {
                 return personalItem;
             }
         }
@@ -44,7 +44,7 @@ public class PersonalItemInMemoryRepository implements PersonalItemRepository<Pe
     @Override
     public Boolean update(PersonalItem object) {
         for (PersonalItem personalitem: personalItems) {
-            if(personalitem.getId()==object.getId()) {
+            if(personalitem.getId().equals(object.getId())) {
                 personalitem.setNachname(object.getNachname());
                 personalitem.setVorname(object.getVorname());
                 personalitem.setGeburtsdatum(object.getGeburtsdatum());
