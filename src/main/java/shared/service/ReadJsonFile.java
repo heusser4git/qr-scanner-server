@@ -1,6 +1,9 @@
 package shared.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import item.infra.PersonalItemController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import shared.model.DbConfiguration;
 
 import java.nio.file.Paths;
@@ -21,7 +24,8 @@ public class ReadJsonFile {
             return dbConfigurations.get(0);
 
         } catch (Exception ex) {
-            ex.printStackTrace();
+            Logger logger = LoggerFactory.getLogger(ReadJsonFile.class);
+            logger.error("Exception while reading JSON config file", ex);
         }
         return null;
     }
