@@ -4,12 +4,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import item.model.PersonalItem;
 import item.service.PersonalItemService;
 import org.eclipse.jetty.http.HttpStatus;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import shared.service.JsonSerializer;
 import spark.Service;
 
-import java.sql.SQLException;
 
 public class PersonalItemController {
     private PersonalItemService personalItemService;

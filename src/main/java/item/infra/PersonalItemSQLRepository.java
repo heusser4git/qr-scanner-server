@@ -14,6 +14,7 @@ import java.util.List;
 
 public class PersonalItemSQLRepository implements PersonalItemRepository<PersonalItem>{
     public static final String COULD_NOT_CONNECT_TO_DATABASE = "Could not Connect to Database";
+    public static final String SQLEXCEPTION_WHILE_DOING_A_PREPARED_STATEMENT = "SQLException while doing a preparedStatement.";
     private Connection connection;
     private Logger logger;
     private DbConfiguration dbConfig;
@@ -41,9 +42,8 @@ public class PersonalItemSQLRepository implements PersonalItemRepository<Persona
         if (jdbcURI == null || jdbcURI.isEmpty()) {
             jdbcURI = defaultURI;
         }
-        logger.info("JDBC URI:" + jdbcURI);
         try {
-            this.connection = DriverManager.getConnection(jdbcURI + "/"+ dbConfig.getDatabase(), dbConfig.getUser(), dbConfig.getPassword());
+            this.connection = DriverManager.getConnection(String.format("%s/%s", jdbcURI, dbConfig.getDatabase()), dbConfig.getUser(), dbConfig.getPassword());
         } catch (SQLException e) {
             logger.error("SQLException while trying open Database-Connection", e);
         }
@@ -96,9 +96,9 @@ public class PersonalItemSQLRepository implements PersonalItemRepository<Persona
         try(PreparedStatement preparedStatement = this.connection.prepareStatement(query);) {
             return this.getPersonalItemsOfDb(preparedStatement);
         } catch (SQLException e) {
-            logger.error("SQLException while doing a preparedStatement.", e);
+            logger.error(SQLEXCEPTION_WHILE_DOING_A_PREPARED_STATEMENT, e);
         }
-        throw new NullPointerException("Could not Connect to Database");
+        throw new NullPointerException(COULD_NOT_CONNECT_TO_DATABASE);
     }
 
     @Override
@@ -115,9 +115,9 @@ public class PersonalItemSQLRepository implements PersonalItemRepository<Persona
                 return personalItem;
             }
         } catch (SQLException e) {
-            logger.error("SQLException while doing a preparedStatement.", e);
+            logger.error(SQLEXCEPTION_WHILE_DOING_A_PREPARED_STATEMENT, e);
         }
-        throw new NullPointerException("Could not Connect to Database");
+        throw new NullPointerException(COULD_NOT_CONNECT_TO_DATABASE);
     }
 
 
@@ -129,9 +129,9 @@ public class PersonalItemSQLRepository implements PersonalItemRepository<Persona
             preparedStatement.setLong(1, id);
             return this.getPersonalItemsOfDb(preparedStatement).get(0);
         } catch (SQLException e) {
-            logger.error("SQLException while doing a preparedStatement.", e);
+            logger.error(SQLEXCEPTION_WHILE_DOING_A_PREPARED_STATEMENT, e);
         }
-        throw new NullPointerException("Could not Connect to Database");
+        throw new NullPointerException(COULD_NOT_CONNECT_TO_DATABASE);
     }
 
 
@@ -148,9 +148,9 @@ public class PersonalItemSQLRepository implements PersonalItemRepository<Persona
             preparedStatement.setLong(6, personalItem.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            logger.error("SQLException while doing a preparedStatement.", e);
+            logger.error(SQLEXCEPTION_WHILE_DOING_A_PREPARED_STATEMENT, e);
         }
-        throw new NullPointerException("Could not Connect to Database");
+        throw new NullPointerException(COULD_NOT_CONNECT_TO_DATABASE);
     }
 
     @Override
@@ -163,7 +163,7 @@ public class PersonalItemSQLRepository implements PersonalItemRepository<Persona
                 return true;
             }
         } catch (SQLException e) {
-            logger.error("SQLException while doing a preparedStatement.", e);
+            logger.error(SQLEXCEPTION_WHILE_DOING_A_PREPARED_STATEMENT, e);
         }
         return false;
     }

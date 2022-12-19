@@ -2,13 +2,10 @@ package item.infra;
 
 import item.model.PersonalItem;
 import org.eclipse.jetty.http.HttpStatus;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import spark.Service;
 import item.service.PersonalItemService;
 import shared.service.JsonSerializer;
 
-import java.sql.SQLException;
 
 public class ScannerController {
     private PersonalItemService personalItemService;
@@ -26,7 +23,8 @@ public class ScannerController {
         server.get("/scanner/items/:id", (request, response) -> {
             long id = Long.parseLong(request.params("id"));
             PersonalItem personalItem = personalItemService.getById(id);
-            if(personalItem != null && personalItem.getId()==id) {
+            boolean itemFound = personalItem != null && personalItem.getId().equals(id);
+            if(itemFound) {
                 response.status(HttpStatus.OK_200);
                 personalItem.setAnzahlEintritte(personalItem.getAnzahlEintritte()+1);
                 personalItemService.update(personalItem);
