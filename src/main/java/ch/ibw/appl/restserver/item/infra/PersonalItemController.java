@@ -48,7 +48,7 @@ public class PersonalItemController {
             if(isAnItem) {
                 // update
                 Boolean updateTheItem = personalItemService.update(item);
-                if(updateTheItem) {
+                if(Boolean.TRUE.equals(updateTheItem)) {
                     response.status(HttpStatus.ACCEPTED_202);
                 } else {
                     response.status(HttpStatus.INTERNAL_SERVER_ERROR_500);

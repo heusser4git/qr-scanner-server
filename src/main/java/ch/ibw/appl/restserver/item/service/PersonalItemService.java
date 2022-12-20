@@ -16,10 +16,8 @@ public class PersonalItemService {
     }
 
     public PersonalItem create(PersonalItem item) {
-        if(checkPersonalItemData(item)) {
-            return repository.add(item);
-        }
-        throw new ValidationError("");
+        checkPersonalItemData(item);
+        return repository.add(item);
     }
 
     private boolean checkPersonalItemData(PersonalItem item) {
@@ -37,10 +35,8 @@ public class PersonalItemService {
     }
 
     public Boolean update(PersonalItem item) {
-        if(checkPersonalItemData(item)) {
-            return repository.update(item);
-        }
-        return false;
+        checkPersonalItemData(item);
+        return repository.update(item);
     }
 
     public boolean delete(long id) {

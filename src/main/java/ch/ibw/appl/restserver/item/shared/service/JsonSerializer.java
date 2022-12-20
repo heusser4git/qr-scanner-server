@@ -16,7 +16,7 @@ public class JsonSerializer {
         try {
             return mapper.writeValueAsString(object);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            throw new JsonSerializerProcessingException(e);
         }
     }
 
@@ -25,7 +25,7 @@ public class JsonSerializer {
         try {
             return mapper.readValue(content, ref);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            throw new JsonSerializerProcessingException(e);
         }
     }
 }
