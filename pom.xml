@@ -10,7 +10,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <mainClass>Main</mainClass>
+        <mainClass>ch.ibw.appl.restserver.item.Main</mainClass>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <sonar.organization>heusser4git</sonar.organization>
