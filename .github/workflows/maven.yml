@@ -68,6 +68,7 @@ jobs:
           CLIENT_URL: http://localhost:1234
   
   job4:
+    if: ${{ false }} # disable for now
     name: Build and analyze
     runs-on: ubuntu-latest
     steps:
