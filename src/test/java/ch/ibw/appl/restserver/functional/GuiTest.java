@@ -37,17 +37,17 @@ public class GuiTest {
 
     @Test
     public void testOne() throws InterruptedException {
-        WebElement searchMenu = driver.findElement(By.className("search"));
-        searchMenu.click();
+        WebElement header = driver.findElement(By.className("bx--header__name"));
+        assertTrue(header.getText().contains("QR-Scanner"));
 
-        WebElement searchField = driver.findElement(By.className("icms-quicksearch-input"));
-        searchField.sendKeys("landquart");
-        searchField.submit();
-
-        WebElement resultCount = driver.findElement(By.className("icms-search-results-count"));
-        System.out.println(resultCount.getText());
-
-        assertTrue(resultCount.getText().contains("Ergebnisse"));
+//        WebElement searchField = driver.findElement(By.className("icms-quicksearch-input"));
+//        searchField.sendKeys("landquart");
+//        searchField.submit();
+//
+//        WebElement resultCount = driver.findElement(By.className("icms-search-results-count"));
+//        System.out.println(resultCount.getText());
+//
+//        assertTrue(resultCount.getText().contains("Ergebnisse"));
     }
 
     @AfterClass
