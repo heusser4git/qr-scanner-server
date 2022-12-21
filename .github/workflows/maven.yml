@@ -76,10 +76,9 @@ jobs:
           cache: maven
       - name: Test with Maven
         run: mvn clean test && mvn -B test --file pom.xml
-        #env:
+        env:
           # CLIENT-URL - Selenium-Test has to navigate to this URL
-          # disabled bis klar ist, welche url der Client hat: 
-          # CLIENT_URL: http://localhost:1234
+          CLIENT_URL: http://localhost:5000
         
       - name: Test Reporter
         uses: dorny/test-reporter@v1.4.3
