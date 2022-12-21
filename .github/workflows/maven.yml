@@ -61,10 +61,11 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           cache: maven
-      - name: Build with Maven
-        run: mvn -B test --file pom.xml
+      - name: Test with Maven
+        run: mvn clean test && mvn -B test --file pom.xml
         env:
-          API_SERVER_URL: http://localhost:7777
+          # CLIENT-URL - Selenium-Test has to navigate to this URL
+          CLIENT_URL: http://localhost:1234
   
   job4:
     name: Build and analyze
