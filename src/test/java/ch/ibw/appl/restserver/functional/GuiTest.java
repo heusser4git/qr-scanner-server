@@ -25,7 +25,12 @@ public class GuiTest {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-        driver.navigate().to("https://www.malans.ch");
+        if(System.getenv().containsKey("CLIENT_URL")) {
+//            System.out.println(System.getenv("CLIENT_URL"));
+            driver.navigate().to(System.getenv("CLIENT_URL"));
+        } else {
+            driver.navigate().to("https://www.malans.ch");
+        }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(120));
     }
