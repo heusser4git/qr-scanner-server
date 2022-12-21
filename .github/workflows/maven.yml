@@ -58,7 +58,8 @@ jobs:
           cache-dependency-path: './client/package-lock.json'
       - name: Starte Node.js Client
         run: |
-          node -v
+          npm install
+          npm run dev &
 
   job3:
     name: Tests the Spark-REST-Server with UnitTests and the Client with Java-Selenium
