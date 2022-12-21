@@ -26,7 +26,7 @@ public class GuiTest {
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
         if(System.getenv().containsKey("CLIENT_URL")) {
-            System.out.println(System.getenv("CLIENT_URL"));
+//            System.out.println(System.getenv("CLIENT_URL"));
             driver.navigate().to(System.getenv("CLIENT_URL"));
         } else {
             driver.navigate().to("https://www.malans.ch");
