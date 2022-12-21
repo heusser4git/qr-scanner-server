@@ -20,12 +20,19 @@
 			console.log(error)
 		}
 	}
+	function statusToString(status){
+		if(status == true){
+			return "Aktiv"
+		}else {
+			return "Nicht-Aktiv"
+		}
+	}
 
 	const headers = [
 		{ key: "nachname", value: "Nachname" },
 		{ key: "vorname", value: "Vorname" },
-		{ key: "geburtsdatum", value: "Geburtsdatum" },
-		{ key: "status", value: "Status" },
+		{ key: "geburtsdatum", value: "Geburtsdatum" ,display:(date)=> new Date(date).toLocaleDateString()},
+		{ key: "status", value: "Status", display:(status)=> statusToString(status) },
 		{ key: "anzahlEintritte", value: "Besuche" },
 	];
 
@@ -71,12 +78,12 @@
 	</DataTable>
 
 	<Modal
-	passiveModal
-	size="sm"
-	bind:open={openQr}
-	modalHeading="User-QR Code"
-	on:open
-	on:close>
+		passiveModal
+		size="sm"
+		bind:open={openQr}
+		modalHeading="User-QR Code"
+		on:open
+		on:close>
 		<Grid>
 			<Row>
 				<Column aspectRatio="3x1"/>

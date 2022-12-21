@@ -1,5 +1,5 @@
 <script>
-    import {Modal, TextInput, RadioButtonGroup, RadioButton} from "carbon-components-svelte";
+    import {Modal, TextInput, RadioButtonGroup, RadioButton, DatePicker,DatePickerInput,Grid, Row, Column} from "carbon-components-svelte";
     import { createEventDispatcher } from 'svelte';
     export let openModal;
     const dispatch = createEventDispatcher();
@@ -22,9 +22,10 @@
         let user = {
             nachname: nachname,
             vorname: vorname,
-            geburtsdatum: geburtsdatum,
+            geburtsdatum: new Date(geburtsdatum),
             status: status
         }
+        console.log(geburtsdatum)
         let headers = new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -46,37 +47,44 @@
 
 
 <Modal
-bind:open={openModal}
-modalHeading="New User"
-primaryButtonText="Add"
-on:click:button--primary={()=>(addUser())}
-on:open
-on:close
-on:submit
+        class="higher-Modal"
+        size="sm"
+        bind:open={openModal}
+        modalHeading="Neuen Benutzer hinzufügen"
+        primaryButtonText="Add"
+        on:click:button--primary={()=>(addUser())}
+        on:open
+        on:close
+        on:submit
 >
-<p>Add a new User to the Server</p>
-    <TextInput
-            bind:value={vorname}
-            labelText="Vorname"
-            placeholder="Geben sie den Vornamen ein..."
-    />
-    <TextInput
-            bind:value={nachname}
-            labelText="Nachname"
-            placeholder="Geben sie den Nachnamen ein..."
-    />
-    <TextInput
-            bind:value={geburtsdatum}
-            labelText="Geburtsdatum"
-            placeholder="Geben sie das Geburtsdatum ein..."
-    />
-    <RadioButtonGroup
-            orientation="vertical"
-            legendText="Status"
-            bind:selected={statusRadio}
-    >
-        {#each statusRadios as value}
-            <RadioButton labelText={value} {value}/>
-        {/each}
-    </RadioButtonGroup>
+    <Grid>
+        <Row>
+            <Column aspectRatio="2x1">
+                <DatePicker datePickerType="single" on:change bind:value={geburtsdatum}>
+                    <DatePickerInput labelText="Geburtsdatum" placeholder="mm/dd/yyyy" />
+                </DatePicker>
+            </Column>
+            <Column aspectRatio="2x1">
+                <TextInput
+                        bind:value={vorname}
+                        labelText="Vorname"
+                        placeholder="Geben sie den Vornamen ein..."
+                />
+                <TextInput
+                        bind:value={nachname}
+                        labelText="Nachname"
+                        placeholder="Geben sie den Nachnamen ein..."
+                />
+                <RadioButtonGroup
+                        orientation="vertical"
+                        legendText="Status"
+                        bind:selected={statusRadio}
+                >
+                    {#each statusRadios as value}
+                        <RadioButton labelText={value} {value}/>
+                    {/each}
+                </RadioButtonGroup>
+            </Column>
+        </Row>
+    </Grid>
 </Modal>
