@@ -58,6 +58,7 @@ jobs:
           cache-dependency-path: './client/package-lock.json'
       - name: Starte Node.js Client
         run: |
+          cd /home/runner/work/qr-scanner-server/qr-scanner-server/client
           npm install
           npm run dev &
 
