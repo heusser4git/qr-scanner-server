@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class GuiTest {
@@ -29,7 +30,7 @@ public class GuiTest {
 //            System.out.println(System.getenv("CLIENT_URL"));
             driver.navigate().to(System.getenv("CLIENT_URL"));
         } else {
-            driver.navigate().to("https://www.malans.ch");
+            driver.navigate().to("http://localhost:5000");
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(120));
@@ -37,8 +38,11 @@ public class GuiTest {
 
     @Test
     public void testOne() throws InterruptedException {
-        WebElement header = driver.findElement(By.className("bx--header__name"));
-        assertTrue(header.getText().contains("QR-Scanner"));
+        WebElement header = driver.findElement(By.tagName("header"));
+        header.findElement(By.tagName("a"));
+        assertEquals("QR-Scanner", header.getText());
+        System.out.println(header.getText());
+//        assertTrue(header.getText().contains("QR-Scanner"));
 
 //        WebElement searchField = driver.findElement(By.className("icms-quicksearch-input"));
 //        searchField.sendKeys("landquart");
