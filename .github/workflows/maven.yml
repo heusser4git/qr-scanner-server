@@ -55,6 +55,8 @@ jobs:
           cache: npm
       - name: Starte Node.js Client
         run: |
+          cd /home/runner/work/qr-scanner-server/qr-scanner-server/client
+          npm install
           node -v
 
   job3:
