@@ -48,7 +48,6 @@ jobs:
       - name: Start REST Server
         run: |
           java -jar /home/runner/work/qr-scanner-server/qr-scanner-server/target/qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar --test=true &
-          cd client
           ls -a
       
       # CLIENT
@@ -56,6 +55,7 @@ jobs:
         with:
           node-version: 19
           cache: npm
+          cache-dependency-path: './client/package-lock.json'
       - name: Starte Node.js Client
         run: |
           node -v
