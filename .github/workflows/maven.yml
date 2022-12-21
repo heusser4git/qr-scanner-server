@@ -47,7 +47,15 @@ jobs:
         
       - name: Start REST Server
         run: java -jar /home/runner/work/qr-scanner-server/qr-scanner-server/target/qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar --test=true &
-   
+      
+      # CLIENT
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 19
+          cache: npm
+      - name: Starte Node.js Client
+        run: |
+          node -v
 
   job3:
     name: Tests the Spark-REST-Server with UnitTests and the Client with Java-Selenium
