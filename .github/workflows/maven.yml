@@ -42,12 +42,20 @@ jobs:
            ls -a
 
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
-      - name: Update dependency graph
-        uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
+      #- name: Update dependency graph
+      #  uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
         
       - name: Start REST Server
         run: java -jar /home/runner/work/qr-scanner-server/qr-scanner-server/target/qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar --test=true &
-   
+      
+      # CLIENT
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 19
+          cache: npm
+      - name: Starte Node.js Client
+        run: |
+          node -v
 
   job3:
     name: Tests the Spark-REST-Server with UnitTests and the Client with Java-Selenium
@@ -63,11 +71,20 @@ jobs:
           cache: maven
       - name: Test with Maven
         run: mvn clean test && mvn -B test --file pom.xml
-        env:
+        #env:
           # CLIENT-URL - Selenium-Test has to navigate to this URL
-          CLIENT_URL: http://localhost:1234
+          # disabled bis klar ist, welche url der Client hat: 
+          # CLIENT_URL: http://localhost:1234
+        
+      - name: Test Reporter
+        uses: dorny/test-reporter@v1.4.3
+        with:
+          name: Test Resultate
+          path: "**/surefire-reports/TEST-*.xml"
+          reporter: java-junit
   
   job4:
+    if: ${{ false }} # disable for now
     name: Build and analyze
     runs-on: ubuntu-latest
     steps:
@@ -95,3 +112,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=heusser4git_qr-scanner-server
+
