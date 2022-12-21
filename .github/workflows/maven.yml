@@ -63,9 +63,10 @@ jobs:
           cache: maven
       - name: Test with Maven
         run: mvn clean test && mvn -B test --file pom.xml
-        env:
+        #env:
           # CLIENT-URL - Selenium-Test has to navigate to this URL
-          CLIENT_URL: http://localhost:1234
+          # disabled bis klar ist, welche url der Client hat: 
+          # CLIENT_URL: http://localhost:1234
   
   job4:
     if: ${{ false }} # disable for now
