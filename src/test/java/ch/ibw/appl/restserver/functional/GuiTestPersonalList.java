@@ -15,7 +15,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class GuiTest {
+public class GuiTestPersonalList {
     private static WebDriver driver;
     @BeforeClass
     public static void setUp()
@@ -35,6 +35,7 @@ public class GuiTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(120));
     }
+
 
     @Test
     public void testHeaderText() {
@@ -69,6 +70,7 @@ public class GuiTest {
 //
 //        assertEquals("Neuen Benutzer hinzufügen", title.getText());
     }
+
 
     @AfterClass
     public static void tearDown(){
