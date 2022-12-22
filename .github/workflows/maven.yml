@@ -52,6 +52,7 @@ jobs:
         
       - name: Test Reporter
         #uses: dorny/test-reporter@v1.4.3
+        uses: actions/cache@v1
         with:
           name: Test Resultate
           path: "**/surefire-reports/TEST-*.xml"
