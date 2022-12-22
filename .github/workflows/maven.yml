@@ -51,7 +51,7 @@ jobs:
           CLIENT_URL: http://localhost:5000
         
       - name: Test Reporter
-        uses: dorny/test-reporter@v1.4.3
+        uses: dorny/test-reporter@v1.4.3, actions/cache@v1
         with:
           name: Test Resultate
           path: "**/surefire-reports/TEST-*.xml"
