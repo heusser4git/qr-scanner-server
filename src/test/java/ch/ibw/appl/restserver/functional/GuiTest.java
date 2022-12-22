@@ -43,22 +43,22 @@ public class GuiTest {
         assertEquals("QR-Scanner", header.getText());
     }
 
-    @Test
-    public void testSearchOnList() {
-        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
-        searchField.sendKeys("perko");
+//    @Test
+//    public void testSearchOnList() {
+//        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
+//        searchField.sendKeys("perko");
+//
+//        WebElement listTable = driver.findElement(PersonalPo.listTableSelector());
+//        List<WebElement> listOfTdElements = listTable.findElements(PersonalPo.tdTagSelector());
+//
+//        assertEquals("Perko", listOfTdElements.get(1).getText());
+//        assertEquals("Mitja", listOfTdElements.get(2).getText());
+//        assertEquals("16.5.1993", listOfTdElements.get(3).getText());
+//        assertEquals("Aktiv", listOfTdElements.get(4).getText());
+//    }
 
-        WebElement listTable = driver.findElement(PersonalPo.listTableSelector());
-        List<WebElement> listOfTdElements = listTable.findElements(PersonalPo.tdTagSelector());
-
-        assertEquals("Perko", listOfTdElements.get(1).getText());
-        assertEquals("Mitja", listOfTdElements.get(2).getText());
-        assertEquals("16.5.1993", listOfTdElements.get(3).getText());
-        assertEquals("Aktiv", listOfTdElements.get(4).getText());
-    }
-
-    @Test
-    public void testAddOnButtonAndItsModalWindow() throws InterruptedException {
+//    @Test
+//    public void testAddOnButtonAndItsModalWindow() throws InterruptedException {
 //        WebElement addButton = driver.findElement(PersonalPo.addItemButtonSelector());
 //        addButton.click();
 //        Thread.sleep(200);
@@ -68,7 +68,7 @@ public class GuiTest {
 //        System.out.println(title.getAttribute("placeholder"));
 //
 //        assertEquals("Neuen Benutzer hinzufügen", title.getText());
-    }
+//    }
 
     @AfterClass
     public static void tearDown(){
