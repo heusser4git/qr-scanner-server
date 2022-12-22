@@ -10,6 +10,7 @@ public class Main {
         Boolean isTest = Boolean.parseBoolean(getCLIArgument(args, "test", "false"));
         System.out.println("Testmode: "+isTest);
         new RestServer(port, isTest).run();
+
     }
 
     public static String getCLIArgument(String[] args, String name, String defaultValue) {
