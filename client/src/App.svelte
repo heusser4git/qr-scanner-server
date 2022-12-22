@@ -10,7 +10,8 @@
     import AddIcon from "carbon-icons-svelte/lib/Add.svelte";
     import Add from "./Add.svelte";
     import Edit from "./Edit.svelte";
-    import QRCode from "svelte-qrcode"
+    import QRCode from "svelte-qrcode";
+    import Delete from "./Delete.svelte";
 
     const headers = [
         {key: "nachname", value: "Nachname"},
@@ -47,6 +48,7 @@
     let openQr = false;
     let openAdd = false;
     let openEdit = false;
+    let openDelete = false;
     let imageSrc;
     let selectedObject = {};
 
@@ -72,6 +74,10 @@
         selctedRowIdToObject();
         openEdit = true
     }
+    function openDeleteModal(){
+        selctedRowIdToObject();
+        openDelete = true;
+    }
 
 </script>
 
@@ -84,14 +90,14 @@
             <ToolbarBatchActions>
                 <Button on:click={() => (openQrModal())} icon={Qr}>QR-Code</Button>
                 <Button on:click={() => (openEditModal())} icon={EditIcon}>Edit</Button>
-                <Button icon={Trash}>Delete</Button>
+                <Button on:click={() => (openDeleteModal())} icon={Trash}>Delete</Button>
             </ToolbarBatchActions>
             <ToolbarContent>
                 <ToolbarSearch
                         persistent
                         shouldFilterRows
                         bind:filteredRowIds/>
-                <Button icon={AddIcon} on:click={()=>(openAdd = true)}>Add Item</Button>
+                <Button class="addButton" icon={AddIcon} on:click={()=>(openAdd = true)}>Add Item</Button>
             </ToolbarContent>
         </Toolbar>
     </DataTable>
@@ -126,6 +132,11 @@
     />
     <Edit
             bind:openModal={openEdit}
+            personObject={selectedObject}
+            on:update={()=>getPersonalItems()}
+    />
+    <Delete
+            bind:openModal={openDelete}
             personObject={selectedObject}
             on:update={()=>getPersonalItems()}
     />

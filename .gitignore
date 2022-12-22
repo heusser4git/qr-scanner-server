@@ -1,2 +1,4 @@
 /.idea/
 /src/main/resources/META-INF/dbConfiguration.json
+
+/client/package-lock.json
