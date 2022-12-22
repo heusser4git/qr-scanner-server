@@ -25,7 +25,7 @@
             geburtsdatum: new Date(geburtsdatum),
             status: status
         }
-        console.log(geburtsdatum)
+
         let headers = new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/json'
