@@ -72,7 +72,7 @@
 				persistent
 				shouldFilterRows
 				bind:filteredRowIds/>
-				<Button icon={AddIcon} on:click={()=>(openAdd = true)}>Add Item</Button>
+				<Button class="addButton" icon={AddIcon} on:click={()=>(openAdd = true)}>Add Item</Button>
 			</ToolbarContent>
 		</Toolbar>
 	</DataTable>
