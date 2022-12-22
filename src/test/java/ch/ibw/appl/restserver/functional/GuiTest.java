@@ -1,19 +1,19 @@
 package ch.ibw.appl.restserver.functional;
 
+import ch.ibw.appl.restserver.functional.shared.guitest.PersonalPo;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class GuiTest {
     private static WebDriver driver;
@@ -37,21 +37,37 @@ public class GuiTest {
     }
 
     @Test
-    public void testOne() throws InterruptedException {
-        WebElement header = driver.findElement(By.tagName("header"));
-        header.findElement(By.tagName("a"));
+    public void testHeaderText() {
+        WebElement header = driver.findElement(PersonalPo.headerTagSelector());
+        header.findElement(PersonalPo.aTagSelector());
         assertEquals("QR-Scanner", header.getText());
-        System.out.println(header.getText());
-//        assertTrue(header.getText().contains("QR-Scanner"));
+    }
 
-//        WebElement searchField = driver.findElement(By.className("icms-quicksearch-input"));
-//        searchField.sendKeys("landquart");
-//        searchField.submit();
+    @Test
+    public void testSearchOnList() {
+        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
+        searchField.sendKeys("perko");
+
+        WebElement listTable = driver.findElement(PersonalPo.listTableSelector());
+        List<WebElement> listOfTdElements = listTable.findElements(PersonalPo.tdTagSelector());
+
+        assertEquals("Perko", listOfTdElements.get(1).getText());
+        assertEquals("Mitja", listOfTdElements.get(2).getText());
+        assertEquals("16.5.1993", listOfTdElements.get(3).getText());
+        assertEquals("Aktiv", listOfTdElements.get(4).getText());
+    }
+
+    @Test
+    public void testAddOnButtonAndItsModalWindow() throws InterruptedException {
+//        WebElement addButton = driver.findElement(PersonalPo.addItemButtonSelector());
+//        addButton.click();
+//        Thread.sleep(200);
+//        WebElement addWindow = driver.findElement(PersonalPo.modalAddWindowSelector());
+//        System.out.println(addWindow.getText());
+//        WebElement title = driver.findElement(PersonalPo.modalAddWindowGeburtstagInput());
+//        System.out.println(title.getAttribute("placeholder"));
 //
-//        WebElement resultCount = driver.findElement(By.className("icms-search-results-count"));
-//        System.out.println(resultCount.getText());
-//
-//        assertTrue(resultCount.getText().contains("Ergebnisse"));
+//        assertEquals("Neuen Benutzer hinzufügen", title.getText());
     }
 
     @AfterClass
