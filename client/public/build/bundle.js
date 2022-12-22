@@ -30269,7 +30269,7 @@ var app = (function () {
     	return block;
     }
 
-    // (75:4) <Button icon={AddIcon} on:click={()=>(openAdd = true)}>
+    // (75:4) <Button class="addButton" icon={AddIcon} on:click={()=>(openAdd = true)}>
     function create_default_slot_9(ctx) {
     	let t;
 
@@ -30289,7 +30289,7 @@ var app = (function () {
     		block,
     		id: create_default_slot_9.name,
     		type: "slot",
-    		source: "(75:4) <Button icon={AddIcon} on:click={()=>(openAdd = true)}>",
+    		source: "(75:4) <Button class=\\\"addButton\\\" icon={AddIcon} on:click={()=>(openAdd = true)}>",
     		ctx
     	});
 
@@ -30323,6 +30323,7 @@ var app = (function () {
 
     	button = new Button$1({
     			props: {
+    				class: "addButton",
     				icon: Add$1,
     				$$slots: { default: [create_default_slot_9] },
     				$$scope: { ctx }
@@ -30604,8 +30605,8 @@ var app = (function () {
     			t = space();
     			div1 = element("div");
     			create_component(button.$$.fragment);
-    			add_location(div0, file, 90, 5, 2305);
-    			add_location(div1, file, 93, 5, 2400);
+    			add_location(div0, file, 90, 5, 2413);
+    			add_location(div1, file, 93, 5, 2511);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -30813,7 +30814,7 @@ var app = (function () {
     	return block;
     }
 
-    // (80:1) <Modal   passiveModal   size="sm"   bind:open={openQr}   modalHeading="User-QR Code"   on:open   on:close>
+    // (80:1) <Modal    passiveModal    size="sm"    bind:open={openQr}    modalHeading="User-QR Code"    on:open    on:close>
     function create_default_slot_1(ctx) {
     	let grid;
     	let current;
@@ -30861,7 +30862,7 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(80:1) <Modal   passiveModal   size=\\\"sm\\\"   bind:open={openQr}   modalHeading=\\\"User-QR Code\\\"   on:open   on:close>",
+    		source: "(80:1) <Modal    passiveModal    size=\\\"sm\\\"    bind:open={openQr}    modalHeading=\\\"User-QR Code\\\"    on:open    on:close>",
     		ctx
     	});
 
