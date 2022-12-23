@@ -68,6 +68,7 @@ public class RestServer {
         server.afterAfter((request, response) -> response.type("application/json"));
 
         server.exception(RuntimeException.class, (exception, request, response)->{
+            logger.error(exception.getMessage());
             if(exception instanceof ValidationError) {
                 String message = ((ValidationError) exception).getMessage();
                 JsonNode node = JsonNodeFactory.instance.objectNode().set("message", JsonNodeFactory.instance.textNode(message));
