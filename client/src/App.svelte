@@ -24,8 +24,16 @@
     let rows = [];
 
     export async function getPersonalItems() {
+        let httpHeaders = new Headers({
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        });
         try {
-            const returnValue = await fetch(`http://localhost:7777/personal/items`);
+            const returnValue = await fetch(`http://localhost:7777/personal/items`, {
+                method: 'GET',
+                headers: httpHeaders,
+                credentials: 'same-origin'
+            });
             rows = await returnValue.json();
         } catch (error) {
             console.log(error)

@@ -27342,12 +27342,12 @@ var app = (function () {
     			status
     		};
 
-    		let headers = new Headers({
-    				'Accept': 'application/json',
-    				'Content-Type': 'application/json'
-    			});
-
     		try {
+    			let headers = new Headers({
+    					'Accept': 'application/json',
+    					'Content-Type': 'application/json'
+    				});
+
     			await fetch('http://localhost:7777/personal/items', {
     				method: 'POST',
     				mode: 'no-cors',
@@ -30743,10 +30743,10 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			img = element("img");
-    			if (!src_url_equal(img.src, img_src_value = /*image*/ ctx[0])) attr_dev(img, "src", img_src_value);
-    			attr_dev(img, "alt", /*value*/ ctx[1]);
-    			attr_dev(img, "class", /*className*/ ctx[2]);
-    			add_location(img, file$2, 41, 0, 688);
+    			if (!src_url_equal(img.src, img_src_value = /*image*/ ctx[2])) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", /*value*/ ctx[0]);
+    			attr_dev(img, "class", /*className*/ ctx[1]);
+    			add_location(img, file$2, 41, 0, 681);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -30755,16 +30755,16 @@ var app = (function () {
     			insert_dev(target, img, anchor);
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*image*/ 1 && !src_url_equal(img.src, img_src_value = /*image*/ ctx[0])) {
+    			if (dirty & /*image*/ 4 && !src_url_equal(img.src, img_src_value = /*image*/ ctx[2])) {
     				attr_dev(img, "src", img_src_value);
     			}
 
-    			if (dirty & /*value*/ 2) {
-    				attr_dev(img, "alt", /*value*/ ctx[1]);
+    			if (dirty & /*value*/ 1) {
+    				attr_dev(img, "alt", /*value*/ ctx[0]);
     			}
 
-    			if (dirty & /*className*/ 4) {
-    				attr_dev(img, "class", /*className*/ ctx[2]);
+    			if (dirty & /*className*/ 2) {
+    				attr_dev(img, "class", /*className*/ ctx[1]);
     			}
     		},
     		i: noop,
@@ -30796,7 +30796,7 @@ var app = (function () {
     	let { value = "" } = $$props;
     	let { padding = 0 } = $$props;
     	let { className = "qrcode" } = $$props;
-    	let { image = '' } = $$props;
+    	let image = '';
 
     	function generateQrCode() {
     		QRcode.set({
@@ -30808,7 +30808,7 @@ var app = (function () {
     			value
     		});
 
-    		$$invalidate(0, image = QRcode.toDataURL('image/jpeg'));
+    		$$invalidate(2, image = QRcode.toDataURL('image/jpeg'));
     	}
 
     	onMount(() => {
@@ -30822,8 +30822,7 @@ var app = (function () {
     		'size',
     		'value',
     		'padding',
-    		'className',
-    		'image'
+    		'className'
     	];
 
     	Object.keys($$props).forEach(key => {
@@ -30835,10 +30834,9 @@ var app = (function () {
     		if ('background' in $$props) $$invalidate(4, background = $$props.background);
     		if ('color' in $$props) $$invalidate(5, color = $$props.color);
     		if ('size' in $$props) $$invalidate(6, size = $$props.size);
-    		if ('value' in $$props) $$invalidate(1, value = $$props.value);
+    		if ('value' in $$props) $$invalidate(0, value = $$props.value);
     		if ('padding' in $$props) $$invalidate(7, padding = $$props.padding);
-    		if ('className' in $$props) $$invalidate(2, className = $$props.className);
-    		if ('image' in $$props) $$invalidate(0, image = $$props.image);
+    		if ('className' in $$props) $$invalidate(1, className = $$props.className);
     	};
 
     	$$self.$capture_state = () => ({
@@ -30861,10 +30859,10 @@ var app = (function () {
     		if ('background' in $$props) $$invalidate(4, background = $$props.background);
     		if ('color' in $$props) $$invalidate(5, color = $$props.color);
     		if ('size' in $$props) $$invalidate(6, size = $$props.size);
-    		if ('value' in $$props) $$invalidate(1, value = $$props.value);
+    		if ('value' in $$props) $$invalidate(0, value = $$props.value);
     		if ('padding' in $$props) $$invalidate(7, padding = $$props.padding);
-    		if ('className' in $$props) $$invalidate(2, className = $$props.className);
-    		if ('image' in $$props) $$invalidate(0, image = $$props.image);
+    		if ('className' in $$props) $$invalidate(1, className = $$props.className);
+    		if ('image' in $$props) $$invalidate(2, image = $$props.image);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -30872,7 +30870,7 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*value*/ 2) {
+    		if ($$self.$$.dirty & /*value*/ 1) {
     			{
     				if (value) {
     					generateQrCode();
@@ -30881,7 +30879,7 @@ var app = (function () {
     		}
     	};
 
-    	return [image, value, className, errorCorrection, background, color, size, padding];
+    	return [value, className, image, errorCorrection, background, color, size, padding];
     }
 
     class Lib extends SvelteComponentDev {
@@ -30893,10 +30891,9 @@ var app = (function () {
     			background: 4,
     			color: 5,
     			size: 6,
-    			value: 1,
+    			value: 0,
     			padding: 7,
-    			className: 2,
-    			image: 0
+    			className: 1
     		});
 
     		dispatch_dev("SvelteRegisterComponent", {
@@ -30960,14 +30957,6 @@ var app = (function () {
     	}
 
     	set className(value) {
-    		throw new Error("<Lib>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	get image() {
-    		throw new Error("<Lib>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set image(value) {
     		throw new Error("<Lib>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -31246,7 +31235,7 @@ var app = (function () {
     const { console: console_1 } = globals;
     const file = "src\\App.svelte";
 
-    // (91:16) <Button on:click={() => (openQrModal())} icon={Qr}>
+    // (99:16) <Button on:click={() => (openQrModal())} icon={Qr}>
     function create_default_slot_13(ctx) {
     	let t;
 
@@ -31266,14 +31255,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_13.name,
     		type: "slot",
-    		source: "(91:16) <Button on:click={() => (openQrModal())} icon={Qr}>",
+    		source: "(99:16) <Button on:click={() => (openQrModal())} icon={Qr}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (92:16) <Button on:click={() => (openEditModal())} icon={EditIcon}>
+    // (100:16) <Button on:click={() => (openEditModal())} icon={EditIcon}>
     function create_default_slot_12(ctx) {
     	let t;
 
@@ -31293,14 +31282,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_12.name,
     		type: "slot",
-    		source: "(92:16) <Button on:click={() => (openEditModal())} icon={EditIcon}>",
+    		source: "(100:16) <Button on:click={() => (openEditModal())} icon={EditIcon}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (93:16) <Button on:click={() => (openDeleteModal())} icon={Trash}>
+    // (101:16) <Button on:click={() => (openDeleteModal())} icon={Trash}>
     function create_default_slot_11(ctx) {
     	let t;
 
@@ -31320,14 +31309,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_11.name,
     		type: "slot",
-    		source: "(93:16) <Button on:click={() => (openDeleteModal())} icon={Trash}>",
+    		source: "(101:16) <Button on:click={() => (openDeleteModal())} icon={Trash}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (90:12) <ToolbarBatchActions>
+    // (98:12) <ToolbarBatchActions>
     function create_default_slot_10(ctx) {
     	let button0;
     	let t0;
@@ -31434,14 +31423,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_10.name,
     		type: "slot",
-    		source: "(90:12) <ToolbarBatchActions>",
+    		source: "(98:12) <ToolbarBatchActions>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (100:16) <Button class="addButton" icon={AddIcon} on:click={()=>(openAdd = true)}>
+    // (108:16) <Button class="addButton" icon={AddIcon} on:click={()=>(openAdd = true)}>
     function create_default_slot_9(ctx) {
     	let t;
 
@@ -31461,14 +31450,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_9.name,
     		type: "slot",
-    		source: "(100:16) <Button class=\\\"addButton\\\" icon={AddIcon} on:click={()=>(openAdd = true)}>",
+    		source: "(108:16) <Button class=\\\"addButton\\\" icon={AddIcon} on:click={()=>(openAdd = true)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (95:12) <ToolbarContent>
+    // (103:12) <ToolbarContent>
     function create_default_slot_8(ctx) {
     	let toolbarsearch;
     	let updating_filteredRowIds;
@@ -31557,14 +31546,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_8.name,
     		type: "slot",
-    		source: "(95:12) <ToolbarContent>",
+    		source: "(103:12) <ToolbarContent>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (89:8) <Toolbar>
+    // (97:8) <Toolbar>
     function create_default_slot_7(ctx) {
     	let toolbarbatchactions;
     	let t;
@@ -31637,14 +31626,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7.name,
     		type: "slot",
-    		source: "(89:8) <Toolbar>",
+    		source: "(97:8) <Toolbar>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (88:4) <DataTable sortable radio bind:selectedRowIds {headers} {rows}>
+    // (96:4) <DataTable sortable radio bind:selectedRowIds {headers} {rows}>
     function create_default_slot_6(ctx) {
     	let toolbar;
     	let current;
@@ -31692,14 +31681,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(88:4) <DataTable sortable radio bind:selectedRowIds {headers} {rows}>",
+    		source: "(96:4) <DataTable sortable radio bind:selectedRowIds {headers} {rows}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (120:24) <Button bind:href={imageSrc} on:click={()=>{openQr = false}}                                  download={"QR_"+selectedObject.vorname+"_"+selectedObject.nachname}>
+    // (128:24) <Button bind:href={imageSrc} on:click={()=>{openQr = false}}                                  download={"QR_"+selectedObject.vorname+"_"+selectedObject.nachname}>
     function create_default_slot_5(ctx) {
     	let t;
 
@@ -31719,14 +31708,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(120:24) <Button bind:href={imageSrc} on:click={()=>{openQr = false}}                                  download={\\\"QR_\\\"+selectedObject.vorname+\\\"_\\\"+selectedObject.nachname}>",
+    		source: "(128:24) <Button bind:href={imageSrc} on:click={()=>{openQr = false}}                                  download={\\\"QR_\\\"+selectedObject.vorname+\\\"_\\\"+selectedObject.nachname}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (115:16) <Column aspectRatio="3x1">
+    // (123:16) <Column aspectRatio="3x1">
     function create_default_slot_4(ctx) {
     	let div0;
     	let qrcode;
@@ -31777,8 +31766,8 @@ var app = (function () {
     			t = space();
     			div1 = element("div");
     			create_component(button.$$.fragment);
-    			add_location(div0, file, 115, 20, 3692);
-    			add_location(div1, file, 118, 20, 3838);
+    			add_location(div0, file, 123, 20, 3970);
+    			add_location(div1, file, 126, 20, 4116);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -31838,14 +31827,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4.name,
     		type: "slot",
-    		source: "(115:16) <Column aspectRatio=\\\"3x1\\\">",
+    		source: "(123:16) <Column aspectRatio=\\\"3x1\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (113:12) <Row>
+    // (121:12) <Row>
     function create_default_slot_3(ctx) {
     	let column0;
     	let t0;
@@ -31924,14 +31913,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(113:12) <Row>",
+    		source: "(121:12) <Row>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (112:8) <Grid>
+    // (120:8) <Grid>
     function create_default_slot_2(ctx) {
     	let row;
     	let current;
@@ -31979,14 +31968,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(112:8) <Grid>",
+    		source: "(120:8) <Grid>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (105:4) <Modal              passiveModal              size="sm"              bind:open={openQr}              modalHeading="User-QR Code"              on:open              on:close>
+    // (113:4) <Modal              passiveModal              size="sm"              bind:open={openQr}              modalHeading="User-QR Code"              on:open              on:close>
     function create_default_slot_1(ctx) {
     	let grid;
     	let current;
@@ -32034,14 +32023,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(105:4) <Modal              passiveModal              size=\\\"sm\\\"              bind:open={openQr}              modalHeading=\\\"User-QR Code\\\"              on:open              on:close>",
+    		source: "(113:4) <Modal              passiveModal              size=\\\"sm\\\"              bind:open={openQr}              modalHeading=\\\"User-QR Code\\\"              on:open              on:close>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (87:0) <Content>
+    // (95:0) <Content>
     function create_default_slot(ctx) {
     	let datatable;
     	let updating_selectedRowIds;
@@ -32258,7 +32247,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(87:0) <Content>",
+    		source: "(95:0) <Content>",
     		ctx
     	});
 
@@ -32368,8 +32357,18 @@ var app = (function () {
     	let rows = [];
 
     	async function getPersonalItems() {
+    		let httpHeaders = new Headers({
+    				'Content-Type': 'application/json',
+    				'Accept': 'application/json'
+    			});
+
     		try {
-    			const returnValue = await fetch(`http://localhost:7777/personal/items`);
+    			const returnValue = await fetch(`http://localhost:7777/personal/items`, {
+    				method: 'GET',
+    				headers: httpHeaders,
+    				credentials: 'same-origin'
+    			});
+
     			$$invalidate(1, rows = await returnValue.json());
     		} catch(error) {
     			console.log(error);

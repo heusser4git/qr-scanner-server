@@ -26,11 +26,11 @@
             status: status
         }
 
-        let headers = new Headers({
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        })
         try {
+            let headers = new Headers({
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            })
             await fetch('http://localhost:7777/personal/items', {
                 method: 'POST',
                 mode: 'no-cors',
