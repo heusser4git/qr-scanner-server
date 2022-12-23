@@ -14,7 +14,7 @@ public class Main {
         Boolean isTest = Boolean.parseBoolean(getCLIArgument(args, "test", "false"));
 
         Logger logger = LoggerFactory.getLogger(PersonalItemSQLRepository.class);
-        logger.info("Testmode: "+isTest);
+        logger.info("Testmode: {}", isTest);
 
         new RestServer(port, isTest).run();
     }

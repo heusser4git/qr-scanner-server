@@ -110,7 +110,7 @@ public class PersonalItemSQLRepository implements PersonalItemRepository<Persona
             preparedStatement.setString(2, personalItem.getVorname());
             preparedStatement.setDate(3, personalItem.getGeburtsdatum());
             preparedStatement.setBoolean(4,personalItem.isStatus());
-            logger.info(preparedStatement.toString());
+            logger.info("{}", preparedStatement.toString());
             preparedStatement.executeUpdate();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
             if(resultSet.next()) {
@@ -120,7 +120,7 @@ public class PersonalItemSQLRepository implements PersonalItemRepository<Persona
         } catch (SQLException e) {
             logger.error(SQLEXCEPTION_WHILE_DOING_A_PREPARED_STATEMENT, e);
         }
-        logger.info(personalItem.toString());
+        logger.info("{}", personalItem.toString());
         throw new NullPointerException(COULD_NOT_CONNECT_TO_DATABASE);
     }
 
@@ -151,10 +151,7 @@ public class PersonalItemSQLRepository implements PersonalItemRepository<Persona
             preparedStatement.setInt(5,personalItem.getAnzahlEintritte());
             preparedStatement.setLong(6, personalItem.getId());
             int row = preparedStatement.executeUpdate();
-            if(row==1) {
-                return true;
-            }
-            return false;
+            return row == 1;
         } catch (SQLException e) {
             logger.error(SQLEXCEPTION_WHILE_DOING_A_PREPARED_STATEMENT, e);
         }
