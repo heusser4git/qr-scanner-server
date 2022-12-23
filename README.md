@@ -1,4 +1,4 @@
-# QR-Scanner REST Server
+# QR-Scanner
 ---
 ## REST Server herunterladen
 ```bash
