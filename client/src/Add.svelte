@@ -1,17 +1,21 @@
 <script>
-    import {Modal, TextInput, RadioButtonGroup, RadioButton, DatePicker,DatePickerInput,Grid, Row, Column} from "carbon-components-svelte";
+    import {Modal, TextInput, RadioButtonGroup, RadioButton, DatePicker,DatePickerInput,Grid, Row, Column, ToastNotification} from "carbon-components-svelte";
     import { createEventDispatcher } from 'svelte';
     export let openModal;
+    let errorMsg;
     const dispatch = createEventDispatcher();
+
     function updateApp(){
         dispatch('update')
     }
+
     let nachname
     let vorname
     let geburtsdatum
     let status
     let statusRadios =["Aktiv","Nicht Aktiv"];
     let statusRadio = statusRadios[0];
+    let toastNotification = false;
 
     async function addUser(){
         if(statusRadio =="Aktiv"){
@@ -31,14 +35,16 @@
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             })
-            await fetch('http://localhost:7777/personal/items', {
+            const response = await fetch('http://localhost:7777/personal/items', {
                 method: 'POST',
                 mode: 'no-cors',
                 headers,
                 body: JSON.stringify(user)
             })
-        }catch (error){
-            console.log(error)
+            console.log(response)
+        }catch (ex){
+            errorMsg = ex
+            toastNotification = true;
         }
         openModal = false
         updateApp();
@@ -88,3 +94,13 @@
         </Row>
     </Grid>
 </Modal>
+
+{#if toastNotification}
+    <ToastNotification
+            hideCloseButton
+            title="Error"
+            subtitle="error 1 {errorMsg}"
+            caption={new Date().toLocaleString()}
+            on:click={()=> (toastNotification= false)}
+    />
+{/if}

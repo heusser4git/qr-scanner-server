@@ -13,7 +13,7 @@ public class SeleniumHelper {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--headless");
+        //options.addArguments("--headless");
         ChromeDriver driver = new ChromeDriver(options);
         if(System.getenv().containsKey("CLIENT_URL")) {
             driver.navigate().to(System.getenv("CLIENT_URL"));
