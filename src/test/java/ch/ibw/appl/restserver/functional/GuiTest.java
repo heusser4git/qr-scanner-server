@@ -65,12 +65,14 @@ public class GuiTest {
     }
 
     @Test
-    public void testSearchOnList() {
+    public void testSearchOnList() throws InterruptedException {
         driver = SeleniumHelper.setUpWebDriver();
         WebElement adminButton = driver.findElement(By.cssSelector("button[id='button-admin']"));
         adminButton.click();
+        Thread.sleep(1000);
         WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
         searchField.sendKeys("perko");
+        Thread.sleep(1000);
         WebElement mainContent = driver.findElement(By.cssSelector("main[id='main-content']"));
         WebElement table = mainContent.findElement(By.tagName("table"));
         List<WebElement> tds = table.findElements(By.tagName("td"));
