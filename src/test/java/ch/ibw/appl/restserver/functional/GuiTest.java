@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -72,7 +73,7 @@ public class GuiTest {
         adminButton.click();
         WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
         searchField.sendKeys("perko");
-        List<WebElement> listOfTdElements = driver.findElements(PersonalPo.tdTagSelector());
+        ArrayList<WebElement> listOfTdElements = (ArrayList<WebElement>) driver.findElements(PersonalPo.tdTagSelector());
         String testFamiliyName = listOfTdElements.get(1).getText();
         assertEquals("Perko", testFamiliyName);
     }
