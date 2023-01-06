@@ -99,9 +99,8 @@
     }
 
 </script>
-
-
 <Content>
+    <h1>Administration</h1>
     <DataTable sortable radio bind:selectedRowIds {headers} {rows}>
         <Toolbar>
             <ToolbarBatchActions>

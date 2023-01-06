@@ -32223,7 +32223,7 @@ var app = (function () {
     const { console: console_1$1 } = globals;
     const file$2 = "src\\Admin.svelte";
 
-    // (108:16) <Button on:click={() => (openQrModal())} icon={Qr}>
+    // (107:16) <Button on:click={() => (openQrModal())} icon={Qr}>
     function create_default_slot_13(ctx) {
     	let t;
 
@@ -32243,14 +32243,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_13.name,
     		type: "slot",
-    		source: "(108:16) <Button on:click={() => (openQrModal())} icon={Qr}>",
+    		source: "(107:16) <Button on:click={() => (openQrModal())} icon={Qr}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (109:16) <Button on:click={() => (openEditModal())} icon={EditIcon}>
+    // (108:16) <Button on:click={() => (openEditModal())} icon={EditIcon}>
     function create_default_slot_12(ctx) {
     	let t;
 
@@ -32270,14 +32270,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_12.name,
     		type: "slot",
-    		source: "(109:16) <Button on:click={() => (openEditModal())} icon={EditIcon}>",
+    		source: "(108:16) <Button on:click={() => (openEditModal())} icon={EditIcon}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (110:16) <Button on:click={() => (openDeleteModal())} icon={Trash}>
+    // (109:16) <Button on:click={() => (openDeleteModal())} icon={Trash}>
     function create_default_slot_11(ctx) {
     	let t;
 
@@ -32297,14 +32297,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_11.name,
     		type: "slot",
-    		source: "(110:16) <Button on:click={() => (openDeleteModal())} icon={Trash}>",
+    		source: "(109:16) <Button on:click={() => (openDeleteModal())} icon={Trash}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (107:12) <ToolbarBatchActions>
+    // (106:12) <ToolbarBatchActions>
     function create_default_slot_10(ctx) {
     	let button0;
     	let t0;
@@ -32411,14 +32411,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_10.name,
     		type: "slot",
-    		source: "(107:12) <ToolbarBatchActions>",
+    		source: "(106:12) <ToolbarBatchActions>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (117:16) <Button class="addButton" icon={AddIcon} on:click={()=>(openAdd = true)}>
+    // (116:16) <Button class="addButton" icon={AddIcon} on:click={()=>(openAdd = true)}>
     function create_default_slot_9(ctx) {
     	let t;
 
@@ -32438,14 +32438,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_9.name,
     		type: "slot",
-    		source: "(117:16) <Button class=\\\"addButton\\\" icon={AddIcon} on:click={()=>(openAdd = true)}>",
+    		source: "(116:16) <Button class=\\\"addButton\\\" icon={AddIcon} on:click={()=>(openAdd = true)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (112:12) <ToolbarContent>
+    // (111:12) <ToolbarContent>
     function create_default_slot_8(ctx) {
     	let toolbarsearch;
     	let updating_filteredRowIds;
@@ -32534,14 +32534,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_8.name,
     		type: "slot",
-    		source: "(112:12) <ToolbarContent>",
+    		source: "(111:12) <ToolbarContent>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (106:8) <Toolbar>
+    // (105:8) <Toolbar>
     function create_default_slot_7$1(ctx) {
     	let toolbarbatchactions;
     	let t;
@@ -32614,14 +32614,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7$1.name,
     		type: "slot",
-    		source: "(106:8) <Toolbar>",
+    		source: "(105:8) <Toolbar>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (105:4) <DataTable sortable radio bind:selectedRowIds {headers} {rows}>
+    // (104:4) <DataTable sortable radio bind:selectedRowIds {headers} {rows}>
     function create_default_slot_6$1(ctx) {
     	let toolbar;
     	let current;
@@ -32669,14 +32669,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6$1.name,
     		type: "slot",
-    		source: "(105:4) <DataTable sortable radio bind:selectedRowIds {headers} {rows}>",
+    		source: "(104:4) <DataTable sortable radio bind:selectedRowIds {headers} {rows}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (137:24) <Button bind:href={imageSrc} on:click={()=>{openQr = false}}                                  download={"QR_"+selectedObject.vorname+"_"+selectedObject.nachname}>
+    // (136:24) <Button bind:href={imageSrc} on:click={()=>{openQr = false}}                                  download={"QR_"+selectedObject.vorname+"_"+selectedObject.nachname}>
     function create_default_slot_5$1(ctx) {
     	let t;
 
@@ -32696,14 +32696,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5$1.name,
     		type: "slot",
-    		source: "(137:24) <Button bind:href={imageSrc} on:click={()=>{openQr = false}}                                  download={\\\"QR_\\\"+selectedObject.vorname+\\\"_\\\"+selectedObject.nachname}>",
+    		source: "(136:24) <Button bind:href={imageSrc} on:click={()=>{openQr = false}}                                  download={\\\"QR_\\\"+selectedObject.vorname+\\\"_\\\"+selectedObject.nachname}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (132:16) <Column aspectRatio="3x1">
+    // (131:16) <Column aspectRatio="3x1">
     function create_default_slot_4$2(ctx) {
     	let div0;
     	let qrcode;
@@ -32754,8 +32754,8 @@ var app = (function () {
     			t = space();
     			div1 = element("div");
     			create_component(button.$$.fragment);
-    			add_location(div0, file$2, 132, 20, 4087);
-    			add_location(div1, file$2, 135, 20, 4233);
+    			add_location(div0, file$2, 131, 20, 4112);
+    			add_location(div1, file$2, 134, 20, 4258);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -32815,14 +32815,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$2.name,
     		type: "slot",
-    		source: "(132:16) <Column aspectRatio=\\\"3x1\\\">",
+    		source: "(131:16) <Column aspectRatio=\\\"3x1\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (130:12) <Row>
+    // (129:12) <Row>
     function create_default_slot_3$2(ctx) {
     	let column0;
     	let t0;
@@ -32901,14 +32901,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$2.name,
     		type: "slot",
-    		source: "(130:12) <Row>",
+    		source: "(129:12) <Row>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (129:8) <Grid>
+    // (128:8) <Grid>
     function create_default_slot_2$2(ctx) {
     	let row;
     	let current;
@@ -32956,14 +32956,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$2.name,
     		type: "slot",
-    		source: "(129:8) <Grid>",
+    		source: "(128:8) <Grid>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (122:4) <Modal              passiveModal              size="sm"              bind:open={openQr}              modalHeading="User-QR Code"              on:open              on:close>
+    // (121:4) <Modal              passiveModal              size="sm"              bind:open={openQr}              modalHeading="User-QR Code"              on:open              on:close>
     function create_default_slot_1$2(ctx) {
     	let grid;
     	let current;
@@ -33011,14 +33011,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$2.name,
     		type: "slot",
-    		source: "(122:4) <Modal              passiveModal              size=\\\"sm\\\"              bind:open={openQr}              modalHeading=\\\"User-QR Code\\\"              on:open              on:close>",
+    		source: "(121:4) <Modal              passiveModal              size=\\\"sm\\\"              bind:open={openQr}              modalHeading=\\\"User-QR Code\\\"              on:open              on:close>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (160:4) {#if toastNotification}
+    // (159:4) {#if toastNotification}
     function create_if_block$2(ctx) {
     	let toastnotification;
     	let current;
@@ -33065,30 +33065,32 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(160:4) {#if toastNotification}",
+    		source: "(159:4) {#if toastNotification}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (104:0) <Content>
+    // (102:0) <Content>
     function create_default_slot$2(ctx) {
+    	let h1;
+    	let t1;
     	let datatable;
     	let updating_selectedRowIds;
-    	let t0;
+    	let t2;
     	let modal;
     	let updating_open;
-    	let t1;
+    	let t3;
     	let add;
     	let updating_openModal;
-    	let t2;
+    	let t4;
     	let edit;
     	let updating_openModal_1;
-    	let t3;
+    	let t5;
     	let delete_1;
     	let updating_openModal_2;
-    	let t4;
+    	let t6;
     	let if_block_anchor;
     	let current;
 
@@ -33178,30 +33180,36 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			create_component(datatable.$$.fragment);
-    			t0 = space();
-    			create_component(modal.$$.fragment);
+    			h1 = element("h1");
+    			h1.textContent = "Administration";
     			t1 = space();
-    			create_component(add.$$.fragment);
+    			create_component(datatable.$$.fragment);
     			t2 = space();
-    			create_component(edit.$$.fragment);
+    			create_component(modal.$$.fragment);
     			t3 = space();
-    			create_component(delete_1.$$.fragment);
+    			create_component(add.$$.fragment);
     			t4 = space();
+    			create_component(edit.$$.fragment);
+    			t5 = space();
+    			create_component(delete_1.$$.fragment);
+    			t6 = space();
     			if (if_block) if_block.c();
     			if_block_anchor = empty();
+    			add_location(h1, file$2, 102, 4, 2974);
     		},
     		m: function mount(target, anchor) {
-    			mount_component(datatable, target, anchor);
-    			insert_dev(target, t0, anchor);
-    			mount_component(modal, target, anchor);
+    			insert_dev(target, h1, anchor);
     			insert_dev(target, t1, anchor);
-    			mount_component(add, target, anchor);
+    			mount_component(datatable, target, anchor);
     			insert_dev(target, t2, anchor);
-    			mount_component(edit, target, anchor);
+    			mount_component(modal, target, anchor);
     			insert_dev(target, t3, anchor);
-    			mount_component(delete_1, target, anchor);
+    			mount_component(add, target, anchor);
     			insert_dev(target, t4, anchor);
+    			mount_component(edit, target, anchor);
+    			insert_dev(target, t5, anchor);
+    			mount_component(delete_1, target, anchor);
+    			insert_dev(target, t6, anchor);
     			if (if_block) if_block.m(target, anchor);
     			insert_dev(target, if_block_anchor, anchor);
     			current = true;
@@ -33307,16 +33315,18 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			destroy_component(datatable, detaching);
-    			if (detaching) detach_dev(t0);
-    			destroy_component(modal, detaching);
+    			if (detaching) detach_dev(h1);
     			if (detaching) detach_dev(t1);
-    			destroy_component(add, detaching);
+    			destroy_component(datatable, detaching);
     			if (detaching) detach_dev(t2);
-    			destroy_component(edit, detaching);
+    			destroy_component(modal, detaching);
     			if (detaching) detach_dev(t3);
-    			destroy_component(delete_1, detaching);
+    			destroy_component(add, detaching);
     			if (detaching) detach_dev(t4);
+    			destroy_component(edit, detaching);
+    			if (detaching) detach_dev(t5);
+    			destroy_component(delete_1, detaching);
+    			if (detaching) detach_dev(t6);
     			if (if_block) if_block.d(detaching);
     			if (detaching) detach_dev(if_block_anchor);
     		}
@@ -33326,7 +33336,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$2.name,
     		type: "slot",
-    		source: "(104:0) <Content>",
+    		source: "(102:0) <Content>",
     		ctx
     	});
 
@@ -59668,7 +59678,7 @@ var app = (function () {
     const { console: console_1 } = globals;
     const file$1 = "src\\Scanner.svelte";
 
-    // (69:12) <Column>
+    // (70:12) <Column>
     function create_default_slot_7(ctx) {
     	let reader;
 
@@ -59677,7 +59687,7 @@ var app = (function () {
     			reader = element("reader");
     			attr_dev(reader, "id", "reader");
     			attr_dev(reader, "class", "svelte-1azaowu");
-    			add_location(reader, file$1, 69, 16, 1839);
+    			add_location(reader, file$1, 70, 16, 1826);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, reader, anchor);
@@ -59692,14 +59702,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7.name,
     		type: "slot",
-    		source: "(69:12) <Column>",
+    		source: "(70:12) <Column>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (73:16) <Button on:click={start}>
+    // (74:16) <Button on:click={start}>
     function create_default_slot_6(ctx) {
     	let t;
 
@@ -59719,14 +59729,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(73:16) <Button on:click={start}>",
+    		source: "(74:16) <Button on:click={start}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (74:16) <Button on:click={stop}>
+    // (75:16) <Button on:click={stop}>
     function create_default_slot_5(ctx) {
     	let t;
 
@@ -59746,14 +59756,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(74:16) <Button on:click={stop}>",
+    		source: "(75:16) <Button on:click={stop}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (72:12) <Column>
+    // (73:12) <Column>
     function create_default_slot_4$1(ctx) {
     	let button0;
     	let t;
@@ -59830,14 +59840,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$1.name,
     		type: "slot",
-    		source: "(72:12) <Column>",
+    		source: "(73:12) <Column>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (68:8) <Row>
+    // (69:8) <Row>
     function create_default_slot_3$1(ctx) {
     	let column0;
     	let t;
@@ -59910,7 +59920,7 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$1.name,
     		type: "slot",
-    		source: "(68:8) <Row>",
+    		source: "(69:8) <Row>",
     		ctx
     	});
 
@@ -59919,6 +59929,8 @@ var app = (function () {
 
     // (67:4) <Grid>
     function create_default_slot_2$1(ctx) {
+    	let h1;
+    	let t1;
     	let row;
     	let current;
 
@@ -59932,9 +59944,15 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
+    			h1 = element("h1");
+    			h1.textContent = "Scanner";
+    			t1 = space();
     			create_component(row.$$.fragment);
+    			add_location(h1, file$1, 67, 8, 1755);
     		},
     		m: function mount(target, anchor) {
+    			insert_dev(target, h1, anchor);
+    			insert_dev(target, t1, anchor);
     			mount_component(row, target, anchor);
     			current = true;
     		},
@@ -59957,6 +59975,8 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h1);
+    			if (detaching) detach_dev(t1);
     			destroy_component(row, detaching);
     		}
     	};
@@ -59972,7 +59992,7 @@ var app = (function () {
     	return block;
     }
 
-    // (104:8) {:else}
+    // (105:8) {:else}
     function create_else_block(ctx) {
     	let div;
     	let label;
@@ -59988,14 +60008,14 @@ var app = (function () {
     			input = element("input");
     			attr_dev(label, "for", "result-status-false");
     			attr_dev(label, "class", "bx--label");
-    			add_location(label, file$1, 105, 16, 3553);
+    			add_location(label, file$1, 106, 16, 3540);
     			input.readOnly = true;
     			attr_dev(input, "id", "result-status-false");
     			attr_dev(input, "class", "bx--text-input input-red svelte-1azaowu");
     			input.value = "Der Mitarbeiter hat keinen Zugang";
-    			add_location(input, file$1, 106, 16, 3636);
+    			add_location(input, file$1, 107, 16, 3623);
     			attr_dev(div, "class", "bx--form-item bx--text-input-wrapper");
-    			add_location(div, file$1, 104, 12, 3485);
+    			add_location(div, file$1, 105, 12, 3472);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -60012,14 +60032,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(104:8) {:else}",
+    		source: "(105:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (99:8) {#if result.status}
+    // (100:8) {#if result.status}
     function create_if_block$1(ctx) {
     	let div;
     	let label;
@@ -60035,14 +60055,14 @@ var app = (function () {
     			input = element("input");
     			attr_dev(label, "for", "result-status-true");
     			attr_dev(label, "class", "bx--label");
-    			add_location(label, file$1, 100, 16, 3237);
+    			add_location(label, file$1, 101, 16, 3224);
     			input.readOnly = true;
     			attr_dev(input, "id", "result-status-true");
     			attr_dev(input, "class", "bx--text-input input-green svelte-1azaowu");
     			input.value = "Der Mitarbeiter hat noch Zugang";
-    			add_location(input, file$1, 101, 16, 3319);
+    			add_location(input, file$1, 102, 16, 3306);
     			attr_dev(div, "class", "bx--form-item bx--text-input-wrapper");
-    			add_location(div, file$1, 99, 12, 3169);
+    			add_location(div, file$1, 100, 12, 3156);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -60059,14 +60079,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(99:8) {#if result.status}",
+    		source: "(100:8) {#if result.status}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (78:4) <Modal              bind:open              modalHeading="Resultat Mitarbeiter Scan"              primaryButtonText="New Scan"              on:click:button--primary={() => (open = false)}              on:open              on:close              on:submit      >
+    // (79:4) <Modal              bind:open              modalHeading="Resultat Mitarbeiter Scan"              primaryButtonText="New Scan"              on:click:button--primary={() => (open = false)}              on:open              on:close              on:submit      >
     function create_default_slot_1$1(ctx) {
     	let div0;
     	let label0;
@@ -60120,34 +60140,34 @@ var app = (function () {
     			if_block_anchor = empty();
     			attr_dev(label0, "for", "result-firstname");
     			attr_dev(label0, "class", "bx--label");
-    			add_location(label0, file$1, 87, 12, 2416);
+    			add_location(label0, file$1, 88, 12, 2403);
     			input0.readOnly = true;
     			attr_dev(input0, "id", "result-firstname");
     			attr_dev(input0, "class", "bx--text-input");
     			input0.value = input0_value_value = /*result*/ ctx[0].vorname;
-    			add_location(input0, file$1, 88, 12, 2493);
+    			add_location(input0, file$1, 89, 12, 2480);
     			attr_dev(div0, "class", "bx--form-item bx--text-input-wrapper");
-    			add_location(div0, file$1, 86, 8, 2352);
+    			add_location(div0, file$1, 87, 8, 2339);
     			attr_dev(label1, "for", "result-name");
     			attr_dev(label1, "class", "bx--label");
-    			add_location(label1, file$1, 91, 12, 2667);
+    			add_location(label1, file$1, 92, 12, 2654);
     			input1.readOnly = true;
     			attr_dev(input1, "id", "result-name");
     			attr_dev(input1, "class", "bx--text-input");
     			input1.value = input1_value_value = /*result*/ ctx[0].nachname;
-    			add_location(input1, file$1, 92, 12, 2740);
+    			add_location(input1, file$1, 93, 12, 2727);
     			attr_dev(div1, "class", "bx--form-item bx--text-input-wrapper");
-    			add_location(div1, file$1, 90, 8, 2603);
+    			add_location(div1, file$1, 91, 8, 2590);
     			attr_dev(label2, "for", "result-birthday");
     			attr_dev(label2, "class", "bx--label");
-    			add_location(label2, file$1, 95, 12, 2910);
+    			add_location(label2, file$1, 96, 12, 2897);
     			input2.readOnly = true;
     			attr_dev(input2, "id", "result-birthday");
     			attr_dev(input2, "class", "bx--text-input");
     			input2.value = input2_value_value = new Date(/*result*/ ctx[0].geburtsdatum).toLocaleDateString();
-    			add_location(input2, file$1, 96, 12, 2991);
+    			add_location(input2, file$1, 97, 12, 2978);
     			attr_dev(div2, "class", "bx--form-item bx--text-input-wrapper");
-    			add_location(div2, file$1, 94, 8, 2846);
+    			add_location(div2, file$1, 95, 8, 2833);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -60207,7 +60227,7 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$1.name,
     		type: "slot",
-    		source: "(78:4) <Modal              bind:open              modalHeading=\\\"Resultat Mitarbeiter Scan\\\"              primaryButtonText=\\\"New Scan\\\"              on:click:button--primary={() => (open = false)}              on:open              on:close              on:submit      >",
+    		source: "(79:4) <Modal              bind:open              modalHeading=\\\"Resultat Mitarbeiter Scan\\\"              primaryButtonText=\\\"New Scan\\\"              on:click:button--primary={() => (open = false)}              on:open              on:close              on:submit      >",
     		ctx
     	});
 
@@ -60382,7 +60402,7 @@ var app = (function () {
     	let scanning = false;
     	let html5Qrcode;
     	let result = {};
-    	let open = true;
+    	let open = false;
 
     	async function getPersonalItem(id) {
     		let httpHeaders = new Headers({
@@ -60472,9 +60492,6 @@ var app = (function () {
     		Row: Row$1,
     		Column: Column$1,
     		Modal: Modal$1,
-    		TextInput: TextInput$1,
-    		RadioButtonGroup: RadioButtonGroup$1,
-    		RadioButton: RadioButton$1,
     		Html5Qrcode,
     		onMount,
     		scanning,
@@ -60616,7 +60633,7 @@ var app = (function () {
     			add_location(img, file, 19, 20, 533);
     			attr_dev(button, "id", "button-admin");
     			attr_dev(button, "class", "bx--btn true bx--btn--field bx--btn--primary svelte-x84rem");
-    			add_location(button, file, 20, 20, 685);
+    			add_location(button, file, 20, 20, 683);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -60625,8 +60642,8 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(img, "keydown", /*keydown_handler*/ ctx[3], false, false, false),
-    					listen_dev(button, "click", /*click_handler*/ ctx[4], false, false, false)
+    					listen_dev(img, "click", /*click_handler*/ ctx[3], false, false, false),
+    					listen_dev(button, "click", /*click_handler_1*/ ctx[4], false, false, false)
     				];
 
     				mounted = true;
@@ -60672,10 +60689,10 @@ var app = (function () {
     			attr_dev(img, "alt", "scanner");
     			attr_dev(img, "width", "300");
     			attr_dev(img, "height", "300");
-    			add_location(img, file, 25, 20, 974);
+    			add_location(img, file, 25, 20, 972);
     			attr_dev(button, "id", "button-scanner");
     			attr_dev(button, "class", "bx--btn true bx--btn--field bx--btn--primary svelte-x84rem");
-    			add_location(button, file, 26, 20, 1114);
+    			add_location(button, file, 26, 20, 1110);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -60684,8 +60701,8 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(img, "keydown", /*keydown_handler_1*/ ctx[5], false, false, false),
-    					listen_dev(button, "click", /*click_handler_1*/ ctx[6], false, false, false)
+    					listen_dev(img, "click", /*click_handler_2*/ ctx[5], false, false, false),
+    					listen_dev(button, "click", /*click_handler_3*/ ctx[6], false, false, false)
     				];
 
     				mounted = true;
@@ -61173,10 +61190,10 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<App> was created with unknown prop '${key}'`);
     	});
 
-    	const keydown_handler = () => ($$invalidate(1, content = false), $$invalidate(0, admin = true));
     	const click_handler = () => ($$invalidate(1, content = false), $$invalidate(0, admin = true));
-    	const keydown_handler_1 = () => ($$invalidate(1, content = false), $$invalidate(2, scanner = true));
-    	const click_handler_1 = () => ($$invalidate(1, content = false), $$invalidate(2, scanner = true));
+    	const click_handler_1 = () => ($$invalidate(1, content = false), $$invalidate(0, admin = true));
+    	const click_handler_2 = () => ($$invalidate(1, content = false), $$invalidate(2, scanner = true));
+    	const click_handler_3 = () => ($$invalidate(1, content = false), $$invalidate(2, scanner = true));
 
     	$$self.$capture_state = () => ({
     		Header: Header$1,
@@ -61207,10 +61224,10 @@ var app = (function () {
     		admin,
     		content,
     		scanner,
-    		keydown_handler,
     		click_handler,
-    		keydown_handler_1,
-    		click_handler_1
+    		click_handler_1,
+    		click_handler_2,
+    		click_handler_3
     	];
     }
 

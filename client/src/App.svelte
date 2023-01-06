@@ -17,13 +17,13 @@
             <Row>
                 <Column></Column>
                 <Column>
-                    <img src="img/administration.png" alt="administration" width="300" height="300" on:keydown={()=> (content = false, admin = true)}>
+                    <img src="img/administration.png" alt="administration" width="300" height="300" on:click={()=> (content = false, admin = true)}>
                     <button id="button-admin" on:click={()=> (content = false, admin = true)}
                             class="bx--btn true bx--btn--field bx--btn--primary">Administration</button>
                 </Column>
                 <Column></Column>
                 <Column>
-                    <img src="img/scanner.jpg" alt="scanner" width="300" height="300" on:keydown={()=> (content = false, scanner = true)}>
+                    <img src="img/scanner.jpg" alt="scanner" width="300" height="300" on:click={()=> (content = false, scanner = true)}>
                     <button id="button-scanner" on:click={()=> (content = false, scanner = true)}
                     class="bx--btn true bx--btn--field bx--btn--primary">Scanner</button>
                 </Column>

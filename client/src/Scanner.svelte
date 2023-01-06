@@ -1,12 +1,12 @@
 <script>
-    import {Content, Button, Grid, Row, Column, Modal, TextInput,RadioButtonGroup, RadioButton} from "carbon-components-svelte";
+    import {Content, Button, Grid, Row, Column, Modal,} from "carbon-components-svelte";
     import { Html5Qrcode } from "html5-qrcode";
     import { onMount } from "svelte";
 
     let scanning = false
     let html5Qrcode
     let result = {};
-    let open = true;
+    let open = false;
 
     export async function getPersonalItem(id) {
         let httpHeaders = new Headers({
@@ -65,6 +65,7 @@
 </script>
 <Content>
     <Grid>
+        <h1>Scanner</h1>
         <Row>
             <Column>
                 <reader id="reader"></reader>
