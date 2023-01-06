@@ -73,10 +73,8 @@ public class GuiTest {
         adminButton.click();
         WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
         searchField.sendKeys("perko");
-        ArrayList<WebElement> listOfTdElements = (ArrayList<WebElement>) driver.findElements(PersonalPo.tdTagSelector());
-        String testFamiliyName = listOfTdElements.get(1).getText();
-        assertEquals("Perko", testFamiliyName);
-
+        WebElement tdFamiliyName = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[2]"));
+        assertEquals("Perko", tdFamiliyName.getText());
     }
 
 //    @Test
