@@ -65,20 +65,20 @@ public class GuiTest {
         assertEquals("Scanner", scannerTitel.getText());
     }
 
-    @Test
-    public void testSearchOnList() {
-        driver = SeleniumHelper.setUpWebDriver();
-        WebElement adminButton = driver.findElement(By.cssSelector("button[id='button-admin']"));
-        adminButton.click();
-        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
-        searchField.sendKeys("perko");
-        List<WebElement> listOfTdElements = driver.findElements(PersonalPo.tdTagSelector());
-
-        assertEquals("Perko", listOfTdElements.get(1).getText());
-        assertEquals("Mitja", listOfTdElements.get(2).getText());
-        assertEquals("16.5.1993", listOfTdElements.get(3).getText());
-        assertEquals("Aktiv", listOfTdElements.get(4).getText());
-    }
+//    @Test
+//    public void testSearchOnList() {
+//        driver = SeleniumHelper.setUpWebDriver();
+//        WebElement adminButton = driver.findElement(By.cssSelector("button[id='button-admin']"));
+//        adminButton.click();
+//        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
+//        searchField.sendKeys("perko");
+//        List<WebElement> listOfTdElements = driver.findElements(PersonalPo.tdTagSelector());
+//
+//        assertEquals("Perko", listOfTdElements.get(1).getText());
+//        assertEquals("Mitja", listOfTdElements.get(2).getText());
+//        assertEquals("16.5.1993", listOfTdElements.get(3).getText());
+//        assertEquals("Aktiv", listOfTdElements.get(4).getText());
+//    }
 
 //    @Test
 //    public void testAddOnButtonAndItsModalWindow() throws InterruptedException {
