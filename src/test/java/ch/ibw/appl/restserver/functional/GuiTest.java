@@ -75,6 +75,7 @@ public class GuiTest {
         WebElement table = mainContent.findElement(By.tagName("table"));
         List<WebElement> tds = table.findElements(By.tagName("td"));
         String result = "";
+        assertEquals("anzahl", tds.size());
         for (WebElement td : tds) {
             assertEquals("Perko", td.getText());
             if(td.getText().contains("Perko")) {
