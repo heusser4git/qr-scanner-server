@@ -73,8 +73,8 @@ public class GuiTest {
         WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
         searchField.sendKeys("perko");
         List<WebElement> listOfTdElements = driver.findElements(PersonalPo.tdTagSelector());
-
-        assertEquals("Perko", listOfTdElements.get(1).getText());
+        String testFamiliyName = listOfTdElements.get(1).getText();
+        assertEquals("Perko", testFamiliyName);
     }
 
 //    @Test
