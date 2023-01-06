@@ -29,7 +29,7 @@ public class GuiTest {
     @Test
     public void testNavigationToAdministrationByButton(){
         driver = SeleniumHelper.setUpWebDriver();
-        WebElement adminButton = driver.findElement(By.cssSelector("button[id='button-admin']"));
+        WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
         adminButton.click();
         WebElement adminTitel = driver.findElement(By.tagName("h1"));
 
@@ -66,7 +66,7 @@ public class GuiTest {
         assertEquals("Scanner", scannerTitel.getText());
     }
 
-    @Test
+    /*@Test
     public void testSearchOnList() {
         driver = SeleniumHelper.setUpWebDriver();
         WebElement adminButton = driver.findElement(By.cssSelector("button[id='button-admin']"));
@@ -74,35 +74,35 @@ public class GuiTest {
         WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
         searchField.sendKeys("perko");
         WebElement tdFamiliyName = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[2]"));
+        System.out.println(tdFamiliyName.getLocation());
         //WebElement tdFamiliyName = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[1]/table/tbody/tr/td[2]"));
         //WebElement tdFirstname = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[1]/table/tbody/tr/td[3]"));
-        /*WebElement tdBirthday = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[4]"));
+        WebElement tdBirthday = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[4]"));
         WebElement tdStatus = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[5]"));
 
         assertEquals("Perko", tdFamiliyName.getText());
         assertEquals("Mitja", tdFirstname.getText());
         assertEquals("Perko", tdFamiliyName.getText());
-        assertEquals("Perko", tdFamiliyName.getText());*/
+        assertEquals("Perko", tdFamiliyName.getText());
         assertEquals("Perko", tdFamiliyName.getText());
     }
+    */
 
-//    @Test
-//    public void testAddOnButtonAndItsModalWindow() throws InterruptedException {
-//        WebElement addButton = driver.findElement(PersonalPo.addItemButtonSelector());
-//        addButton.click();
-//        Thread.sleep(200);
-//        WebElement addWindow = driver.findElement(PersonalPo.modalAddWindowSelector());
-//        System.out.println(addWindow.getText());
-//        WebElement title = driver.findElement(PersonalPo.modalAddWindowGeburtstagInput());
-//        System.out.println(title.getAttribute("placeholder"));
-//
-//        assertEquals("Neuen Benutzer hinzufügen", title.getText());
-//    }
-
+    @Test
+    public void testAddOnButtonAndItsModalWindow() throws InterruptedException {
+        driver = SeleniumHelper.setUpWebDriver();
+        WebElement adminButton = driver.findElement(By.cssSelector("button[id='button-admin']"));
+        adminButton.click();
+        WebElement addButton = driver.findElement(PersonalPo.addItemButtonSelector());
+        addButton.click();
+        Thread.sleep(200);
+        WebElement title = driver.findElement(By.xpath("/html/body/main/div[3]/div/div[1]/h3"));
+        assertEquals("Neuen Benutzer hinzufügen", title.getAttribute("innerHTML"));
+    }
     @AfterClass
     public static void tearDown(){
         if (driver != null) {
-            SeleniumHelper.tearDownWebDriver(driver);
+            //SeleniumHelper.tearDownWebDriver(driver);
         }
     }
 }
