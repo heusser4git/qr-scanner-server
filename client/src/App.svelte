@@ -2,6 +2,7 @@
     import "carbon-components-svelte/css/white.css";
     import {Header, Content, Grid, Row, Column, Button, ImageLoader} from "carbon-components-svelte";
     import Admin from "./Admin.svelte";
+    import Scanner from "./Scanner.svelte";
 
     let admin = false
     let content = true
@@ -16,13 +17,13 @@
             <Row>
                 <Column></Column>
                 <Column>
-                    <img src="img/administration.png" alt="administration" width="300" height="300" on:click={()=> (content = false, admin = true)}>
+                    <img src="img/administration.png" alt="administration" width="300" height="300" on:keydown={()=> (content = false, admin = true)}>
                     <button id="button-admin" on:click={()=> (content = false, admin = true)}
                             class="bx--btn true bx--btn--field bx--btn--primary">Administration</button>
                 </Column>
                 <Column></Column>
                 <Column>
-                    <img src="img/scanner.jpg" alt="scanner" width="300" height="300" on:click={()=> (content = false, scanner = true)}>
+                    <img src="img/scanner.jpg" alt="scanner" width="300" height="300" on:keydown={()=> (content = false, scanner = true)}>
                     <button id="button-scanner" on:click={()=> (content = false, scanner = true)}
                     class="bx--btn true bx--btn--field bx--btn--primary">Scanner</button>
                 </Column>
@@ -34,6 +35,9 @@
 
 {#if admin}
     <Admin/>
+{/if}
+{#if scanner}
+    <Scanner/>
 {/if}
 <style>
     #button-admin{

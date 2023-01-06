@@ -1,11 +1,6 @@
 <script>
-    import { TextArea, Button, Link, ImageLoader } from "carbon-components-svelte";
-    import QRCode from "svelte-qrcode"
     import { Html5Qrcode } from "html5-qrcode";
     import { onMount } from "svelte";
-
-    let qrText = "";
-    let image;
 
     // Scanner
     let scanning = false
@@ -54,12 +49,6 @@
 
 </script>
 <main>
-
-
-    <TextArea labelText="App description" placeholder="Enter a description..." bind:value={qrText}/>
-
-    <QRCode value={qrText} bind:image={image}/>
-    <Link bind:href={image} download>download</Link>
     <reader id="reader"></reader>
     {#if scanning}
         <button on:click={stop}>stop</button>
@@ -67,16 +56,6 @@
         <button on:click={start}>start</button>
     {/if}
 </main>
-    <!--
-    $Input Feld für Text eingabe
-
-    $Button um den QR-Code zu generieren
-
-    $Anzeige Feld um den generierten Code anzuzeigen
-
-    -->
-
-
 <style>
     main {
         display: flex;
