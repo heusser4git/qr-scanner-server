@@ -76,6 +76,7 @@ public class GuiTest {
         ArrayList<WebElement> listOfTdElements = (ArrayList<WebElement>) driver.findElements(PersonalPo.tdTagSelector());
         String testFamiliyName = listOfTdElements.get(1).getText();
         assertEquals("Perko", testFamiliyName);
+
     }
 
 //    @Test
