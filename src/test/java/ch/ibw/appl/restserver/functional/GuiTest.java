@@ -3,13 +3,11 @@ package ch.ibw.appl.restserver.functional;
 import ch.ibw.appl.restserver.functional.shared.guitest.PersonalPo;
 import ch.ibw.appl.restserver.functional.shared.guitest.SeleniumHelper;
 import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -66,27 +64,26 @@ public class GuiTest {
         assertEquals("Scanner", scannerTitel.getText());
     }
 
-    /*@Test
+    @Test
     public void testSearchOnList() {
         driver = SeleniumHelper.setUpWebDriver();
         WebElement adminButton = driver.findElement(By.cssSelector("button[id='button-admin']"));
         adminButton.click();
         WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
         searchField.sendKeys("perko");
-        WebElement tdFamiliyName = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[2]"));
-        System.out.println(tdFamiliyName.getLocation());
-        //WebElement tdFamiliyName = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[1]/table/tbody/tr/td[2]"));
-        //WebElement tdFirstname = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[1]/table/tbody/tr/td[3]"));
-        WebElement tdBirthday = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[4]"));
-        WebElement tdStatus = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[5]"));
+        WebElement mainContent = driver.findElement(By.cssSelector("main[id='main-content']"));
+        WebElement table = mainContent.findElement(By.tagName("table"));
+        List<WebElement> tds = table.findElements(By.tagName("td"));
+        String result = "";
+        for (WebElement td : tds) {
+            if(td.getText().contains("Perko")) {
+                result = td.getText();
+            }
+        }
 
-        assertEquals("Perko", tdFamiliyName.getText());
-        assertEquals("Mitja", tdFirstname.getText());
-        assertEquals("Perko", tdFamiliyName.getText());
-        assertEquals("Perko", tdFamiliyName.getText());
-        assertEquals("Perko", tdFamiliyName.getText());
+        assertEquals("Perko", result);
     }
-    */
+
 
     @Test
     public void testAddOnButtonAndItsModalWindow() throws InterruptedException {
