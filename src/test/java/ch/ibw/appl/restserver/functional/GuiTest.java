@@ -74,6 +74,7 @@ public class GuiTest {
         searchField.sendKeys("perko");
         Thread.sleep(1000);
         WebElement mainContent = driver.findElement(By.cssSelector("main[id='main-content']"));
+        assertEquals("maincontent", mainContent.getText());
         WebElement table = mainContent.findElement(By.tagName("table"));
         List<WebElement> tds = table.findElements(By.tagName("td"));
         String result = "";
