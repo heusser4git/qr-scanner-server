@@ -75,8 +75,8 @@ public class GuiTest {
         Thread.sleep(1000);
         WebElement mainContent = driver.findElement(By.cssSelector("main[id='main-content']"));
         WebElement table = mainContent.findElement(By.tagName("table"));
-        assertEquals("table", table.getText());
-        List<WebElement> tds = table.findElements(By.tagName("td"));
+        WebElement tr = table.findElement(By.cssSelector("tr[data-row='2']"));
+        List<WebElement> tds = tr.findElements(By.tagName("td"));
         String result = "";
         assertEquals("anzahl", tds.size());
         for (WebElement td : tds) {
