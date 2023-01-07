@@ -88,7 +88,7 @@ public class GuiTest {
         adminButton.click();
         WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
         searchField.sendKeys("perko");
-        WebElement td = driver.findElement(By.id("result"));
+        WebElement td = driver.findElement(By.cssSelector("p[id='result']"));
         //System.out.println(td.toString());
         assertEquals("Mitja", td.getText());
     }
