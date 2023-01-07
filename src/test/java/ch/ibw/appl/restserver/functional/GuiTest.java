@@ -59,12 +59,13 @@ public class GuiTest {
     }
 
     @Test
-    public void testSearchOnList() {
+    public void testSearchOnList() throws InterruptedException {
         driver = SeleniumHelper.setUpWebDriver();
         WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
         adminButton.click();
         WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
         searchField.sendKeys("perko");
+        Thread.sleep(200);
         WebElement tdFamiliyName = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[2]"));
         //System.out.println(tdFamiliyName.getLocation());
         //WebElement tdFamiliyName = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[1]/table/tbody/tr/td[2]"));
