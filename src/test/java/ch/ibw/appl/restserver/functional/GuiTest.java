@@ -63,10 +63,10 @@ public class GuiTest {
         driver = SeleniumHelper.setUpWebDriver();
         WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
         adminButton.click();
-        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
-        searchField.sendKeys("perko");
+        //WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
+        //searchField.sendKeys("perko");
         Thread.sleep(200);
-        WebElement tdFamiliyName = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[2]"));
+        WebElement tdFamiliyName = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr[2]/td[2]"));
         //System.out.println(tdFamiliyName.getLocation());
         //WebElement tdFamiliyName = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[1]/table/tbody/tr/td[2]"));
         //WebElement tdFirstname = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[1]/table/tbody/tr/td[3]"));
