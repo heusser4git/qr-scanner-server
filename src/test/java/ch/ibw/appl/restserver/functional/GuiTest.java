@@ -3,20 +3,15 @@ package ch.ibw.appl.restserver.functional;
 import ch.ibw.appl.restserver.functional.shared.guitest.PersonalPo;
 import ch.ibw.appl.restserver.functional.shared.guitest.SeleniumHelper;
 import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 
 public class GuiTest {
     private static WebDriver driver;
-
 
     @Test
     public void testHeaderText() {
@@ -31,39 +26,36 @@ public class GuiTest {
         driver = SeleniumHelper.setUpWebDriver();
         WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
         adminButton.click();
-        WebElement adminTitel = driver.findElement(By.tagName("h1"));
-
-        assertEquals("Administration", adminTitel.getText());
+        WebElement adminTitle = driver.findElement(PersonalPo.h1TagSelector());
+        assertEquals("Administration", adminTitle.getText());
     }
 
     @Test
     public void testNavigationToAdministrationByPicture(){
         driver = SeleniumHelper.setUpWebDriver();
-        WebElement adminPicture = driver.findElement(By.cssSelector("img[src='img/administration.png']"));
+        WebElement adminPicture = driver.findElement(PersonalPo.imgAdministrationSelector());
         adminPicture.click();
-        WebElement adminTitel = driver.findElement(By.tagName("h1"));
-
-        assertEquals("Administration", adminTitel.getText());
+        WebElement adminTitle = driver.findElement(PersonalPo.h1TagSelector());
+        assertEquals("Administration", adminTitle.getText());
     }
 
     @Test
     public void testNavigationToScannerByButton(){
         driver = SeleniumHelper.setUpWebDriver();
-        WebElement scannerButton = driver.findElement(By.cssSelector("button[id='button-scanner']"));
+        WebElement scannerButton = driver.findElement(PersonalPo.scannerButtonSelector());
         scannerButton.click();
-        WebElement scannerTitel = driver.findElement(By.tagName("h1"));
+        WebElement scannerTitle = driver.findElement(PersonalPo.h1TagSelector());
 
-        assertEquals("Scanner", scannerTitel.getText());
+        assertEquals("Scanner", scannerTitle.getText());
     }
 
     @Test
     public void testNavigationToScannerByPicture(){
         driver = SeleniumHelper.setUpWebDriver();
-        WebElement scannerPicture = driver.findElement(By.cssSelector("img[src='img/scanner.jpg']"));
+        WebElement scannerPicture = driver.findElement(PersonalPo.imgScannerSelector());
         scannerPicture.click();
-        WebElement scannerTitel = driver.findElement(By.tagName("h1"));
-
-        assertEquals("Scanner", scannerTitel.getText());
+        WebElement scannerTitle = driver.findElement(PersonalPo.h1TagSelector());
+        assertEquals("Scanner", scannerTitle.getText());
     }
 
     /*@Test
@@ -91,18 +83,18 @@ public class GuiTest {
     @Test
     public void testAddOnButtonAndItsModalWindow() throws InterruptedException {
         driver = SeleniumHelper.setUpWebDriver();
-        WebElement adminButton = driver.findElement(By.cssSelector("button[id='button-admin']"));
+        WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
         adminButton.click();
         WebElement addButton = driver.findElement(PersonalPo.addItemButtonSelector());
         addButton.click();
         Thread.sleep(200);
-        WebElement title = driver.findElement(By.xpath("/html/body/main/div[3]/div/div[1]/h3"));
+        WebElement title = driver.findElement(PersonalPo.addModalTitleSelector());
         assertEquals("Neuen Benutzer hinzufügen", title.getAttribute("innerHTML"));
     }
     @AfterClass
     public static void tearDown(){
         if (driver != null) {
-            //SeleniumHelper.tearDownWebDriver(driver);
+            SeleniumHelper.tearDownWebDriver(driver);
         }
     }
 }
