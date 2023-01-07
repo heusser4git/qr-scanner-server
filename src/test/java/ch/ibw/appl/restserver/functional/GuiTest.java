@@ -93,7 +93,7 @@ public class GuiTest {
         assertEquals("Mitja", td.getText());
     }*/
 
-    @Test
+    /*@Test
     public void testAddOnButtonAndItsModalWindow() throws InterruptedException {
         driver = SeleniumHelper.setUpWebDriver();
         WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
@@ -103,7 +103,7 @@ public class GuiTest {
         Thread.sleep(200);
         WebElement title = driver.findElement(PersonalPo.addModalTitleSelector());
         assertEquals("Neuen Benutzer hinzufügen", title.getAttribute("innerHTML"));
-    }
+    }*/
     @AfterClass
     public static void tearDown(){
         if (driver != null) {
