@@ -86,9 +86,11 @@ public class GuiTest {
         driver = SeleniumHelper.setUpWebDriver();
         WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
         adminButton.click();
-        WebElement td = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr[1]/td[2]"));
+        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
+        searchField.sendKeys("perko");
+        WebElement td = driver.findElement(By.id("result"));
         //System.out.println(td.toString());
-        assertEquals("Heusser", td.getText());
+        assertEquals("Mitja", td.getText());
     }
 
     @Test

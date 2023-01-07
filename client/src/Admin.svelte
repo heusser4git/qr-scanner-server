@@ -1,7 +1,7 @@
 <script>
     import {
         Content, DataTable, Toolbar, ToolbarContent, ToolbarSearch,
-        ToolbarBatchActions, Button, Modal, Grid, Row, Column, ToastNotification
+        ToolbarBatchActions, Button, Modal, Grid, Row, Column, ToastNotification, Link
     } from "carbon-components-svelte";
     import EditIcon from "carbon-icons-svelte/lib/Edit.svelte";
     import Trash from "carbon-icons-svelte/lib/TrashCan.svelte";
@@ -11,6 +11,7 @@
     import Edit from "./Edit.svelte";
     import QRCode from "svelte-qrcode";
     import Delete from "./Delete.svelte";
+    import {Launch} from "carbon-icons-svelte";
 
     const headers = [
         {key: "nachname", value: "Nachname"},
@@ -116,8 +117,14 @@
                 <Button class="addButton" icon={AddIcon} on:click={()=>(openAdd = true)}>Add Item</Button>
             </ToolbarContent>
         </Toolbar>
+        <svelte:fragment slot="cell" let:row let:cell>
+            {#if cell.key === "vorname" && cell.value === "Mitja"}
+                <p id="result">{cell.value}</p>
+            {:else}
+                {cell.value}
+            {/if}
+        </svelte:fragment>
     </DataTable>
-
     <Modal
             passiveModal
             size="sm"
