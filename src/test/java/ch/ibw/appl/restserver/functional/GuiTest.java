@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 public class GuiTest {
@@ -58,7 +60,7 @@ public class GuiTest {
         assertEquals("Scanner", scannerTitle.getText());
     }
 
-    @Test
+    /*@Test
     public void testSearchOnList() throws InterruptedException {
         driver = SeleniumHelper.setUpWebDriver();
         WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
@@ -78,6 +80,15 @@ public class GuiTest {
         //assertEquals("Perko", tdFamiliyName.getText());
         //assertEquals("Perko", tdFamiliyName.getText());
         //assertEquals("Perko", tdFamiliyName.getText());
+    }*/
+    @Test
+    public void testsample(){
+        driver = SeleniumHelper.setUpWebDriver();
+        WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
+        adminButton.click();
+        WebElement td = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr[1]/td[2]"));
+        //System.out.println(td.toString());
+        assertEquals("Heusser", td.getText());
     }
 
     @Test
