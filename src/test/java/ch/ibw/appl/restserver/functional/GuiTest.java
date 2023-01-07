@@ -58,27 +58,26 @@ public class GuiTest {
         assertEquals("Scanner", scannerTitle.getText());
     }
 
-    /*@Test
+    @Test
     public void testSearchOnList() {
         driver = SeleniumHelper.setUpWebDriver();
-        WebElement adminButton = driver.findElement(By.cssSelector("button[id='button-admin']"));
+        WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
         adminButton.click();
         WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
         searchField.sendKeys("perko");
         WebElement tdFamiliyName = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[2]"));
-        System.out.println(tdFamiliyName.getLocation());
+        //System.out.println(tdFamiliyName.getLocation());
         //WebElement tdFamiliyName = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[1]/table/tbody/tr/td[2]"));
         //WebElement tdFirstname = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[1]/table/tbody/tr/td[3]"));
-        WebElement tdBirthday = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[4]"));
-        WebElement tdStatus = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[5]"));
+        //WebElement tdBirthday = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[4]"));
+        //WebElement tdStatus = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[5]"));
 
         assertEquals("Perko", tdFamiliyName.getText());
-        assertEquals("Mitja", tdFirstname.getText());
-        assertEquals("Perko", tdFamiliyName.getText());
-        assertEquals("Perko", tdFamiliyName.getText());
-        assertEquals("Perko", tdFamiliyName.getText());
+        //assertEquals("Mitja", tdFirstname.getText());
+        //assertEquals("Perko", tdFamiliyName.getText());
+        //assertEquals("Perko", tdFamiliyName.getText());
+        //assertEquals("Perko", tdFamiliyName.getText());
     }
-    */
 
     @Test
     public void testAddOnButtonAndItsModalWindow() throws InterruptedException {
