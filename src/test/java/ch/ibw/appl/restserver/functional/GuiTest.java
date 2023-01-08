@@ -21,6 +21,7 @@ public class GuiTest {
         WebElement header = driver.findElement(PersonalPo.headerTagSelector());
         header.findElement(PersonalPo.aTagSelector());
         assertEquals("QR-Scanner", header.getText());
+        SeleniumHelper.tearDownWebDriver(driver);
     }
 
     @Test
@@ -30,6 +31,7 @@ public class GuiTest {
         adminButton.click();
         WebElement adminTitle = driver.findElement(PersonalPo.h1TagSelector());
         assertEquals("Administration", adminTitle.getText());
+        SeleniumHelper.tearDownWebDriver(driver);
     }
 
     @Test
@@ -39,6 +41,7 @@ public class GuiTest {
         adminPicture.click();
         WebElement adminTitle = driver.findElement(PersonalPo.h1TagSelector());
         assertEquals("Administration", adminTitle.getText());
+        SeleniumHelper.tearDownWebDriver(driver);
     }
 
     @Test
@@ -47,8 +50,8 @@ public class GuiTest {
         WebElement scannerButton = driver.findElement(PersonalPo.scannerButtonSelector());
         scannerButton.click();
         WebElement scannerTitle = driver.findElement(PersonalPo.h1TagSelector());
-
         assertEquals("Scanner", scannerTitle.getText());
+        SeleniumHelper.tearDownWebDriver(driver);
     }
 
     @Test
@@ -57,7 +60,9 @@ public class GuiTest {
         WebElement scannerPicture = driver.findElement(PersonalPo.imgScannerSelector());
         scannerPicture.click();
         WebElement scannerTitle = driver.findElement(PersonalPo.h1TagSelector());
-        assertEquals("Scanner", scannerTitle.getText());    }
+        assertEquals("Scanner", scannerTitle.getText());
+        SeleniumHelper.tearDownWebDriver(driver);
+    }
 
     /*@Test
     public void testSearchOnList() throws InterruptedException {
@@ -103,10 +108,10 @@ public class GuiTest {
         WebElement title = driver.findElement(PersonalPo.addModalTitleSelector());
         assertEquals("Neuen Benutzer hinzufügen", title.getAttribute("innerHTML"));
     }*/
-    @AfterClass
+    /*@AfterClass
     public static void tearDown(){
         if (driver != null) {
             SeleniumHelper.tearDownWebDriver(driver);
         }
-    }
+    }*/
 }
