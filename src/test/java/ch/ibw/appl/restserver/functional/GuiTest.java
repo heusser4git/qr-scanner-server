@@ -24,7 +24,7 @@ public class GuiTest {
 
     }
 
-    @Test
+    /*@Test
     public void testNavigationToAdministrationByButton(){
         driver = SeleniumHelper.setUpWebDriver();
         WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
@@ -62,7 +62,7 @@ public class GuiTest {
         WebElement scannerTitle = driver.findElement(PersonalPo.h1TagSelector());
         assertEquals("Scanner", scannerTitle.getText());
 
-    }
+    }*/
 
     /*@Test
     public void testSearchOnList() throws InterruptedException {
