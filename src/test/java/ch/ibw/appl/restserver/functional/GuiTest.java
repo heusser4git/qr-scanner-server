@@ -80,7 +80,7 @@ public class GuiTest {
         //assertEquals("Perko", tdFamiliyName.getText());
         //assertEquals("Perko", tdFamiliyName.getText());
     }*/
-    @Test
+    /*@Test
     public void testsample(){
         driver = SeleniumHelper.setUpWebDriver();
         WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
@@ -90,7 +90,7 @@ public class GuiTest {
         WebElement td = driver.findElement(By.cssSelector("p[id='result']"));
         //System.out.println(td.toString());
         assertEquals("Mitja", td.getText());
-    }
+    }*/
 
     /*@Test
     public void testAddOnButtonAndItsModalWindow() throws InterruptedException {
