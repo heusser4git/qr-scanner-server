@@ -57,8 +57,7 @@ public class GuiTest {
         WebElement scannerPicture = driver.findElement(PersonalPo.imgScannerSelector());
         scannerPicture.click();
         WebElement scannerTitle = driver.findElement(PersonalPo.h1TagSelector());
-        assertEquals("Scanner", scannerTitle.getText());
-    }
+        assertEquals("Scanner", scannerTitle.getText());    }
 
     /*@Test
     public void testSearchOnList() throws InterruptedException {
