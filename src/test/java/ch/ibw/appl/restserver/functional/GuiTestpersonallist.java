@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 import static org.junit.Assert.assertEquals;
 
 public class GuiTestpersonallist {
-    /*private static WebDriver driver;
+    private static WebDriver driver;
     @BeforeClass
     public static void setUp()
     {
@@ -30,5 +30,5 @@ public class GuiTestpersonallist {
         if (driver != null) {
             SeleniumHelper.tearDownWebDriver(driver);
         }
-    }*/
+    }
 }
