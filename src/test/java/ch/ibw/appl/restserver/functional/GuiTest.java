@@ -21,10 +21,9 @@ public class GuiTest {
         WebElement header = driver.findElement(PersonalPo.headerTagSelector());
         header.findElement(PersonalPo.aTagSelector());
         assertEquals("QR-Scanner", header.getText());
-
     }
 
-    /*@Test
+    @Test
     public void testNavigationToAdministrationByButton(){
         driver = SeleniumHelper.setUpWebDriver();
         WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
@@ -62,7 +61,7 @@ public class GuiTest {
         WebElement scannerTitle = driver.findElement(PersonalPo.h1TagSelector());
         assertEquals("Scanner", scannerTitle.getText());
 
-    }*/
+    }
 
     /*@Test
     public void testSearchOnList() throws InterruptedException {

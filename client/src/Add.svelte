@@ -1,11 +1,24 @@
 <script>
-    import {Modal, TextInput, RadioButtonGroup, RadioButton, DatePicker,DatePickerInput,Grid, Row, Column, ToastNotification} from "carbon-components-svelte";
-    import { createEventDispatcher } from 'svelte';
+    import {
+        Modal,
+        TextInput,
+        RadioButtonGroup,
+        RadioButton,
+        DatePicker,
+        DatePickerInput,
+        Grid,
+        Row,
+        Column,
+        ToastNotification,
+        InlineNotification
+    } from "carbon-components-svelte";
+    import {createEventDispatcher} from 'svelte';
+    import {checkString, checkDate} from "./inputChecker";
+
     export let openModal;
-    let errorMsg;
     const dispatch = createEventDispatcher();
 
-    function updateApp(){
+    function updateApp() {
         dispatch('update')
     }
 
@@ -13,23 +26,40 @@
     let vorname
     let geburtsdatum
     let status
-    let statusRadios =["Aktiv","Nicht Aktiv"];
+    let statusRadios = ["Aktiv", "Nicht Aktiv"];
     let statusRadio = statusRadios[0];
     let toastNotification = false;
+    let inputNotification = false;
 
-    async function addUser(){
-        if(statusRadio =="Aktiv"){
-            status = true;
-        }else {
-            status = false;
+    function checkInputData(firstname, surname, date) {
+        let isFirstnameOk = checkString(firstname)
+        let isSurnameOk = checkString(surname)
+        let isDateOk = checkDate(date)
+        if (isFirstnameOk && isSurnameOk && isDateOk) {
+            return true
+        } else {
+            return false
         }
-        let user = {
-            nachname: nachname,
-            vorname: vorname,
-            geburtsdatum: new Date(geburtsdatum),
-            status: status
-        }
+    }
 
+    function addUser() {
+        let check = checkInputData(vorname, nachname, new Date(geburtsdatum))
+        if (check) {
+            let user = {
+                nachname: nachname,
+                vorname: vorname,
+                geburtsdatum: new Date(geburtsdatum),
+                status: status
+            }
+            postUser(user)
+            openModal = false
+            inputNotification = false
+        } else {
+            inputNotification = true
+        }
+    }
+
+    async function postUser(user) {
         try {
             let headers = new Headers({
                 'Accept': 'application/json',
@@ -41,17 +71,12 @@
                 headers,
                 body: JSON.stringify(user)
             })
-            console.log(response)
-        }catch (ex){
-            errorMsg = ex
+        } catch (ex) {
             toastNotification = true;
         }
-        openModal = false
-        updateApp();
+        updateApp()
     }
 </script>
-
-
 <Modal
         class="higher-Modal"
         size="sm"
@@ -67,7 +92,7 @@
         <Row>
             <Column aspectRatio="2x1">
                 <DatePicker datePickerType="single" on:change bind:value={geburtsdatum}>
-                    <DatePickerInput labelText="Geburtsdatum" placeholder="mm/dd/yyyy" />
+                    <DatePickerInput labelText="Geburtsdatum" placeholder="mm/dd/yyyy"/>
                 </DatePicker>
             </Column>
             <Column aspectRatio="2x1">
@@ -93,13 +118,20 @@
             </Column>
         </Row>
     </Grid>
+    {#if inputNotification}
+        <InlineNotification
+                kind="warning-alt"
+                hideCloseButton={true}
+                title="Falsche Eingabe"
+                subtitle="Bitte überprüfen sie die Eingaben"
+        />
+    {/if}
 </Modal>
-
 {#if toastNotification}
     <ToastNotification
             hideCloseButton
-            title="Error"
-            subtitle="error 1 {errorMsg}"
+            title="Fehler"
+            subtitle="Keine Antwort vom Server, prüfen sie die Serverbindung oder laden sie die Seite neu mit F5"
             caption={new Date().toLocaleString()}
             on:click={()=> (toastNotification= false)}
     />

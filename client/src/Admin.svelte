@@ -1,7 +1,7 @@
 <script>
     import {
         Content, DataTable, Toolbar, ToolbarContent, ToolbarSearch,
-        ToolbarBatchActions, Button, Modal, Grid, Row, Column, ToastNotification, Link
+        ToolbarBatchActions, Button, Modal, Grid, Row, Column, ToastNotification,
     } from "carbon-components-svelte";
     import EditIcon from "carbon-icons-svelte/lib/Edit.svelte";
     import Trash from "carbon-icons-svelte/lib/TrashCan.svelte";
@@ -11,19 +11,33 @@
     import Edit from "./Edit.svelte";
     import QRCode from "svelte-qrcode";
     import Delete from "./Delete.svelte";
-    import {Launch} from "carbon-icons-svelte";
 
     const headers = [
         {key: "nachname", value: "Nachname"},
         {key: "vorname", value: "Vorname"},
-        {key: "geburtsdatum", value: "Geburtsdatum", display: (date) => new Date(date).toLocaleDateString()},
-        {key: "status", value: "Status", display: (status) => statusToString(status)},
+        {key: "geburtsdatum", value: "Geburtsdatum"}, //, display: (date) => new Date(date).toLocaleDateString()
+        {key: "status", value: "Status"}, //, display: (status) => statusToString(status)
         {key: "anzahlEintritte", value: "Besuche"},
     ];
 
-    let rows = [];
+    let rows = []
+    function rawRowsToRows(rawRows){
+        let manipulatedRows = [];
+        for (const rawRow of rawRows) {
+            let rowObject = {
+                id: rawRow.id,
+                nachname: rawRow.nachname,
+                vorname: rawRow.vorname,
+                geburtsdatum: new Date(rawRow.geburtsdatum).toLocaleDateString(),
+                status: statusToString(rawRow.status),
+                anzahlEintritte: rawRow.anzahlEintritte
+            }
+            manipulatedRows.push(rowObject)
+        }
+        return manipulatedRows
+    }
 
-    let errorMsg;
+    let serverError = true;
     let toastNotification
 
     export async function getPersonalItems() {
@@ -37,9 +51,10 @@
                 headers: httpHeaders,
                 credentials: 'same-origin'
             });
-            rows = await returnValue.json();
+            serverError = false;
+            rows = rawRowsToRows(await returnValue.json());
         } catch (ex) {
-            errorMsg = ex
+            serverError = true;
             toastNotification = true;
         }
         selectedRowIds = "";
@@ -53,7 +68,6 @@
         }
     }
 
-
     getPersonalItems();
 
     let filteredRowIds = []
@@ -65,38 +79,28 @@
     let imageSrc;
     let selectedObject = {};
 
-    function selctedRowIdToObject() {
+    function selectedRowIdToObject() {
         for (const row of rows) {
             if (row.id == selectedRowIds[0]) {
                 selectedObject = row
-                if (row.status) {
-                    selectedObject.status = "Aktiv"
-                } else {
-                    selectedObject.status = "Nicht-Aktiv"
-                }
             }
         }
         console.log(selectedObject)
     }
 
     function openQrModal() {
-        selctedRowIdToObject();
+        selectedRowIdToObject();
         openQr = true
     }
 
     function openEditModal() {
-        selctedRowIdToObject();
+        selectedRowIdToObject();
         openEdit = true
     }
 
     function openDeleteModal() {
-        selctedRowIdToObject();
+        selectedRowIdToObject();
         openDelete = true;
-    }
-    function showNotification(msg){
-        errorMsg = event.detail.text;
-        toastNotification = true
-
     }
 
 </script>
@@ -114,15 +118,11 @@
                         persistent
                         shouldFilterRows
                         bind:filteredRowIds/>
-                <Button class="addButton" icon={AddIcon} on:click={()=>(openAdd = true)}>Add Item</Button>
+                <Button class="addButton" disabled={serverError} icon={AddIcon} on:click={()=>(openAdd = true)}>Add Item</Button>
             </ToolbarContent>
         </Toolbar>
         <svelte:fragment slot="cell" let:row let:cell>
-            {#if cell.key === "vorname" && cell.value === "Mitja"}
-                <p id="result">{cell.value}</p>
-            {:else}
-                {cell.value}
-            {/if}
+            <p id={cell.key + row.id}>{cell.value}</p>
         </svelte:fragment>
     </DataTable>
     <Modal
@@ -165,8 +165,8 @@
     />
     {#if toastNotification}
         <ToastNotification
-                title="Error"
-                subtitle="{errorMsg}"
+                title="Verbindungsfehler"
+                subtitle="Keine Verbindung zum Server, bitte prüfen sie die Internet Verbindung und refreshen die Webseite mit F5"
                 caption={new Date().toLocaleString()}
                 on:click={()=> (toastNotification= false)}
         />

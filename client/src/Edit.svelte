@@ -1,32 +1,67 @@
 <script>
-    import {Modal, TextInput, RadioButtonGroup, RadioButton, DatePicker,DatePickerInput,Grid, Row, Column} from "carbon-components-svelte";
+    import {
+        Modal,
+        TextInput,
+        RadioButtonGroup,
+        RadioButton,
+        DatePicker,
+        DatePickerInput,
+        Grid,
+        Row,
+        Column,
+        InlineNotification, ToastNotification
+    } from "carbon-components-svelte";
     import { createEventDispatcher } from 'svelte';
+    import {checkString, checkDate} from "./inputChecker";
+    import {stringToDate} from "./dateFormatter";
+
     export let openModal;
     export let personObject;
-
     const dispatch = createEventDispatcher();
+    let statusRadios =["Aktiv","Nicht-Aktiv"];
+    let toastNotification = false;
+    let inputNotification = false;
 
     function updateApp(){
         dispatch('update')
     }
 
-    let statusRadios =["Aktiv","Nicht-Aktiv"];
+    function checkInputData(firstname, surname, date){
+        let isFirstnameOk = checkString(firstname)
+        let isSurnameOk = checkString(surname)
+        let isDateOk = checkDate(date)
+        if (isFirstnameOk && isSurnameOk && isDateOk) {
+            return true
+        } else {
+            return false
+        }
+    }
 
-    async function updateUser(){
+    function updateUser(){
         console.log(personObject.status)
-        if(personObject.status =="Aktiv"){
+        if(personObject.status ==="Aktiv"){
             status = true;
         }else {
             status = false;
         }
-        let user = {
-            id: personObject.id,
-            nachname: personObject.nachname,
-            vorname: personObject.vorname,
-            geburtsdatum: new Date(personObject.geburtsdatum),
-            status: status
+        let check = checkInputData(personObject.vorname, personObject.nachname, stringToDate(personObject.geburtsdatum,"dd.mm.yyyy","."))
+        if(check){
+            let user = {
+                id: personObject.id,
+                nachname: personObject.nachname,
+                vorname: personObject.vorname,
+                geburtsdatum: stringToDate(personObject.geburtsdatum,"dd.mm.yyyy","."),
+                status: status
+            }
+            postUser(user)
+            openModal = false
+            inputNotification = false
+        }else {
+            inputNotification = true
         }
+    }
 
+    async function postUser(user){
         let headers = new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -39,14 +74,11 @@
                 body: JSON.stringify(user)
             })
         }catch (error){
-            console.log(error)
+            toastNotification = true;
         }
-        openModal = false
         updateApp();
     }
 </script>
-
-
 <Modal
         size="sm"
         bind:open={openModal}
@@ -87,5 +119,21 @@
             </Column>
         </Row>
     </Grid>
+    {#if inputNotification}
+        <InlineNotification
+                kind="warning-alt"
+                hideCloseButton={true}
+                title="Falsche Eingabe"
+                subtitle="Bitte überprüfen sie die Eingaben"
+        />
+    {/if}
 </Modal>
-
+{#if toastNotification}
+    <ToastNotification
+            hideCloseButton
+            title="Fehler"
+            subtitle="Keine Antwort vom Server, prüfen sie die Serverbindung oder laden sie die Seite neu mit F5"
+            caption={new Date().toLocaleString()}
+            on:click={()=> (toastNotification= false)}
+    />
+{/if}
