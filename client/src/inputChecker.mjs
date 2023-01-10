@@ -2,7 +2,7 @@ let stringIsNotANumber;
 let stringIsNotNull;
 let stringIsNotEmpty;
 
-function checkStringIsNotANumber(string){
+export function checkStringIsNotANumber(string){
     if(isNaN(string)){
         return true
     }else {
@@ -10,7 +10,7 @@ function checkStringIsNotANumber(string){
     }
 }
 
-function checkStringIsNotEmpty(string){
+export function checkStringIsNotEmpty(string){
     if(string === ""){
         return false
     }else{
@@ -18,7 +18,7 @@ function checkStringIsNotEmpty(string){
     }
 }
 
-function checkStringIsNotNull(string){
+export function checkStringIsNotNull(string){
     if(string === null){
         return false
     }else {
