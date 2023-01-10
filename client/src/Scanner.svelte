@@ -1,14 +1,15 @@
 <script>
-    import {Content, Button, Grid, Row, Column, Modal,} from "carbon-components-svelte";
-    import { Html5Qrcode } from "html5-qrcode";
-    import { onMount } from "svelte";
+    import {Content, Button, Grid, Row, Column, Modal, ToastNotification,} from "carbon-components-svelte";
+    import {Html5Qrcode} from "html5-qrcode";
+    import {onMount} from "svelte";
 
     let scanning = false
     let html5Qrcode
     let result = {};
     let open = false;
 
-    export async function getPersonalItem(id) {
+    let toastNotification = false;
+    async function getPersonalItem(id) {
         let httpHeaders = new Headers({
             'Content-Type': 'application/json',
             'Accept': 'application/json'
@@ -21,10 +22,9 @@
             });
             result = await returnValue.json();
         } catch (ex) {
-            console.log(ex)
+            toastNotification = true;
         }
         open = true
-        console.log(result)
     }
 
     onMount(init)
@@ -35,10 +35,10 @@
 
     function start() {
         html5Qrcode.start(
-            { facingMode: 'environment' },
+            {facingMode: 'environment'},
             {
                 fps: 10,
-                qrbox: { width: 250, height: 250 },
+                qrbox: {width: 250, height: 250},
             },
             onScanSuccess,
             onScanFailure
@@ -53,15 +53,11 @@
 
     function onScanSuccess(decodedText, decodedResult) {
         getPersonalItem(decodedText);
-        //alert(`Code matched = ${decodedText}`)
-        console.log(decodedResult)
-        console.log(result)
     }
 
     function onScanFailure(error) {
         console.warn(`Code scan error = ${error}`)
     }
-
 </script>
 <Content>
     <Grid>
@@ -85,30 +81,46 @@
             on:close
             on:submit
     >
-        <div class="bx--form-item bx--text-input-wrapper">
-            <label for="result-firstname" class="bx--label">Vorname</label>
-            <input readonly id="result-firstname" class="bx--text-input" value={result.vorname}>
-        </div>
-        <div class="bx--form-item bx--text-input-wrapper">
-            <label for="result-name" class="bx--label">Nachname</label>
-            <input readonly id="result-name" class="bx--text-input" value={result.nachname}>
-        </div>
-        <div class="bx--form-item bx--text-input-wrapper">
-            <label for="result-birthday" class="bx--label">Geburtsdatum</label>
-            <input readonly id="result-birthday" class="bx--text-input" value={new Date(result.geburtsdatum).toLocaleDateString()}>
-        </div>
-        {#if result.status}
-            <div class="bx--form-item bx--text-input-wrapper">
-                <label for="result-status-true" class="bx--label">Status</label>
-                <input readonly id="result-status-true" class="bx--text-input input-green" value="Der Mitarbeiter hat noch Zugang">
-            </div>
+        {#if result === ""}
+            <p>Es wurde keine Benutzer gefunden mit dieser ID</p>
         {:else}
             <div class="bx--form-item bx--text-input-wrapper">
-                <label for="result-status-false" class="bx--label">Status</label>
-                <input readonly id="result-status-false" class="bx--text-input input-red" value="Der Mitarbeiter hat keinen Zugang">
+                <label for="result-firstname" class="bx--label">Vorname</label>
+                <input readonly id="result-firstname" class="bx--text-input" value={result.vorname}>
             </div>
+            <div class="bx--form-item bx--text-input-wrapper">
+                <label for="result-name" class="bx--label">Nachname</label>
+                <input readonly id="result-name" class="bx--text-input" value={result.nachname}>
+            </div>
+            <div class="bx--form-item bx--text-input-wrapper">
+                <label for="result-birthday" class="bx--label">Geburtsdatum</label>
+                <input readonly id="result-birthday" class="bx--text-input"
+                       value={new Date(result.geburtsdatum).toLocaleDateString()}>
+            </div>
+            {#if result.status}
+                <div class="bx--form-item bx--text-input-wrapper">
+                    <label for="result-status-true" class="bx--label">Status</label>
+                    <input readonly id="result-status-true" class="bx--text-input input-green"
+                           value="Der Mitarbeiter hat noch Zugang">
+                </div>
+            {:else}
+                <div class="bx--form-item bx--text-input-wrapper">
+                    <label for="result-status-false" class="bx--label">Status</label>
+                    <input readonly id="result-status-false" class="bx--text-input input-red"
+                           value="Der Mitarbeiter hat keinen Zugang">
+                </div>
+            {/if}
         {/if}
     </Modal>
+    {#if toastNotification}
+        <ToastNotification
+                hideCloseButton
+                title="Fehler"
+                subtitle="Keine Antwort vom Server, prüfen sie die Serverbindung oder laden sie die Seite neu mit F5"
+                caption={new Date().toLocaleString()}
+                on:click={()=> (toastNotification= false)}
+        />
+    {/if}
 </Content>
 <style>
     reader {
@@ -120,11 +132,13 @@
         border-color: black;
         border-width: 10px;
     }
-    .input-red{
-        background-color: rgba(255,131,92,0.9) !important;
+
+    .input-red {
+        background-color: rgba(255, 131, 92, 0.9) !important;
     }
-    .input-green{
-        background-color: rgba(54,255,91,0.9) !important;
+
+    .input-green {
+        background-color: rgba(54, 255, 91, 0.9) !important;
     }
 </style>
 

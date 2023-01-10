@@ -2185,7 +2185,7 @@ var app = (function () {
     }
 
     // (141:13) 
-    function create_if_block_1$b(ctx) {
+    function create_if_block_1$c(ctx) {
     	let current;
     	const default_slot_template = /*#slots*/ ctx[19].default;
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[18], get_default_slot_context$3);
@@ -2233,7 +2233,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$b.name,
+    		id: create_if_block_1$c.name,
     		type: "if",
     		source: "(141:13) ",
     		ctx
@@ -2394,7 +2394,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$F, create_if_block_1$b, create_if_block_2$6, create_else_block$9];
+    	const if_block_creators = [create_if_block$F, create_if_block_1$c, create_if_block_2$6, create_else_block$9];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -7881,7 +7881,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block_5$4, create_else_block_1];
+    	const if_block_creators = [create_if_block_5$4, create_else_block_1$1];
     	const if_blocks = [];
 
     	function select_block_type_1(ctx, dirty) {
@@ -7956,7 +7956,7 @@ var app = (function () {
     }
 
     // (453:16) {:else}
-    function create_else_block_1(ctx) {
+    function create_else_block_1$1(ctx) {
     	let inlinecheckbox;
     	let current;
 
@@ -8005,7 +8005,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block_1.name,
+    		id: create_else_block_1$1.name,
     		type: "else",
     		source: "(453:16) {:else}",
     		ctx
@@ -8596,7 +8596,7 @@ var app = (function () {
     	let current;
     	let mounted;
     	let dispose;
-    	let if_block = show_if && create_if_block_1$a(ctx);
+    	let if_block = show_if && create_if_block_1$b(ctx);
 
     	function mouseenter_handler_1() {
     		return /*mouseenter_handler_1*/ ctx[60](/*row*/ ctx[66]);
@@ -8642,7 +8642,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block_1$a(ctx);
+    					if_block = create_if_block_1$b(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(tr, t);
@@ -8686,7 +8686,7 @@ var app = (function () {
     }
 
     // (520:12) {#if expandedRows[row.id] && !nonExpandableRowIds.includes(row.id)}
-    function create_if_block_1$a(ctx) {
+    function create_if_block_1$b(ctx) {
     	let tablecell;
     	let current;
 
@@ -8738,7 +8738,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$a.name,
+    		id: create_if_block_1$b.name,
     		type: "if",
     		source: "(520:12) {#if expandedRows[row.id] && !nonExpandableRowIds.includes(row.id)}",
     		ctx
@@ -16170,7 +16170,7 @@ var app = (function () {
     }
 
     // (162:2) {#if !invalid && warn}
-    function create_if_block_1$9(ctx) {
+    function create_if_block_1$a(ctx) {
     	let div;
     	let t;
 
@@ -16195,7 +16195,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$9.name,
+    		id: create_if_block_1$a.name,
     		type: "if",
     		source: "(162:2) {#if !invalid && warn}",
     		ctx
@@ -16292,7 +16292,7 @@ var app = (function () {
     	let if_block2 = !/*invalid*/ ctx[11] && /*warn*/ ctx[13] && create_if_block_4$3(ctx);
     	let if_block3 = /*$hasCalendar*/ ctx[21] && !/*invalid*/ ctx[11] && !/*warn*/ ctx[13] && create_if_block_3$3(ctx);
     	let if_block4 = /*invalid*/ ctx[11] && create_if_block_2$4(ctx);
-    	let if_block5 = !/*invalid*/ ctx[11] && /*warn*/ ctx[13] && create_if_block_1$9(ctx);
+    	let if_block5 = !/*invalid*/ ctx[11] && /*warn*/ ctx[13] && create_if_block_1$a(ctx);
     	let if_block6 = /*helperText*/ ctx[6] && create_if_block$q(ctx);
 
     	const block = {
@@ -16509,7 +16509,7 @@ var app = (function () {
     				if (if_block5) {
     					if_block5.p(ctx, dirty);
     				} else {
-    					if_block5 = create_if_block_1$9(ctx);
+    					if_block5 = create_if_block_1$a(ctx);
     					if_block5.c();
     					if_block5.m(div1, t6);
     				}
@@ -18532,7 +18532,7 @@ var app = (function () {
     	let current;
     	let if_block0 = /*loading*/ ctx[2] && create_if_block_3$2(ctx);
     	let if_block1 = /*loaded*/ ctx[0] && create_if_block_2$3(ctx);
-    	let if_block2 = /*error*/ ctx[1] && create_if_block_1$8(ctx);
+    	let if_block2 = /*error*/ ctx[1] && create_if_block_1$9(ctx);
 
     	const block = {
     		c: function create() {
@@ -18607,7 +18607,7 @@ var app = (function () {
     						transition_in(if_block2, 1);
     					}
     				} else {
-    					if_block2 = create_if_block_1$8(ctx);
+    					if_block2 = create_if_block_1$9(ctx);
     					if_block2.c();
     					transition_in(if_block2, 1);
     					if_block2.m(if_block2_anchor.parentNode, if_block2_anchor);
@@ -19123,7 +19123,7 @@ var app = (function () {
     }
 
     // (92:2) {#if error}
-    function create_if_block_1$8(ctx) {
+    function create_if_block_1$9(ctx) {
     	let current;
     	const error_slot_template = /*#slots*/ ctx[9].error;
     	const error_slot = create_slot(error_slot_template, ctx, /*$$scope*/ ctx[10], get_error_slot_context);
@@ -19171,7 +19171,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$8.name,
+    		id: create_if_block_1$9.name,
     		type: "if",
     		source: "(92:2) {#if error}",
     		ctx
@@ -19998,7 +19998,7 @@ var app = (function () {
     	let t;
     	let button;
     	let current;
-    	const if_block_creators = [create_if_block_1$7, create_if_block_2$2];
+    	const if_block_creators = [create_if_block_1$8, create_if_block_2$2];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -20188,7 +20188,7 @@ var app = (function () {
     }
 
     // (267:8) {#if secondaryButtons.length > 0}
-    function create_if_block_1$7(ctx) {
+    function create_if_block_1$8(ctx) {
     	let each_1_anchor;
     	let current;
     	let each_value = /*secondaryButtons*/ ctx[16];
@@ -20274,7 +20274,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$7.name,
+    		id: create_if_block_1$8.name,
     		type: "if",
     		source: "(267:8) {#if secondaryButtons.length > 0}",
     		ctx
@@ -22329,7 +22329,7 @@ var app = (function () {
     	const caption_slot_or_fallback = caption_slot || fallback_block$4(ctx);
     	const default_slot_template = /*#slots*/ ctx[14].default;
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[13], null);
-    	let if_block = !/*hideCloseButton*/ ctx[7] && create_if_block_1$6(ctx);
+    	let if_block = !/*hideCloseButton*/ ctx[7] && create_if_block_1$7(ctx);
 
     	let div3_levels = [
     		{ role: /*role*/ ctx[2] },
@@ -22514,7 +22514,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block_1$6(ctx);
+    					if_block = create_if_block_1$7(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(div3, null);
@@ -22679,7 +22679,7 @@ var app = (function () {
     }
 
     // (106:4) {#if !hideCloseButton}
-    function create_if_block_1$6(ctx) {
+    function create_if_block_1$7(ctx) {
     	let notificationbutton;
     	let current;
 
@@ -22721,7 +22721,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$6.name,
+    		id: create_if_block_1$7.name,
     		type: "if",
     		source: "(106:4) {#if !hideCloseButton}",
     		ctx
@@ -23085,7 +23085,7 @@ var app = (function () {
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[11], null);
     	const actions_slot_template = /*#slots*/ ctx[12].actions;
     	const actions_slot = create_slot(actions_slot_template, ctx, /*$$scope*/ ctx[11], get_actions_slot_context);
-    	let if_block = !/*hideCloseButton*/ ctx[5] && create_if_block_1$5(ctx);
+    	let if_block = !/*hideCloseButton*/ ctx[5] && create_if_block_1$6(ctx);
     	let div3_levels = [{ role: /*role*/ ctx[2] }, { kind: /*kind*/ ctx[0] }, /*$$restProps*/ ctx[9]];
     	let div3_data = {};
 
@@ -23258,7 +23258,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block_1$5(ctx);
+    					if_block = create_if_block_1$6(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(div3, null);
@@ -23393,7 +23393,7 @@ var app = (function () {
     }
 
     // (97:4) {#if !hideCloseButton}
-    function create_if_block_1$5(ctx) {
+    function create_if_block_1$6(ctx) {
     	let notificationbutton;
     	let current;
 
@@ -23436,7 +23436,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$5.name,
+    		id: create_if_block_1$6.name,
     		type: "if",
     		source: "(97:4) {#if !hideCloseButton}",
     		ctx
@@ -25085,7 +25085,7 @@ var app = (function () {
     }
 
     // (229:4) {#if !isFluid && invalid}
-    function create_if_block_1$4(ctx) {
+    function create_if_block_1$5(ctx) {
     	let div;
     	let t;
 
@@ -25115,7 +25115,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$4.name,
+    		id: create_if_block_1$5.name,
     		type: "if",
     		source: "(229:4) {#if !isFluid && invalid}",
     		ctx
@@ -25229,7 +25229,7 @@ var app = (function () {
     	let if_block6 = /*isFluid*/ ctx[20] && !/*inline*/ ctx[16] && /*invalid*/ ctx[11] && create_if_block_4(ctx);
     	let if_block7 = /*isFluid*/ ctx[20] && !/*inline*/ ctx[16] && /*warn*/ ctx[13] && create_if_block_3(ctx);
     	let if_block8 = !/*invalid*/ ctx[11] && !/*warn*/ ctx[13] && !/*isFluid*/ ctx[20] && !/*inline*/ ctx[16] && /*helperText*/ ctx[6] && create_if_block_2$1(ctx);
-    	let if_block9 = !/*isFluid*/ ctx[20] && /*invalid*/ ctx[11] && create_if_block_1$4(ctx);
+    	let if_block9 = !/*isFluid*/ ctx[20] && /*invalid*/ ctx[11] && create_if_block_1$5(ctx);
     	let if_block10 = !/*isFluid*/ ctx[20] && !/*invalid*/ ctx[11] && /*warn*/ ctx[13] && create_if_block$c(ctx);
 
     	const block = {
@@ -25542,7 +25542,7 @@ var app = (function () {
     				if (if_block9) {
     					if_block9.p(ctx, dirty);
     				} else {
-    					if_block9 = create_if_block_1$4(ctx);
+    					if_block9 = create_if_block_1$5(ctx);
     					if_block9.c();
     					if_block9.m(div1, t10);
     				}
@@ -26528,7 +26528,7 @@ var app = (function () {
     const get_skip_to_content_slot_context = ctx => ({});
 
     // (83:2) {#if ($shouldRenderHamburgerMenu && winWidth < expansionBreakpoint) || persistentHamburgerMenu}
-    function create_if_block_1$3(ctx) {
+    function create_if_block_1$4(ctx) {
     	let hamburgermenu;
     	let updating_isOpen;
     	let current;
@@ -26590,7 +26590,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$3.name,
+    		id: create_if_block_1$4.name,
     		type: "if",
     		source: "(83:2) {#if ($shouldRenderHamburgerMenu && winWidth < expansionBreakpoint) || persistentHamburgerMenu}",
     		ctx
@@ -26680,7 +26680,7 @@ var app = (function () {
     	add_render_callback(/*onwindowresize*/ ctx[18]);
     	const skip_to_content_slot_template = /*#slots*/ ctx[16]["skip-to-content"];
     	const skip_to_content_slot = create_slot(skip_to_content_slot_template, ctx, /*$$scope*/ ctx[15], get_skip_to_content_slot_context);
-    	let if_block0 = (/*$shouldRenderHamburgerMenu*/ ctx[11] && /*winWidth*/ ctx[9] < /*expansionBreakpoint*/ ctx[6] || /*persistentHamburgerMenu*/ ctx[5]) && create_if_block_1$3(ctx);
+    	let if_block0 = (/*$shouldRenderHamburgerMenu*/ ctx[11] && /*winWidth*/ ctx[9] < /*expansionBreakpoint*/ ctx[6] || /*persistentHamburgerMenu*/ ctx[5]) && create_if_block_1$4(ctx);
     	let if_block1 = /*company*/ ctx[3] && create_if_block$a(ctx);
     	const platform_slot_template = /*#slots*/ ctx[16].platform;
     	const platform_slot = create_slot(platform_slot_template, ctx, /*$$scope*/ ctx[15], get_platform_slot_context);
@@ -26778,7 +26778,7 @@ var app = (function () {
     						transition_in(if_block0, 1);
     					}
     				} else {
-    					if_block0 = create_if_block_1$3(ctx);
+    					if_block0 = create_if_block_1$4(ctx);
     					if_block0.c();
     					transition_in(if_block0, 1);
     					if_block0.m(header, t1);
@@ -28779,7 +28779,7 @@ var app = (function () {
     }
 
     // (121:4) {#if inputNotification}
-    function create_if_block_1$2(ctx) {
+    function create_if_block_1$3(ctx) {
     	let inlinenotification;
     	let current;
 
@@ -28817,7 +28817,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$2.name,
+    		id: create_if_block_1$3.name,
     		type: "if",
     		source: "(121:4) {#if inputNotification}",
     		ctx
@@ -28841,7 +28841,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	let if_block = /*inputNotification*/ ctx[6] && create_if_block_1$2(ctx);
+    	let if_block = /*inputNotification*/ ctx[6] && create_if_block_1$3(ctx);
 
     	const block = {
     		c: function create() {
@@ -28872,7 +28872,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block_1$2(ctx);
+    					if_block = create_if_block_1$3(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -29883,7 +29883,7 @@ var app = (function () {
     }
 
     // (122:4) {#if inputNotification}
-    function create_if_block_1$1(ctx) {
+    function create_if_block_1$2(ctx) {
     	let inlinenotification;
     	let current;
 
@@ -29921,7 +29921,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$1.name,
+    		id: create_if_block_1$2.name,
     		type: "if",
     		source: "(122:4) {#if inputNotification}",
     		ctx
@@ -29945,7 +29945,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	let if_block = /*inputNotification*/ ctx[3] && create_if_block_1$1(ctx);
+    	let if_block = /*inputNotification*/ ctx[3] && create_if_block_1$2(ctx);
 
     	const block = {
     		c: function create() {
@@ -29976,7 +29976,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block_1$1(ctx);
+    					if_block = create_if_block_1$2(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -60891,7 +60891,7 @@ var app = (function () {
     const { console: console_1 } = globals;
     const file$1 = "src\\Scanner.svelte";
 
-    // (70:12) <Column>
+    // (69:12) <Column>
     function create_default_slot_7(ctx) {
     	let reader;
 
@@ -60899,8 +60899,8 @@ var app = (function () {
     		c: function create() {
     			reader = element("reader");
     			attr_dev(reader, "id", "reader");
-    			attr_dev(reader, "class", "svelte-1azaowu");
-    			add_location(reader, file$1, 70, 16, 1826);
+    			attr_dev(reader, "class", "svelte-tngi3e");
+    			add_location(reader, file$1, 69, 16, 1707);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, reader, anchor);
@@ -60915,14 +60915,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7.name,
     		type: "slot",
-    		source: "(70:12) <Column>",
+    		source: "(69:12) <Column>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (74:16) <Button on:click={start}>
+    // (73:16) <Button on:click={start}>
     function create_default_slot_6(ctx) {
     	let t;
 
@@ -60942,14 +60942,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(74:16) <Button on:click={start}>",
+    		source: "(73:16) <Button on:click={start}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (75:16) <Button on:click={stop}>
+    // (74:16) <Button on:click={stop}>
     function create_default_slot_5(ctx) {
     	let t;
 
@@ -60969,14 +60969,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(75:16) <Button on:click={stop}>",
+    		source: "(74:16) <Button on:click={stop}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (73:12) <Column>
+    // (72:12) <Column>
     function create_default_slot_4$1(ctx) {
     	let button0;
     	let t;
@@ -61018,14 +61018,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const button0_changes = {};
 
-    			if (dirty & /*$$scope*/ 16384) {
+    			if (dirty & /*$$scope*/ 32768) {
     				button0_changes.$$scope = { dirty, ctx };
     			}
 
     			button0.$set(button0_changes);
     			const button1_changes = {};
 
-    			if (dirty & /*$$scope*/ 16384) {
+    			if (dirty & /*$$scope*/ 32768) {
     				button1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -61053,14 +61053,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$1.name,
     		type: "slot",
-    		source: "(73:12) <Column>",
+    		source: "(72:12) <Column>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (69:8) <Row>
+    // (68:8) <Row>
     function create_default_slot_3$1(ctx) {
     	let column0;
     	let t;
@@ -61098,14 +61098,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const column0_changes = {};
 
-    			if (dirty & /*$$scope*/ 16384) {
+    			if (dirty & /*$$scope*/ 32768) {
     				column0_changes.$$scope = { dirty, ctx };
     			}
 
     			column0.$set(column0_changes);
     			const column1_changes = {};
 
-    			if (dirty & /*$$scope*/ 16384) {
+    			if (dirty & /*$$scope*/ 32768) {
     				column1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -61133,14 +61133,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$1.name,
     		type: "slot",
-    		source: "(69:8) <Row>",
+    		source: "(68:8) <Row>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (67:4) <Grid>
+    // (66:4) <Grid>
     function create_default_slot_2$1(ctx) {
     	let h1;
     	let t1;
@@ -61161,7 +61161,7 @@ var app = (function () {
     			h1.textContent = "Scanner";
     			t1 = space();
     			create_component(row.$$.fragment);
-    			add_location(h1, file$1, 67, 8, 1755);
+    			add_location(h1, file$1, 66, 8, 1636);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -61172,7 +61172,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const row_changes = {};
 
-    			if (dirty & /*$$scope*/ 16384) {
+    			if (dirty & /*$$scope*/ 32768) {
     				row_changes.$$scope = { dirty, ctx };
     			}
 
@@ -61198,109 +61198,15 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$1.name,
     		type: "slot",
-    		source: "(67:4) <Grid>",
+    		source: "(66:4) <Grid>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (105:8) {:else}
+    // (89:8) {:else}
     function create_else_block(ctx) {
-    	let div;
-    	let label;
-    	let t1;
-    	let input;
-
-    	const block = {
-    		c: function create() {
-    			div = element("div");
-    			label = element("label");
-    			label.textContent = "Status";
-    			t1 = space();
-    			input = element("input");
-    			attr_dev(label, "for", "result-status-false");
-    			attr_dev(label, "class", "bx--label");
-    			add_location(label, file$1, 106, 16, 3540);
-    			input.readOnly = true;
-    			attr_dev(input, "id", "result-status-false");
-    			attr_dev(input, "class", "bx--text-input input-red svelte-1azaowu");
-    			input.value = "Der Mitarbeiter hat keinen Zugang";
-    			add_location(input, file$1, 107, 16, 3623);
-    			attr_dev(div, "class", "bx--form-item bx--text-input-wrapper");
-    			add_location(div, file$1, 105, 12, 3472);
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
-    			append_dev(div, label);
-    			append_dev(div, t1);
-    			append_dev(div, input);
-    		},
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_else_block.name,
-    		type: "else",
-    		source: "(105:8) {:else}",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (100:8) {#if result.status}
-    function create_if_block$1(ctx) {
-    	let div;
-    	let label;
-    	let t1;
-    	let input;
-
-    	const block = {
-    		c: function create() {
-    			div = element("div");
-    			label = element("label");
-    			label.textContent = "Status";
-    			t1 = space();
-    			input = element("input");
-    			attr_dev(label, "for", "result-status-true");
-    			attr_dev(label, "class", "bx--label");
-    			add_location(label, file$1, 101, 16, 3224);
-    			input.readOnly = true;
-    			attr_dev(input, "id", "result-status-true");
-    			attr_dev(input, "class", "bx--text-input input-green svelte-1azaowu");
-    			input.value = "Der Mitarbeiter hat noch Zugang";
-    			add_location(input, file$1, 102, 16, 3306);
-    			attr_dev(div, "class", "bx--form-item bx--text-input-wrapper");
-    			add_location(div, file$1, 100, 12, 3156);
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
-    			append_dev(div, label);
-    			append_dev(div, t1);
-    			append_dev(div, input);
-    		},
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_if_block$1.name,
-    		type: "if",
-    		source: "(100:8) {#if result.status}",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (79:4) <Modal              bind:open              modalHeading="Resultat Mitarbeiter Scan"              primaryButtonText="New Scan"              on:click:button--primary={() => (open = false)}              on:open              on:close              on:submit      >
-    function create_default_slot_1$1(ctx) {
     	let div0;
     	let label0;
     	let t1;
@@ -61321,12 +61227,12 @@ var app = (function () {
     	let t8;
     	let if_block_anchor;
 
-    	function select_block_type(ctx, dirty) {
-    		if (/*result*/ ctx[0].status) return create_if_block$1;
-    		return create_else_block;
+    	function select_block_type_1(ctx, dirty) {
+    		if (/*result*/ ctx[0].status) return create_if_block_1$1;
+    		return create_else_block_1;
     	}
 
-    	let current_block_type = select_block_type(ctx);
+    	let current_block_type = select_block_type_1(ctx);
     	let if_block = current_block_type(ctx);
 
     	const block = {
@@ -61353,34 +61259,34 @@ var app = (function () {
     			if_block_anchor = empty();
     			attr_dev(label0, "for", "result-firstname");
     			attr_dev(label0, "class", "bx--label");
-    			add_location(label0, file$1, 88, 12, 2403);
+    			add_location(label0, file$1, 90, 16, 2405);
     			input0.readOnly = true;
     			attr_dev(input0, "id", "result-firstname");
     			attr_dev(input0, "class", "bx--text-input");
     			input0.value = input0_value_value = /*result*/ ctx[0].vorname;
-    			add_location(input0, file$1, 89, 12, 2480);
+    			add_location(input0, file$1, 91, 16, 2486);
     			attr_dev(div0, "class", "bx--form-item bx--text-input-wrapper");
-    			add_location(div0, file$1, 87, 8, 2339);
+    			add_location(div0, file$1, 89, 12, 2337);
     			attr_dev(label1, "for", "result-name");
     			attr_dev(label1, "class", "bx--label");
-    			add_location(label1, file$1, 92, 12, 2654);
+    			add_location(label1, file$1, 94, 16, 2672);
     			input1.readOnly = true;
     			attr_dev(input1, "id", "result-name");
     			attr_dev(input1, "class", "bx--text-input");
     			input1.value = input1_value_value = /*result*/ ctx[0].nachname;
-    			add_location(input1, file$1, 93, 12, 2727);
+    			add_location(input1, file$1, 95, 16, 2749);
     			attr_dev(div1, "class", "bx--form-item bx--text-input-wrapper");
-    			add_location(div1, file$1, 91, 8, 2590);
+    			add_location(div1, file$1, 93, 12, 2604);
     			attr_dev(label2, "for", "result-birthday");
     			attr_dev(label2, "class", "bx--label");
-    			add_location(label2, file$1, 96, 12, 2897);
+    			add_location(label2, file$1, 98, 16, 2931);
     			input2.readOnly = true;
     			attr_dev(input2, "id", "result-birthday");
     			attr_dev(input2, "class", "bx--text-input");
     			input2.value = input2_value_value = new Date(/*result*/ ctx[0].geburtsdatum).toLocaleDateString();
-    			add_location(input2, file$1, 97, 12, 2978);
+    			add_location(input2, file$1, 99, 16, 3016);
     			attr_dev(div2, "class", "bx--form-item bx--text-input-wrapper");
-    			add_location(div2, file$1, 95, 8, 2833);
+    			add_location(div2, file$1, 97, 12, 2863);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -61414,7 +61320,7 @@ var app = (function () {
     				prop_dev(input2, "value", input2_value_value);
     			}
 
-    			if (current_block_type !== (current_block_type = select_block_type(ctx))) {
+    			if (current_block_type !== (current_block_type = select_block_type_1(ctx))) {
     				if_block.d(1);
     				if_block = current_block_type(ctx);
 
@@ -61438,16 +61344,191 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_1$1.name,
-    		type: "slot",
-    		source: "(79:4) <Modal              bind:open              modalHeading=\\\"Resultat Mitarbeiter Scan\\\"              primaryButtonText=\\\"New Scan\\\"              on:click:button--primary={() => (open = false)}              on:open              on:close              on:submit      >",
+    		id: create_else_block.name,
+    		type: "else",
+    		source: "(89:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (66:0) <Content>
+    // (87:8) {#if result === ""}
+    function create_if_block$1(ctx) {
+    	let p;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			p.textContent = "Es wurde keine Benutzer gefunden mit dieser ID";
+    			add_location(p, file$1, 87, 12, 2253);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(87:8) {#if result === \\\"\\\"}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (109:12) {:else}
+    function create_else_block_1(ctx) {
+    	let div;
+    	let label;
+    	let t1;
+    	let input;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			label = element("label");
+    			label.textContent = "Status";
+    			t1 = space();
+    			input = element("input");
+    			attr_dev(label, "for", "result-status-false");
+    			attr_dev(label, "class", "bx--label");
+    			add_location(label, file$1, 110, 20, 3666);
+    			input.readOnly = true;
+    			attr_dev(input, "id", "result-status-false");
+    			attr_dev(input, "class", "bx--text-input input-red svelte-tngi3e");
+    			input.value = "Der Mitarbeiter hat keinen Zugang";
+    			add_location(input, file$1, 111, 20, 3753);
+    			attr_dev(div, "class", "bx--form-item bx--text-input-wrapper");
+    			add_location(div, file$1, 109, 16, 3594);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, label);
+    			append_dev(div, t1);
+    			append_dev(div, input);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_1.name,
+    		type: "else",
+    		source: "(109:12) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (103:12) {#if result.status}
+    function create_if_block_1$1(ctx) {
+    	let div;
+    	let label;
+    	let t1;
+    	let input;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			label = element("label");
+    			label.textContent = "Status";
+    			t1 = space();
+    			input = element("input");
+    			attr_dev(label, "for", "result-status-true");
+    			attr_dev(label, "class", "bx--label");
+    			add_location(label, file$1, 104, 20, 3302);
+    			input.readOnly = true;
+    			attr_dev(input, "id", "result-status-true");
+    			attr_dev(input, "class", "bx--text-input input-green svelte-tngi3e");
+    			input.value = "Der Mitarbeiter hat noch Zugang";
+    			add_location(input, file$1, 105, 20, 3388);
+    			attr_dev(div, "class", "bx--form-item bx--text-input-wrapper");
+    			add_location(div, file$1, 103, 16, 3230);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, label);
+    			append_dev(div, t1);
+    			append_dev(div, input);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$1.name,
+    		type: "if",
+    		source: "(103:12) {#if result.status}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (78:4) <Modal              bind:open              modalHeading="Resultat Mitarbeiter Scan"              primaryButtonText="New Scan"              on:click:button--primary={() => (open = false)}              on:open              on:close              on:submit      >
+    function create_default_slot_1$1(ctx) {
+    	let if_block_anchor;
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*result*/ ctx[0] === "") return create_if_block$1;
+    		return create_else_block;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
+    				if_block.p(ctx, dirty);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1$1.name,
+    		type: "slot",
+    		source: "(78:4) <Modal              bind:open              modalHeading=\\\"Resultat Mitarbeiter Scan\\\"              primaryButtonText=\\\"New Scan\\\"              on:click:button--primary={() => (open = false)}              on:open              on:close              on:submit      >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (65:0) <Content>
     function create_default_slot$1(ctx) {
     	let grid;
     	let t;
@@ -61464,7 +61545,7 @@ var app = (function () {
     		});
 
     	function modal_open_binding(value) {
-    		/*modal_open_binding*/ ctx[5](value);
+    		/*modal_open_binding*/ ctx[4](value);
     	}
 
     	let modal_props = {
@@ -61480,10 +61561,10 @@ var app = (function () {
 
     	modal = new Modal$1({ props: modal_props, $$inline: true });
     	binding_callbacks.push(() => bind(modal, 'open', modal_open_binding, /*open*/ ctx[1]));
-    	modal.$on("click:button--primary", /*click_button_primary_handler*/ ctx[6]);
-    	modal.$on("open", /*open_handler*/ ctx[7]);
-    	modal.$on("close", /*close_handler*/ ctx[8]);
-    	modal.$on("submit", /*submit_handler*/ ctx[9]);
+    	modal.$on("click:button--primary", /*click_button_primary_handler*/ ctx[5]);
+    	modal.$on("open", /*open_handler*/ ctx[6]);
+    	modal.$on("close", /*close_handler*/ ctx[7]);
+    	modal.$on("submit", /*submit_handler*/ ctx[8]);
 
     	const block = {
     		c: function create() {
@@ -61500,14 +61581,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const grid_changes = {};
 
-    			if (dirty & /*$$scope*/ 16384) {
+    			if (dirty & /*$$scope*/ 32768) {
     				grid_changes.$$scope = { dirty, ctx };
     			}
 
     			grid.$set(grid_changes);
     			const modal_changes = {};
 
-    			if (dirty & /*$$scope, result*/ 16385) {
+    			if (dirty & /*$$scope, result*/ 32769) {
     				modal_changes.$$scope = { dirty, ctx };
     			}
 
@@ -61541,7 +61622,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(66:0) <Content>",
+    		source: "(65:0) <Content>",
     		ctx
     	});
 
@@ -61574,7 +61655,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const content_changes = {};
 
-    			if (dirty & /*$$scope, open, result*/ 16387) {
+    			if (dirty & /*$$scope, open, result*/ 32771) {
     				content_changes.$$scope = { dirty, ctx };
     			}
 
@@ -61636,7 +61717,6 @@ var app = (function () {
     		}
 
     		$$invalidate(1, open = true);
-    		console.log(result);
     	}
 
     	onMount(init);
@@ -61666,13 +61746,9 @@ var app = (function () {
 
     	function onScanSuccess(decodedText, decodedResult) {
     		getPersonalItem(decodedText);
-
-    		//alert(`Code matched = ${decodedText}`)
-    		console.log(decodedResult);
-
-    		console.log(result);
     	}
 
+    	let toastNotification = false;
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -61716,7 +61792,8 @@ var app = (function () {
     		start,
     		stop,
     		onScanSuccess,
-    		onScanFailure
+    		onScanFailure,
+    		toastNotification
     	});
 
     	$$self.$inject_state = $$props => {
@@ -61724,6 +61801,7 @@ var app = (function () {
     		if ('html5Qrcode' in $$props) html5Qrcode = $$props.html5Qrcode;
     		if ('result' in $$props) $$invalidate(0, result = $$props.result);
     		if ('open' in $$props) $$invalidate(1, open = $$props.open);
+    		if ('toastNotification' in $$props) toastNotification = $$props.toastNotification;
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -61735,7 +61813,6 @@ var app = (function () {
     		open,
     		start,
     		stop,
-    		getPersonalItem,
     		modal_open_binding,
     		click_button_primary_handler,
     		open_handler,
@@ -61747,7 +61824,7 @@ var app = (function () {
     class Scanner extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { getPersonalItem: 4 });
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -61755,14 +61832,6 @@ var app = (function () {
     			options,
     			id: create_fragment$1.name
     		});
-    	}
-
-    	get getPersonalItem() {
-    		return this.$$.ctx[4];
-    	}
-
-    	set getPersonalItem(value) {
-    		throw new Error("<Scanner>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
 

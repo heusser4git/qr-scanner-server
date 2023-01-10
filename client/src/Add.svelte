@@ -13,7 +13,7 @@
         InlineNotification
     } from "carbon-components-svelte";
     import {createEventDispatcher} from 'svelte';
-    import {checkString, checkDate} from "./inputChecker";
+    import {checkString, checkDate} from "./inputChecker.mjs";
 
     export let openModal;
     const dispatch = createEventDispatcher();

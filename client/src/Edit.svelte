@@ -12,7 +12,7 @@
         InlineNotification, ToastNotification
     } from "carbon-components-svelte";
     import { createEventDispatcher } from 'svelte';
-    import {checkString, checkDate} from "./inputChecker";
+    import {checkString, checkDate} from "./inputChecker.mjs";
     import {stringToDate} from "./dateFormatter";
 
     export let openModal;
