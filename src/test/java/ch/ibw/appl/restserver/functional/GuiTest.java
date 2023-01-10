@@ -84,6 +84,7 @@ public class GuiTest {
         //assertEquals("Perko", tdFamiliyName.getText());
         //assertEquals("Perko", tdFamiliyName.getText());
     }*/
+
 //    @Test
 //    public void testsample(){
 //        driver = SeleniumHelper.setUpWebDriver();
