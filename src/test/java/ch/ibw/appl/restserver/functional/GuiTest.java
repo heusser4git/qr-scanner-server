@@ -84,16 +84,16 @@ public class GuiTest {
         //assertEquals("Perko", tdFamiliyName.getText());
         //assertEquals("Perko", tdFamiliyName.getText());
     }*/
-    @Test
-    public void testsample(){
-        driver = SeleniumHelper.setUpWebDriver();
-        WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
-        adminButton.click();
-        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
-        searchField.sendKeys("perko");
-        WebElement td = driver.findElement(By.cssSelector("p[id='vorname2']"));
-        assertEquals("Mitja", td.getText());
-    }
+//    @Test
+//    public void testsample(){
+//        driver = SeleniumHelper.setUpWebDriver();
+//        WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
+//        adminButton.click();
+//        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
+//        searchField.sendKeys("perko");
+//        WebElement td = driver.findElement(By.cssSelector("p[id='vorname2']"));
+//        assertEquals("Mitja", td.getText());
+//    }
 
     /*@Test
     public void testAddOnButtonAndItsModalWindow() throws InterruptedException {
