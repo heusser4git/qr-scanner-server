@@ -29,6 +29,7 @@ jobs:
         run: |
           cd /home/runner/work/qr-scanner-server/qr-scanner-server/client
           npm install
+          npm test &
           npm run dev &
           cd /home/runner/work/qr-scanner-server/qr-scanner-server
       
