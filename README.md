@@ -2,7 +2,7 @@
 ---
 ## REST Server herunterladen
 ```bash
-https://github.com/heusser4git/qr-scanner-server/blob/e729d219c7aed1643adf9046daf0299ce7411cd6/target/qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar
+https://github.com/heusser4git/qr-scanner-server/tree/master/target/qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
 ## REST Server starten (InMemoryRepository):
 ```bash
