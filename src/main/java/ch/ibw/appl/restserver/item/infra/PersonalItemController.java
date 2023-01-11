@@ -19,6 +19,10 @@ public class PersonalItemController {
         }
     }
 
+    public PersonalItemService getPersonalItemService() {
+        return personalItemService;
+    }
+
     public void createRoutes(Service server) {
         JsonSerializer jsonSerializer = new JsonSerializer();
 

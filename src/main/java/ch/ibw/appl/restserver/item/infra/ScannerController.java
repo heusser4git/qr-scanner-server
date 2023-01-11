@@ -9,12 +9,9 @@ import ch.ibw.appl.restserver.item.shared.service.JsonSerializer;
 
 public class ScannerController {
     private PersonalItemService personalItemService;
-    public ScannerController(Boolean isTest) {
-        if(Boolean.TRUE.equals(isTest)) {
-            personalItemService = new PersonalItemService(new PersonalItemInMemoryRepository(isTest));
-        } else {
-            personalItemService = new PersonalItemService(new PersonalItemSQLRepository(isTest));
-        }
+
+    public void setPersonalItemService(PersonalItemService personalItemService) {
+        this.personalItemService = personalItemService;
     }
 
     public void createRoutes(Service server) {

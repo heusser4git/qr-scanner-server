@@ -26,9 +26,12 @@ public class RestServer {
     public void run() {
         server = Service.ignite();
         server.port(Integer.parseInt(port));
+        PersonalItemController personalItemController = new PersonalItemController(isTest);
+        personalItemController.createRoutes(server);
 
-        new PersonalItemController(isTest).createRoutes(server);
-        new ScannerController(isTest).createRoutes(server);
+        ScannerController scannerController = new ScannerController();
+        scannerController.setPersonalItemService(personalItemController.getPersonalItemService());
+        scannerController.createRoutes(server);
 
         server.before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
 

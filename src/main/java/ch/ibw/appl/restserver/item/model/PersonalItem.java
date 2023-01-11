@@ -16,7 +16,8 @@ public class PersonalItem {
         personalItem.nachname = nachname;
         personalItem.vorname = vorname;
         personalItem.geburtsdatum = geburtsdatum;
-        personalItem. status = status;
+        personalItem.status = status;
+        personalItem.anzahlEintritte = 0;
         return personalItem;
     }
 
