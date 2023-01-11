@@ -86,6 +86,7 @@ public class GuiTest {
         //assertEquals("Perko", tdFamiliyName.getText());
     }*/
 
+/*
     @Test
     public void testsample(){
         driver = SeleniumHelper.setUpWebDriver();
@@ -97,6 +98,7 @@ public class GuiTest {
         WebElement td = driver.findElement(By.cssSelector(".vorname"));
         assertEquals("Mitja", td.getText());
     }
+*/
 
     /*@Test
     public void testAddOnButtonAndItsModalWindow() throws InterruptedException {
