@@ -3,7 +3,6 @@
     import {Html5Qrcode} from "html5-qrcode";
     import {onMount} from "svelte";
 
-    let scanning = false
     let html5Qrcode
     let result = {};
     let open = false;
@@ -43,16 +42,15 @@
             onScanSuccess,
             onScanFailure
         )
-        scanning = true
     }
 
     async function stop() {
         await html5Qrcode.stop()
-        scanning = false
+
     }
 
-    function onScanSuccess(decodedText, decodedResult) {
-        console.log(decodedText);
+    async function onScanSuccess(decodedText, decodedResult) {
+        await stop()
         getPersonalItem(decodedText);
     }
 
@@ -77,7 +75,7 @@
             bind:open
             modalHeading="Resultat Mitarbeiter Scan"
             primaryButtonText="New Scan"
-            on:click:button--primary={() => (open = false)}
+            on:click:button--primary={() => (open = false, start())}
             on:open
             on:close
             on:submit
