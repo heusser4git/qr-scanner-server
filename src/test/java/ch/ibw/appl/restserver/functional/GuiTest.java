@@ -15,6 +15,7 @@ import static org.junit.Assert.assertEquals;
 public class GuiTest {
     private static WebDriver driver;
 
+    // Testing Starting Page
     @Test
     public void testHeaderText() {
         driver = SeleniumHelper.setUpWebDriver();
@@ -85,16 +86,17 @@ public class GuiTest {
         //assertEquals("Perko", tdFamiliyName.getText());
     }*/
 
-//    @Test
-//    public void testsample(){
-//        driver = SeleniumHelper.setUpWebDriver();
-//        WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
-//        adminButton.click();
-//        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
-//        searchField.sendKeys("perko");
-//        WebElement td = driver.findElement(By.cssSelector("p[id='vorname2']"));
-//        assertEquals("Mitja", td.getText());
-//    }
+    @Test
+    public void testsample(){
+        driver = SeleniumHelper.setUpWebDriver();
+        WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
+        adminButton.click();
+        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
+        searchField.sendKeys("perko");
+        //WebElement td = driver.findElement(By.cssSelector("p[id='vorname2']"));
+        WebElement td = driver.findElement(By.cssSelector(".vorname"));
+        assertEquals("Mitja", td.getText());
+    }
 
     /*@Test
     public void testAddOnButtonAndItsModalWindow() throws InterruptedException {

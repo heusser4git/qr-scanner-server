@@ -12,4 +12,3 @@ export function stringToDate(_date,_format,_delimiter)
     return formatedDate;
 }
 
-console.log(stringToDate("8.8.1970","dd.mm.yyyy","."))

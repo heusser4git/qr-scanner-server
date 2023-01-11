@@ -52,6 +52,7 @@
     }
 
     function onScanSuccess(decodedText, decodedResult) {
+        console.log(decodedText);
         getPersonalItem(decodedText);
     }
 

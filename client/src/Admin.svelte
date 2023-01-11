@@ -122,7 +122,7 @@
             </ToolbarContent>
         </Toolbar>
         <svelte:fragment slot="cell" let:row let:cell>
-            <p id={cell.key + row.id}>{cell.value}</p>
+            <p id={cell.key + row.id} class={cell.key} >{cell.value}</p>
         </svelte:fragment>
     </DataTable>
     <Modal
