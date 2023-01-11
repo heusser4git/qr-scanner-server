@@ -25,7 +25,6 @@
     let nachname
     let vorname
     let geburtsdatum
-    let status
     let statusRadios = ["Aktiv", "Nicht Aktiv"];
     let statusRadio = statusRadios[0];
     let toastNotification = false;
@@ -43,6 +42,12 @@
     }
 
     function addUser() {
+        let status = "";
+        if(statusRadio ==="Aktiv"){
+            status = true;
+        }else {
+            status = false;
+        }
         let check = checkInputData(vorname, nachname, new Date(geburtsdatum))
         if (check) {
             let user = {
@@ -65,7 +70,7 @@
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             })
-            const response = await fetch('http://localhost:7777/personal/items', {
+            await fetch('http://localhost:7777/personal/items', {
                 method: 'POST',
                 mode: 'no-cors',
                 headers,
