@@ -1,6 +1,8 @@
 package ch.ibw.appl.restserver.functional.shared.guitest;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class PersonalPo {
     public static By adminButtonSelector(){
@@ -15,6 +17,7 @@ public class PersonalPo {
     public static By h1TagSelector(){
         return By.tagName("h1");
     }
+    public static By h3TagSelector() {return By.tagName("h3");}
     public static By aTagSelector() {
         return By.tagName("a");
     }
@@ -30,7 +33,12 @@ public class PersonalPo {
     public static By searchInputSelector() {
         return By.cssSelector(".bx--search-input");
     }
-    
+    public static By pTagVornameSelector(){return By.cssSelector(".vorname");}
+    public static By spanTagSelector(){return By.tagName("span");}
+    public static By selectedPtagSelector(){return By.cssSelector(".bx--batch-summary__para");}
+    public static By dataRowByNumberSelector(int rowNumber){return By.cssSelector("tr[data-row='"+rowNumber+"'");}
+    public static By dataRowSelactableSpanSelector(){return By.cssSelector(".bx--radio-button__appearance");}
+
     
     public static By listTableSelector() {
         return By.cssSelector(".bx--data-table");
@@ -38,7 +46,21 @@ public class PersonalPo {
     public static By addItemButtonSelector() {
         return By.cssSelector(".addButton");
     }
-    public static By addModalTitleSelector(){ return By.xpath("/html/body/main/div[3]/div/div[1]/h3");}
+    public static By editItemButtonSelector(){return By.cssSelector(".editButton");}
+    public static By deleteItemButtonSelector(){return By.cssSelector(".deleteButton");}
+    public static By qrItemButtonSelector(){return By.cssSelector(".qrButton");}
+    public static By addModalDivSelector(){
+        return By.cssSelector("div[aria-label='Neuen Benutzer hinzufügen']");
+    }
+    public static By deleteModalDivSelector(){
+        return By.cssSelector("div[aria-label='Benutzer Löschen']");
+    }
+    public static By qrModalDivSelector(){
+        return By.cssSelector("div[aria-label='User-QR Code']");
+    }
+    public static By editModalDivSelector(){
+        return By.cssSelector("div[aria-label='Bestehenden Benutzer bearbeiten']");
+    }
     public static By modalAddWindowSelector() {
         return By.cssSelector("div[class='bx--modal-container bx--modal-container--sm']");
     }
@@ -51,5 +73,31 @@ public class PersonalPo {
     }
     public static By modalAddWindowBirthdayInput() {
         return By.cssSelector("input#ccs-0.jdw02byeuba");
+    }
+
+    public static void navigateToAdministrationPageByButton(WebDriver driver){
+        WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
+        adminButton.click();
+    }
+
+    public static void navigateToAdministrationPageByPiyture(WebDriver driver){
+        WebElement adminPicture = driver.findElement(PersonalPo.imgAdministrationSelector());
+        adminPicture.click();
+    }
+
+    public static void navigateToScannerPageByButton(WebDriver driver){
+        WebElement scannerButton = driver.findElement(PersonalPo.scannerButtonSelector());
+        scannerButton.click();
+    }
+
+    public static void navigateToScannerPageByPiyture(WebDriver driver){
+        WebElement scannerPicture = driver.findElement(PersonalPo.imgScannerSelector());
+        scannerPicture.click();
+    }
+
+    public static void selectedObjectByRowNumber(WebDriver driver, int rowNumber){
+        WebElement dataRow = driver.findElement(PersonalPo.dataRowByNumberSelector(rowNumber));
+        WebElement dataRowSelectableSpan = dataRow.findElement(PersonalPo.dataRowSelactableSpanSelector());
+        dataRowSelectableSpan.click();
     }
 }

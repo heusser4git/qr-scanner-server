@@ -112,9 +112,9 @@
     <DataTable sortable radio bind:selectedRowIds {headers} {rows}>
         <Toolbar>
             <ToolbarBatchActions>
-                <Button on:click={() => (openQrModal())} icon={Qr}>QR-Code</Button>
-                <Button on:click={() => (openEditModal())} icon={EditIcon}>Edit</Button>
-                <Button on:click={() => (openDeleteModal())} icon={Trash}>Delete</Button>
+                <Button class="qrButton" on:click={() => (openQrModal())} icon={Qr}>QR-Code</Button>
+                <Button class="editButton" on:click={() => (openEditModal())} icon={EditIcon}>Edit</Button>
+                <Button class="deleteButton" on:click={() => (openDeleteModal())} icon={Trash}>Delete</Button>
             </ToolbarBatchActions>
             <ToolbarContent>
                 <ToolbarSearch
