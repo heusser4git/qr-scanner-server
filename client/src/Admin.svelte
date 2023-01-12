@@ -11,13 +11,13 @@
     import Edit from "./Edit.svelte";
     import QRCode from "svelte-qrcode";
     import Delete from "./Delete.svelte";
-    import {stringToDate} from "./dateFormatter.mjs";
+
 
     const headers = [
         {key: "nachname", value: "Nachname"},
         {key: "vorname", value: "Vorname"},
-        {key: "geburtsdatum", value: "Geburtsdatum"}, //, display: (date) => new Date(date).toLocaleDateString()
-        {key: "status", value: "Status"}, //, display: (status) => statusToString(status)
+        {key: "geburtsdatum", value: "Geburtsdatum"},
+        {key: "status", value: "Status"},
         {key: "anzahlEintritte", value: "Besuche"},
     ];
 
@@ -85,17 +85,10 @@
     function selectedRowIdToObject() {
         for (const row of rawRows) {
             if (row.id == selectedRowIds[0]) {
-               //selectedObject.id = row.id
-               //selectedObject.vorname = row.vorname
-               //selectedObject.nachname = row.nachname
-               //
-               //selectedObject.geburtsdatum = stringToDate(row.geburtsdatum,"dd.mm.yyyy",".")
-               //selectedObject.anzahlEintritte = row.anzahlEintritte
                 selectedObject = row
                 selectedObject.status = statusToString(row.status)
             }
         }
-        console.log(selectedObject)
     }
 
     function openQrModal() {

@@ -13,7 +13,6 @@
     } from "carbon-components-svelte";
     import { createEventDispatcher } from 'svelte';
     import {checkString, checkDate} from "./inputChecker.mjs";
-    import {stringToDate} from "./dateFormatter.mjs";
 
     export let openModal;
     export let personObject;
@@ -50,7 +49,7 @@
                 id: personObject.id,
                 nachname: personObject.nachname,
                 vorname: personObject.vorname,
-                geburtsdatum: new Date(personObject.geburtsdatum), //stringToDate(personObject.geburtsdatum,"dd.mm.yyyy","."),
+                geburtsdatum: new Date(personObject.geburtsdatum),
                 status: status
             }
             postUser(user)

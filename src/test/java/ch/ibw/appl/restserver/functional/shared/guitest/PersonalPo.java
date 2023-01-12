@@ -30,6 +30,8 @@ public class PersonalPo {
     public static By searchInputSelector() {
         return By.cssSelector(".bx--search-input");
     }
+    
+    
     public static By listTableSelector() {
         return By.cssSelector(".bx--data-table");
     }

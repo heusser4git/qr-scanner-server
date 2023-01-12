@@ -1,6 +1,6 @@
 <script>
     import "carbon-components-svelte/css/white.css";
-    import {Header, Content, Grid, Row, Column, Button, ImageLoader} from "carbon-components-svelte";
+    import {Header, Content, Grid, Row, Column} from "carbon-components-svelte";
     import Admin from "./Admin.svelte";
     import Scanner from "./Scanner.svelte";
 
