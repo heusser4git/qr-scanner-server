@@ -13,7 +13,7 @@
     } from "carbon-components-svelte";
     import { createEventDispatcher } from 'svelte';
     import {checkString, checkDate} from "./inputChecker.mjs";
-    import {stringToDate} from "./dateFormatter";
+    import {stringToDate} from "./dateFormatter.mjs";
 
     export let openModal;
     export let personObject;
@@ -38,19 +38,19 @@
     }
 
     function updateUser(){
-        console.log(personObject.status)
         if(personObject.status ==="Aktiv"){
             status = true;
         }else {
             status = false;
         }
-        let check = checkInputData(personObject.vorname, personObject.nachname, stringToDate(personObject.geburtsdatum,"dd.mm.yyyy","."))
+        console.log(personObject.geburtsdatum)
+        let check = checkInputData(personObject.vorname, personObject.nachname, new Date(personObject.geburtsdatum))
         if(check){
             let user = {
                 id: personObject.id,
                 nachname: personObject.nachname,
                 vorname: personObject.vorname,
-                geburtsdatum: stringToDate(personObject.geburtsdatum,"dd.mm.yyyy","."),
+                geburtsdatum: new Date(personObject.geburtsdatum), //stringToDate(personObject.geburtsdatum,"dd.mm.yyyy","."),
                 status: status
             }
             postUser(user)

@@ -11,6 +11,7 @@
     import Edit from "./Edit.svelte";
     import QRCode from "svelte-qrcode";
     import Delete from "./Delete.svelte";
+    import {stringToDate} from "./dateFormatter.mjs";
 
     const headers = [
         {key: "nachname", value: "Nachname"},
@@ -20,6 +21,7 @@
         {key: "anzahlEintritte", value: "Besuche"},
     ];
 
+    let rawRows =[]
     let rows = []
     function rawRowsToRows(rawRows){
         let manipulatedRows = [];
@@ -52,7 +54,8 @@
                 credentials: 'same-origin'
             });
             serverError = false;
-            rows = rawRowsToRows(await returnValue.json());
+            rawRows = await returnValue.json()
+            rows = rawRowsToRows(rawRows);
         } catch (ex) {
             serverError = true;
             toastNotification = true;
@@ -77,12 +80,19 @@
     let openEdit = false;
     let openDelete = false;
     let imageSrc;
-    let selectedObject = {};
+    let selectedObject = {id:"",vorname:"",geburtsdatum: "",nachname: "", status:"", anzahlEintritte: ""};
 
     function selectedRowIdToObject() {
-        for (const row of rows) {
+        for (const row of rawRows) {
             if (row.id == selectedRowIds[0]) {
+               //selectedObject.id = row.id
+               //selectedObject.vorname = row.vorname
+               //selectedObject.nachname = row.nachname
+               //
+               //selectedObject.geburtsdatum = stringToDate(row.geburtsdatum,"dd.mm.yyyy",".")
+               //selectedObject.anzahlEintritte = row.anzahlEintritte
                 selectedObject = row
+                selectedObject.status = statusToString(row.status)
             }
         }
         console.log(selectedObject)
