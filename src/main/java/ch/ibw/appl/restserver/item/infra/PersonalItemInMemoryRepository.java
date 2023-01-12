@@ -48,7 +48,9 @@ public class PersonalItemInMemoryRepository implements PersonalItemRepository<Pe
                 personalitem.setVorname(object.getVorname());
                 personalitem.setGeburtsdatum(object.getGeburtsdatum());
                 personalitem.setStatus(object.isStatus());
-                personalitem.setAnzahlEintritte(object.getAnzahlEintritte());
+                if(object.getAnzahlEintritte()>0) {
+                    personalitem.setAnzahlEintritte(object.getAnzahlEintritte());
+                }
                 return true;
             }
         }
