@@ -32,7 +32,7 @@ public class GuiTest {
     @Test
     public void testNavigationToAdministrationByPicture(){
         driver = SeleniumHelper.setUpWebDriver();
-        PersonalPo.navigateToAdministrationPageByPiyture(driver);
+        PersonalPo.navigateToAdministrationPageByPicture(driver);
         WebElement adminTitle = driver.findElement(PersonalPo.h1TagSelector());
         assertEquals("Administration", adminTitle.getText());
     }
@@ -48,7 +48,7 @@ public class GuiTest {
     @Test
     public void testNavigationToScannerByPicture(){
         driver = SeleniumHelper.setUpWebDriver();
-        PersonalPo.navigateToScannerPageByPiyture(driver);
+        PersonalPo.navigateToScannerPageByPicture(driver);
         WebElement scannerTitle = driver.findElement(PersonalPo.h1TagSelector());
         assertEquals("Scanner", scannerTitle.getText());
     }
@@ -114,11 +114,37 @@ public class GuiTest {
         WebDriver driver = SeleniumHelper.setUpWebDriver();
         PersonalPo.navigateToAdministrationPageByButton(driver);
         PersonalPo.selectedObjectByRowNumber(driver,2);
-        WebElement editButton = driver.findElement(PersonalPo.editItemButtonSelector());
-        Thread.sleep(200);
-        editButton.click();
+        PersonalPo.navigateToEditModal(driver);
         WebElement title = driver.findElement(PersonalPo.editModalDivSelector()).findElement(PersonalPo.h3TagSelector());
         assertEquals("Bestehenden Benutzer bearbeiten", title.getAttribute("innerHTML"));
+    }
+
+    @Test
+    public void testHeaderChangeAfterClickCancelBySelectedObject() throws InterruptedException {
+        WebDriver driver = SeleniumHelper.setUpWebDriver();
+        PersonalPo.navigateToAdministrationPageByButton(driver);
+        PersonalPo.selectedObjectByRowNumber(driver,2);
+        WebElement cancelButton = driver.findElement(PersonalPo.cancelItemButtonSelector());
+        Thread.sleep(200);
+        cancelButton.click();
+        WebElement resultPtag = driver.findElement(PersonalPo.selectedPtagSelector());
+        WebElement span = resultPtag.findElement(PersonalPo.spanTagSelector());
+        assertEquals("0 items selected", span.getText());
+    }
+
+    @Test
+    public void testChangeStatusOnObjectByEdit() throws InterruptedException {
+        WebDriver driver = SeleniumHelper.setUpWebDriver();
+        PersonalPo.navigateToAdministrationPageByButton(driver);
+        PersonalPo.selectedObjectByRowNumber(driver,2);
+        PersonalPo.navigateToEditModal(driver);
+        WebElement divEditModal = driver.findElement(PersonalPo.editModalDivSelector());
+        WebElement notActiveRadio = divEditModal.findElement(PersonalPo.notActiveRadioByEditSelector());
+        notActiveRadio.click();
+        WebElement updateButton = divEditModal.findElement(PersonalPo.primaryButtonSelector());
+        updateButton.click();
+        WebElement statusObejct2 = driver.findElement(PersonalPo.statusObjectByIdSelector(2));
+        assertEquals("Nicht-Aktiv",statusObejct2.getText());
     }
 
     /*@Test

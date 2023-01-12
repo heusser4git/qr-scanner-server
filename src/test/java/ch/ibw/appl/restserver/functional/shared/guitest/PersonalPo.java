@@ -39,12 +39,18 @@ public class PersonalPo {
     public static By dataRowByNumberSelector(int rowNumber){return By.cssSelector("tr[data-row='"+rowNumber+"'");}
     public static By dataRowSelactableSpanSelector(){return By.cssSelector(".bx--radio-button__appearance");}
 
+    public static By statusObjectByIdSelector(int id){
+        return By.cssSelector("p[id='status"+id+"'");
+    }
     
     public static By listTableSelector() {
         return By.cssSelector(".bx--data-table");
     }
     public static By addItemButtonSelector() {
         return By.cssSelector(".addButton");
+    }
+    public static By cancelItemButtonSelector(){
+        return By.cssSelector(".bx--batch-summary__cancel");
     }
     public static By editItemButtonSelector(){return By.cssSelector(".editButton");}
     public static By deleteItemButtonSelector(){return By.cssSelector(".deleteButton");}
@@ -60,6 +66,12 @@ public class PersonalPo {
     }
     public static By editModalDivSelector(){
         return By.cssSelector("div[aria-label='Bestehenden Benutzer bearbeiten']");
+    }
+    public static By notActiveRadioByEditSelector(){
+        return By.xpath("div[2]/div/div/div[2]/div[3]/fieldset/div[2]/label");
+    }
+    public static By primaryButtonSelector(){
+        return By.cssSelector(".bx--btn--primary");
     }
     public static By modalAddWindowSelector() {
         return By.cssSelector("div[class='bx--modal-container bx--modal-container--sm']");
@@ -80,7 +92,7 @@ public class PersonalPo {
         adminButton.click();
     }
 
-    public static void navigateToAdministrationPageByPiyture(WebDriver driver){
+    public static void navigateToAdministrationPageByPicture(WebDriver driver){
         WebElement adminPicture = driver.findElement(PersonalPo.imgAdministrationSelector());
         adminPicture.click();
     }
@@ -90,7 +102,7 @@ public class PersonalPo {
         scannerButton.click();
     }
 
-    public static void navigateToScannerPageByPiyture(WebDriver driver){
+    public static void navigateToScannerPageByPicture(WebDriver driver){
         WebElement scannerPicture = driver.findElement(PersonalPo.imgScannerSelector());
         scannerPicture.click();
     }
@@ -99,5 +111,11 @@ public class PersonalPo {
         WebElement dataRow = driver.findElement(PersonalPo.dataRowByNumberSelector(rowNumber));
         WebElement dataRowSelectableSpan = dataRow.findElement(PersonalPo.dataRowSelactableSpanSelector());
         dataRowSelectableSpan.click();
+    }
+
+    public static void navigateToEditModal(WebDriver driver) throws InterruptedException {
+        WebElement editButton = driver.findElement(PersonalPo.editItemButtonSelector());
+        Thread.sleep(200);
+        editButton.click();
     }
 }
