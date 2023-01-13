@@ -180,8 +180,8 @@ public class GuiTest {
         WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
         searchField.sendKeys("perko");
 
-//        WebElement listTable = driver.findElement(PersonalPo.listTableSelector());
-//        List<WebElement> listOfTdElements = listTable.findElements(PersonalPo.tdTagSelector());
+        WebElement listTable = driver.findElement(PersonalPo.listTableSelector());
+        List<WebElement> listOfTdElements = listTable.findElements(PersonalPo.tdTagSelector());
 //        for(WebElement td: listOfTdElements) {
 //            System.out.println(td.getText());
 //        }
