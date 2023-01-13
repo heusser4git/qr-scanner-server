@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.time.Duration;
-
 public class PersonalPo {
     public static By adminButtonSelector(){
         return By.cssSelector("button[id='button-admin']");
@@ -117,6 +115,7 @@ public class PersonalPo {
 
     public static void navigateToEditModal(WebDriver driver) throws InterruptedException {
         WebElement editButton = driver.findElement(PersonalPo.editItemButtonSelector());
+        Thread.sleep(200);
         editButton.click();
     }
 }
