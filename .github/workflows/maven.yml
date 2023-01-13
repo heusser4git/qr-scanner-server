@@ -53,7 +53,7 @@ jobs:
 #          java -jar qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar --test=true &
       - name: Starte Tests
         run: |
-          mvn -B test
+          mvn -B test --file pom.xml
         env:
           # CLIENT-URL - Selenium-Test has to navigate to this URL
           CLIENT_URL: http://localhost:5000
