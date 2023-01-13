@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 public class GuiTest {
@@ -149,7 +151,7 @@ public class GuiTest {
         assertEquals("Nicht-Aktiv",statusObejct2.getText());
     }
 
-    /*@Test
+    @Test
     public void testSearchOnList() throws InterruptedException {
         driver = SeleniumHelper.setUpWebDriver();
         WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
@@ -171,7 +173,23 @@ public class GuiTest {
         //assertEquals("Perko", tdFamiliyName.getText());
     }*/
 
+    @Test
+    public void testSearchOnList() {
+        WebDriver driver = SeleniumHelper.setUpWebDriver();
+        PersonalPo.navigateToAdministrationPageByButton(driver);
+        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
+        searchField.sendKeys("perko");
 
+        WebElement listTable = driver.findElement(PersonalPo.listTableSelector());
+        List<WebElement> listOfTdElements = listTable.findElements(PersonalPo.tdTagSelector());
+        for(WebElement td: listOfTdElements) {
+            System.out.println(td.getText());
+        }
+        assertEquals("Perko", listOfTdElements.get(1).getText());
+        assertEquals("Mitja", listOfTdElements.get(2).getText());
+        assertEquals("16.5.1993", listOfTdElements.get(3).getText());
+        assertEquals("Aktiv", listOfTdElements.get(4).getText());
+    }
 
     @AfterClass
     public static void tearDown(){
