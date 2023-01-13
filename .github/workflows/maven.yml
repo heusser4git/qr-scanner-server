@@ -49,7 +49,7 @@ jobs:
         #run: mvn -B package --file pom.xml
       - name: Starte Testserver
         run: |
-          cd /home/runner/work/qr-scanner-server/qr-scanner-server
+          cd /home/runner/work/qr-scanner-server/qr-scanner-server/target
           java -jar qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar --test=true &
         env:
           # CLIENT-URL - Selenium-Test has to navigate to this URL
