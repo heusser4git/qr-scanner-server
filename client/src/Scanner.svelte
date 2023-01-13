@@ -14,7 +14,7 @@
             'Accept': 'application/json'
         });
         try {
-            const returnValue = await fetch(`http://localhost:7777/scanner/items/` + id, {
+            const returnValue = await fetch(`http://localhost:7778/scanner/items/` + id, {
                 method: 'GET',
                 headers: httpHeaders,
                 credentials: 'same-origin'

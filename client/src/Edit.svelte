@@ -66,7 +66,7 @@
             'Content-Type': 'application/json'
         })
         try {
-            await fetch('http://localhost:7777/personal/items', {
+            await fetch('http://localhost:7778/personal/items', {
                 method: 'POST',
                 mode: 'no-cors',
                 headers,

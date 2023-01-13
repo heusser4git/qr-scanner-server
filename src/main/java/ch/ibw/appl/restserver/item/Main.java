@@ -16,7 +16,7 @@ public class Main {
         Logger logger = LoggerFactory.getLogger(PersonalItemSQLRepository.class);
         logger.info("Testmode: {}", isTest);
 
-        new RestServer("7777", isTest).run();
+        new RestServer("7778", isTest).run();
     }
 
     public static String getCLIArgument(String[] args, String name, String defaultValue) {

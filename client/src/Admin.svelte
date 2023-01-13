@@ -48,7 +48,7 @@
             'Accept': 'application/json'
         });
         try {
-            const returnValue = await fetch(`http://localhost:7777/personal/items`, {
+            const returnValue = await fetch(`http://localhost:7778/personal/items`, {
                 method: 'GET',
                 headers: httpHeaders,
                 credentials: 'same-origin'

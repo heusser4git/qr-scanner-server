@@ -16,7 +16,7 @@
             'Accept': 'application/json'
         })
         try {
-            await fetch('http://localhost:7777/personal/items/' + personObject.id, {
+            await fetch('http://localhost:7778/personal/items/' + personObject.id, {
                 method: 'Delete',
                 headers,
                 credentials: 'same-origin'
