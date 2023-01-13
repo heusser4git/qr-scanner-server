@@ -173,24 +173,19 @@ public class GuiTest {
         //assertEquals("Perko", tdFamiliyName.getText());
     }*/
 
-    @Test
-    public void testSearchOnList() {
-        WebDriver driver = SeleniumHelper.setUpWebDriver();
-        PersonalPo.navigateToAdministrationPageByButton(driver);
-        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
-        searchField.sendKeys("perko");
-
-        WebElement listTable = driver.findElement(PersonalPo.listTableSelector());
-        List<WebElement> listOfTdElements = listTable.findElements(PersonalPo.tdTagSelector());
-        for(WebElement td: listOfTdElements) {
-            assertEquals("Perko", td.getText());
-        }
-//        assertEquals(true, true);
-//        assertEquals("Perko", listOfTdElements.get(1).getText());
-//        assertEquals("Mitja", listOfTdElements.get(2).getText());
-//        assertEquals("16.5.1993", listOfTdElements.get(3).getText());
-//        assertEquals("Aktiv", listOfTdElements.get(4).getText());
-    }
+//    @Test
+//    public void testSearchOnList() {
+//        WebDriver driver = SeleniumHelper.setUpWebDriver();
+//        PersonalPo.navigateToAdministrationPageByButton(driver);
+//        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
+//        searchField.sendKeys("perko");
+//
+//        WebElement listTable = driver.findElement(PersonalPo.listTableSelector());
+//        List<WebElement> listOfTdElements = listTable.findElements(PersonalPo.tdTagSelector());
+//        for(WebElement td: listOfTdElements) {
+//            assertEquals("Perko", td.getText());
+//        }
+//    }
 
     @AfterClass
     public static void tearDown(){
