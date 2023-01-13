@@ -136,7 +136,7 @@ public class GuiTest {
     public void testChangeStatusOnObjectByEdit() throws InterruptedException {
         WebDriver driver = SeleniumHelper.setUpWebDriver();
         PersonalPo.navigateToAdministrationPageByButton(driver);
-        PersonalPo.selectedObjectByRowNumber(driver,2);
+        PersonalPo.selectedObjectByRowNumber(driver,1);
         PersonalPo.navigateToEditModal(driver);
         WebElement divEditModal = driver.findElement(PersonalPo.editModalDivSelector());
         WebElement notActiveRadio = divEditModal.findElement(PersonalPo.notActiveRadioByEditSelector());
