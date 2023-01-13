@@ -120,7 +120,7 @@ public class PersonalItemSQLRepository implements PersonalItemRepository<Persona
         } catch (SQLException e) {
             logger.error(SQLEXCEPTION_WHILE_DOING_A_PREPARED_STATEMENT, e);
         }
-        logger.info("{}", personalItem.toString());
+        logger.info("{}", personalItem);
         throw new NullPointerException(COULD_NOT_CONNECT_TO_DATABASE);
     }
 
