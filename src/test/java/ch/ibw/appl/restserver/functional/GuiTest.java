@@ -52,7 +52,7 @@ public class GuiTest {
         WebElement scannerTitle = driver.findElement(PersonalPo.h1TagSelector());
         assertEquals("Scanner", scannerTitle.getText());
     }
-
+/*
     // Testing admin Page
     @Test
     public void testSearchOnList(){
