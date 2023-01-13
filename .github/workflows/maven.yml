@@ -47,13 +47,10 @@ jobs:
       - name: Build Server with Maven
         run: mvn -B package -Dmaven.test.skip --file pom.xml
         #run: mvn -B package --file pom.xml
-#      - name: Starte Testserver
-#        run: |
-#          cd /home/runner/work/qr-scanner-server/qr-scanner-server/target
-#          java -jar qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar --test=true &
-      - name: Starte Tests
+      - name: Starte Testserver
         run: |
-          mvn -B package --file pom.xml
+          cd /home/runner/work/qr-scanner-server/qr-scanner-server/target
+          java -jar qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar --test=true &
         env:
           # CLIENT-URL - Selenium-Test has to navigate to this URL
           CLIENT_URL: http://localhost:5000
