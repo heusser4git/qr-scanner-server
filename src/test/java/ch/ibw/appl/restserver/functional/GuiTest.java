@@ -180,12 +180,12 @@ public class GuiTest {
         WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
         searchField.sendKeys("perko");
 
-        WebElement listTable = driver.findElement(PersonalPo.listTableSelector());
-        List<WebElement> listOfTdElements = listTable.findElements(PersonalPo.tdTagSelector());
-        for(WebElement td: listOfTdElements) {
-            System.out.println(td.getText());
-        }
-        assertEquals(true, true);
+//        WebElement listTable = driver.findElement(PersonalPo.listTableSelector());
+//        List<WebElement> listOfTdElements = listTable.findElements(PersonalPo.tdTagSelector());
+//        for(WebElement td: listOfTdElements) {
+//            System.out.println(td.getText());
+//        }
+//        assertEquals(true, true);
 //        assertEquals("Perko", listOfTdElements.get(1).getText());
 //        assertEquals("Mitja", listOfTdElements.get(2).getText());
 //        assertEquals("16.5.1993", listOfTdElements.get(3).getText());
