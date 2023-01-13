@@ -177,8 +177,8 @@ public class GuiTest {
     public void testSearchOnList() {
         WebDriver driver = SeleniumHelper.setUpWebDriver();
         PersonalPo.navigateToAdministrationPageByButton(driver);
-//        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
-//        searchField.sendKeys("perko");
+        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
+        searchField.sendKeys("perko");
 
 //        WebElement listTable = driver.findElement(PersonalPo.listTableSelector());
 //        List<WebElement> listOfTdElements = listTable.findElements(PersonalPo.tdTagSelector());
