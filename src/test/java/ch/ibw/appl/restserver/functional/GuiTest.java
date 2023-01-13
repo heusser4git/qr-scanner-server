@@ -182,9 +182,9 @@ public class GuiTest {
 
         WebElement listTable = driver.findElement(PersonalPo.listTableSelector());
         List<WebElement> listOfTdElements = listTable.findElements(PersonalPo.tdTagSelector());
-//        for(WebElement td: listOfTdElements) {
-//            System.out.println(td.getText());
-//        }
+        for(WebElement td: listOfTdElements) {
+            System.out.println(td.getText());
+        }
 //        assertEquals(true, true);
 //        assertEquals("Perko", listOfTdElements.get(1).getText());
 //        assertEquals("Mitja", listOfTdElements.get(2).getText());
