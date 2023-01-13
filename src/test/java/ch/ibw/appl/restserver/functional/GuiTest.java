@@ -169,58 +169,7 @@ public class GuiTest {
         //assertEquals("Perko", tdFamiliyName.getText());
     }*/
 
-/*
 
-*/
-
-
-
-
-
-
-
-
-
-    // Testing admin Page
-    @Test
-    public void testSearchOnList(){
-        assertEquals(true,true);
-    }
-
-    @Test
-    public void testSelectItemOnList(){
-        assertEquals(true,true);
-    }
-
-    @Test
-    public void testAddOnButtonAndItsModalWindow() throws InterruptedException {
-        assertEquals(true,true);
-    }
-
-    @Test
-    public void testDeleteButtonAndItsModalWindow() throws InterruptedException {
-        assertEquals(true,true);
-    }
-
-    @Test
-    public void testQrButtonAndItsModalWindow() throws InterruptedException {
-        assertEquals(true,true);
-    }
-
-    @Test
-    public void testEditButtonAndItsModalWindow() throws InterruptedException {
-        assertEquals(true,true);
-    }
-
-    @Test
-    public void testHeaderChangeAfterClickCancelBySelectedObject() throws InterruptedException {
-        assertEquals(true,true);
-    }
-
-    @Test
-    public void testChangeStatusOnObjectByEdit() throws InterruptedException {
-        assertEquals(true,true);
-    }
 
     @AfterClass
     public static void tearDown(){
