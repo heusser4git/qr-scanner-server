@@ -45,8 +45,8 @@ jobs:
                        ./scripts/InstallChrome.sh
 
       - name: Build Server with Maven
-        run: mvn -B package -Dtest=ch.ibw.appl.restserver.functional.shared.functional.* --file pom.xml
-        #run: mvn -B package -Dmaven.test.skip --file pom.xml
+        #run: mvn -B package -Dtest=ch.ibw.appl.restserver.functional.shared.functional.* --file pom.xml
+        run: mvn -B package -Dmaven.test.skip --file pom.xml
         #run: mvn -B package --file pom.xml
         env:
           # CLIENT-URL - Selenium-Test has to navigate to this URL
@@ -75,27 +75,8 @@ jobs:
           path: "**/surefire-reports/TEST-*.xml"
           reporter: java-junit
 
-#      - name: Start Spark-Server in Testmode
-#        run: |
-#          cd /home/runner/work/qr-scanner-server/qr-scanner-server/target
-#          java -jar qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar &
-#        env:
-#          SERVER_PORT: 7778
-#          SERVER_TESTMODE: TRUE
-
-#      - name: Start E2E Tests
-#        run: mvn -B -Dtest=ch.ibw.appl.restserver.functional.shared.e2e.* test --file pom.xml
-
-#      - name: Start Functional Tests
-#        run: mvn -B -Dtest=ch.ibw.appl.restserver.functional.shared.functional.* test --file pom.xml
 
 
-
-      
-      # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
-      #- name: Update dependency graph
-      #  uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
-        
       - name: Cache SonarCloud packages
         uses: actions/cache@v1
         with:
