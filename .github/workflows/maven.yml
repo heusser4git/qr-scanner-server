@@ -56,8 +56,11 @@ jobs:
           cd /home/runner/work/qr-scanner-server/qr-scanner-server/target
           java -jar qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar &
         env:
-          SERVER_PORT: 9001
+          SERVER_PORT: 7778
           SERVER_TESTMODE: TRUE
+
+      - name: Start Tests
+        run: mvn -B test --file pom.xml
 
       - name: Test Reporter
         #uses: dorny/test-reporter@v1.4.3
