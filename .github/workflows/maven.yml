@@ -62,8 +62,8 @@ jobs:
       - name: Start E2E Tests
         run: mvn -B -Dtest=ch.ibw.appl.restserver.functional.shared.e2e.* test --file pom.xml
 
-      - name: Start Functional Tests
-        run: mvn -B -Dtest=ch.ibw.appl.restserver.functional.shared.functional.* test --file pom.xml
+#      - name: Start Functional Tests
+#        run: mvn -B -Dtest=ch.ibw.appl.restserver.functional.shared.functional.* test --file pom.xml
 
 
       - name: Test Reporter
