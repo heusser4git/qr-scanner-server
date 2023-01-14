@@ -115,6 +115,7 @@ public class PersonalPo {
 
     public static void navigateToEditModal(WebDriver driver) throws InterruptedException {
         WebElement editButton = driver.findElement(PersonalPo.editItemButtonSelector());
+
         editButton.click();
     }
 }
