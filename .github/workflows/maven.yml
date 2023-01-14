@@ -44,7 +44,7 @@ jobs:
               chmod +x ./scripts/InstallChrome.sh
                        ./scripts/InstallChrome.sh
 
-      - name: Build Server with Maven -> ENV
+      - name: Build Server with Maven
         run: mvn -B package -Dmaven.test.skip --file pom.xml
         #run: mvn -B package --file pom.xml
         env:
@@ -54,11 +54,11 @@ jobs:
       - name: Start Spark-Server in Testmode
         run: |
           cd /home/runner/work/qr-scanner-server/qr-scanner-server/target
-          java -jar qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar
+          java -jar qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar --test=true --server.port=8000
         env:
           SERVER_PORT: 9000
           SERVER_TESTMODE: TRUE
-          # --test=true --server.port=7778
+
       - name: Test Reporter
         #uses: dorny/test-reporter@v1.4.3
         uses: phoenix-actions/test-reporting@v10
