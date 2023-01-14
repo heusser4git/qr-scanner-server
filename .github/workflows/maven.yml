@@ -60,7 +60,7 @@ jobs:
           SERVER_TESTMODE: TRUE
 
       - name: Start Tests
-        run: mvn -B -Dtest=ch.ibw.appl.restserver.functional.shared.e2e test --file pom.xml
+        run: mvn -B -Dtest=ch.ibw.appl.restserver.functional.shared.e2e.* test --file pom.xml
 
 
       - name: Test Reporter
