@@ -10,9 +10,14 @@ import java.util.Optional;
 
 public class Main {
     public static void main(String[] args) {
-        String port = "7778";
+        String port = getCLIArgument(args, "server.port", "7778");
+        if(System.getenv().containsKey("SERVER_PORT")) {
+            port = System.getenv("SERVER_PORT");
+        }
         Boolean isTest = Boolean.parseBoolean(getCLIArgument(args, "test", "false"));
-
+        if(System.getenv().containsKey("SERVER_TESTMODE")) {
+            isTest = Boolean.parseBoolean(System.getenv("SERVER_TESTMODE"));
+        }
         Logger logger = LoggerFactory.getLogger(PersonalItemSQLRepository.class);
         logger.info("Testmode: {}", isTest);
 

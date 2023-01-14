@@ -50,6 +50,8 @@ jobs:
         env:
           # CLIENT-URL - Selenium-Test has to navigate to this URL
           CLIENT_URL: http://localhost:5000
+          SERVER_PORT: 7778
+          SERVER_TESTMODE: TRUE
         
       - name: Test Reporter
         #uses: dorny/test-reporter@v1.4.3
