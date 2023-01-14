@@ -131,7 +131,7 @@ public class GuiTest {
         assertEquals("0 items selected", span.getText());
     }
 
-    @Test
+    //@Test
    /* public void testChangeStatusOnObjectByEdit() throws InterruptedException {
         WebDriver driver = SeleniumHelper.setUpWebDriver();
         PersonalPo.navigateToAdministrationPageByButton(driver);
