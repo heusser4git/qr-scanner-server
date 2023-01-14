@@ -10,13 +10,13 @@ import java.util.Optional;
 
 public class Main {
     public static void main(String[] args) {
-        String port = getCLIArgument(args, "server.port", "7777");
+        String port = "7778";
         Boolean isTest = Boolean.parseBoolean(getCLIArgument(args, "test", "false"));
-isTest = true;
+
         Logger logger = LoggerFactory.getLogger(PersonalItemSQLRepository.class);
         logger.info("Testmode: {}", isTest);
 
-        new RestServer("7778", isTest).run();
+        new RestServer(port, isTest).run();
     }
 
     public static String getCLIArgument(String[] args, String name, String defaultValue) {
