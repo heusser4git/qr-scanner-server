@@ -45,12 +45,11 @@ jobs:
                        ./scripts/InstallChrome.sh
 
       - name: Build Server with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn -B package -Dmaven.test.skip --file pom.xml
         #run: mvn -B package --file pom.xml
         env:
           # CLIENT-URL - Selenium-Test has to navigate to this URL
           CLIENT_URL: http://localhost:5000
-
 
       - name: Start Spark-Server in Testmode
         run: |
