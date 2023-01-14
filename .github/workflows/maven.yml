@@ -54,8 +54,7 @@ jobs:
       - name: Start Spark-Server in Testmode
         run: |
           cd /home/runner/work/qr-scanner-server/qr-scanner-server/target
-          ls -al
-          java -jar qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar
+          java -jar qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar &
         env:
           SERVER_PORT: 9001
           SERVER_TESTMODE: TRUE
