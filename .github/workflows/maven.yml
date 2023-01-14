@@ -59,16 +59,10 @@ jobs:
           SERVER_PORT: 7778
           SERVER_TESTMODE: TRUE
 
-      - name: Start Tests
-        run: mvn -B test --file pom.xml
+#      - name: Start Tests
+#        run: mvn -B test --file pom.xml
 
-      - name: Test Reporter
-        #uses: dorny/test-reporter@v1.4.3
-        uses: phoenix-actions/test-reporting@v10
-        with:
-          name: Test Resultate
-          path: "**/surefire-reports/TEST-*.xml"
-          reporter: java-junit
+
       
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
       #- name: Update dependency graph
@@ -91,3 +85,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=heusser4git_qr-scanner-server
+
+
+      - name: Test Reporter
+        #uses: dorny/test-reporter@v1.4.3
+        uses: phoenix-actions/test-reporting@v10
+        with:
+          name: Test Resultate
+          path: "**/surefire-reports/TEST-*.xml"
+          reporter: java-junit

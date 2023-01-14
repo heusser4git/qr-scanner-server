@@ -54,7 +54,7 @@ public class GuiTest {
         WebElement scannerTitle = driver.findElement(PersonalPo.h1TagSelector());
         assertEquals("Scanner", scannerTitle.getText());
     }
-/*
+
     // Testing admin Page
     @Test
     public void testSearchOnList(){
@@ -151,27 +151,27 @@ public class GuiTest {
         assertEquals("Nicht-Aktiv",statusObejct2.getText());
     }
 
-    @Test
-    public void testSearchOnList() throws InterruptedException {
-        driver = SeleniumHelper.setUpWebDriver();
-        WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
-        adminButton.click();
-        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
-        searchField.sendKeys("perko");
-        Thread.sleep(2000);
-        String tdFamiliyName = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[2]")).getAttribute("innerHTML");
-        //System.out.println(tdFamiliyName.getLocation());
-        //WebElement tdFamiliyName = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[1]/table/tbody/tr/td[2]"));
-        //WebElement tdFirstname = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[1]/table/tbody/tr/td[3]"));
-        //WebElement tdBirthday = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[4]"));
-        //WebElement tdStatus = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[5]"));
-
-        assertEquals("Perko ", tdFamiliyName);
-        //assertEquals("Mitja", tdFirstname.getText());
-        //assertEquals("Perko", tdFamiliyName.getText());
-        //assertEquals("Perko", tdFamiliyName.getText());
-        //assertEquals("Perko", tdFamiliyName.getText());
-    }*/
+//    @Test
+//    public void testSearchOnList() throws InterruptedException {
+//        driver = SeleniumHelper.setUpWebDriver();
+//        WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
+//        adminButton.click();
+//        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
+//        searchField.sendKeys("perko");
+//        Thread.sleep(2000);
+//        String tdFamiliyName = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[2]")).getAttribute("innerHTML");
+//        //System.out.println(tdFamiliyName.getLocation());
+//        //WebElement tdFamiliyName = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[1]/table/tbody/tr/td[2]"));
+//        //WebElement tdFirstname = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[1]/table/tbody/tr/td[3]"));
+//        //WebElement tdBirthday = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[4]"));
+//        //WebElement tdStatus = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[5]"));
+//
+//        assertEquals("Perko ", tdFamiliyName);
+//        //assertEquals("Mitja", tdFirstname.getText());
+//        //assertEquals("Perko", tdFamiliyName.getText());
+//        //assertEquals("Perko", tdFamiliyName.getText());
+//        //assertEquals("Perko", tdFamiliyName.getText());
+//    }
 
 //    @Test
 //    public void testSearchOnList() {
