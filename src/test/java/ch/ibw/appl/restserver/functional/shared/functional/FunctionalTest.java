@@ -1,4 +1,4 @@
-package ch.ibw.appl.restserver.functional.shared;
+package ch.ibw.appl.restserver.functional.shared.functional;
 
 import org.junit.Rule;
 import ch.ibw.appl.restserver.item.shared.infra.RestServer;

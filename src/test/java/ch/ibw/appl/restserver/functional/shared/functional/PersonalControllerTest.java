@@ -1,10 +1,9 @@
-package ch.ibw.appl.restserver.functional;
+package ch.ibw.appl.restserver.functional.shared.functional;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import ch.ibw.appl.restserver.item.model.PersonalItem;
 import org.eclipse.jetty.http.HttpStatus;
 import org.junit.Test;
-import ch.ibw.appl.restserver.functional.shared.FunctionalTest;
 import ch.ibw.appl.restserver.item.shared.service.JsonSerializer;
 
 import java.net.http.HttpRequest;

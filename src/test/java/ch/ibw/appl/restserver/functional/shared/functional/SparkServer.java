@@ -1,4 +1,4 @@
-package ch.ibw.appl.restserver.functional.shared;
+package ch.ibw.appl.restserver.functional.shared.functional;
 
 import org.junit.rules.ExternalResource;
 import org.junit.runner.Description;

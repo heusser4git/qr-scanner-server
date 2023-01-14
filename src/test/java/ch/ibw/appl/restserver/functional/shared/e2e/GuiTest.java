@@ -1,13 +1,10 @@
-package ch.ibw.appl.restserver.functional;
+package ch.ibw.appl.restserver.functional.shared.e2e;
 
-import ch.ibw.appl.restserver.functional.shared.guitest.PersonalPo;
-import ch.ibw.appl.restserver.functional.shared.guitest.SeleniumHelper;
+
 import org.junit.AfterClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -134,22 +131,22 @@ public class GuiTest {
         assertEquals("0 items selected", span.getText());
     }
 
-//    @Test
-//    public void testChangeStatusOnObjectByEdit() throws InterruptedException {
-//        WebDriver driver = SeleniumHelper.setUpWebDriver();
-//        PersonalPo.navigateToAdministrationPageByButton(driver);
-//        PersonalPo.selectedObjectByRowNumber(driver,2);
-//        PersonalPo.navigateToEditModal(driver);
-//        WebElement divEditModal = driver.findElement(PersonalPo.editModalDivSelector());
-//        WebElement notActiveRadio = divEditModal.findElement(PersonalPo.notActiveRadioByEditSelector());
-//        Thread.sleep(200);
-//        notActiveRadio.click();
-//        WebElement updateButton = divEditModal.findElement(PersonalPo.primaryButtonSelector());
-//        updateButton.click();
-//        Thread.sleep(200);
-//        WebElement statusObejct2 = driver.findElement(PersonalPo.statusObjectByIdSelector(2));
-//        assertEquals("Nicht-Aktiv",statusObejct2.getText());
-//    }
+    @Test
+    public void testChangeStatusOnObjectByEdit() throws InterruptedException {
+        WebDriver driver = SeleniumHelper.setUpWebDriver();
+        PersonalPo.navigateToAdministrationPageByButton(driver);
+        PersonalPo.selectedObjectByRowNumber(driver,2);
+        PersonalPo.navigateToEditModal(driver);
+        WebElement divEditModal = driver.findElement(PersonalPo.editModalDivSelector());
+        WebElement notActiveRadio = divEditModal.findElement(PersonalPo.notActiveRadioByEditSelector());
+        Thread.sleep(200);
+        notActiveRadio.click();
+        WebElement updateButton = divEditModal.findElement(PersonalPo.primaryButtonSelector());
+        updateButton.click();
+        Thread.sleep(200);
+        WebElement statusObejct2 = driver.findElement(PersonalPo.statusObjectByIdSelector(2));
+        assertEquals("Nicht-Aktiv",statusObejct2.getText());
+    }
 
 //    @Test
 //    public void testSearchOnList() throws InterruptedException {

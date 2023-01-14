@@ -1,4 +1,4 @@
-package ch.ibw.appl.restserver.functional;
+package ch.ibw.appl.restserver.functional.shared.functional;
 
 import ch.ibw.appl.restserver.item.model.PersonalItem;
 import junit.framework.TestCase;

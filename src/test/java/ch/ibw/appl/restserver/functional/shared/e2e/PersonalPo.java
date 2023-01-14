@@ -1,4 +1,4 @@
-package ch.ibw.appl.restserver.functional.shared.guitest;
+package ch.ibw.appl.restserver.functional.shared.e2e;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

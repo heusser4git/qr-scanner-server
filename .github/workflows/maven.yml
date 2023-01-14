@@ -45,7 +45,7 @@ jobs:
                        ./scripts/InstallChrome.sh
 
       - name: Build Server with Maven
-        run: mvn -B package -Dmaven.test.skip --file pom.xml
+        run: mvn -B package -Dtest=ch.ibw.appl.restserver.functional.shared.functional --file pom.xml
         #run: mvn -B package --file pom.xml
         env:
           # CLIENT-URL - Selenium-Test has to navigate to this URL
@@ -60,8 +60,16 @@ jobs:
           SERVER_TESTMODE: TRUE
 
       - name: Start Tests
-        run: mvn -B -Dtest=GuiTest test --file pom.xml
+        run: mvn -B -Dtest=ch.ibw.appl.restserver.functional.shared.e2e test --file pom.xml
 
+
+      - name: Test Reporter
+        #uses: dorny/test-reporter@v1.4.3
+        uses: phoenix-actions/test-reporting@v10
+        with:
+          name: Test Resultate
+          path: "**/surefire-reports/TEST-*.xml"
+          reporter: java-junit
 
       
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
@@ -87,10 +95,3 @@ jobs:
         run: mvn -B verify -Dmaven.test.skip org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=heusser4git_qr-scanner-server
 
 
-      - name: Test Reporter
-        #uses: dorny/test-reporter@v1.4.3
-        uses: phoenix-actions/test-reporting@v10
-        with:
-          name: Test Resultate
-          path: "**/surefire-reports/TEST-*.xml"
-          reporter: java-junit

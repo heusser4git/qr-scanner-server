@@ -1,4 +1,4 @@
-package ch.ibw.appl.restserver.functional.shared.guitest;
+package ch.ibw.appl.restserver.functional.shared.e2e;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
