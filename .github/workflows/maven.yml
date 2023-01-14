@@ -53,6 +53,20 @@ jobs:
           CLIENT_URL: http://localhost:5000
 
 
+
+      - name: Start Spark-Server in Testmode für e2e
+        run: |
+          cd /home/runner/work/qr-scanner-server/qr-scanner-server/target
+          java -jar qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar &
+        env:
+          SERVER_PORT: 7778
+          SERVER_TESTMODE: TRUE
+
+      - name: Start E2E Tests
+        run: mvn -B -Dtest=ch.ibw.appl.restserver.functional.shared.e2e.* test --file pom.xml
+
+
+
       - name: Test Reporter
         #uses: dorny/test-reporter@v1.4.3
         uses: phoenix-actions/test-reporting@v10
