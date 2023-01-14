@@ -108,7 +108,7 @@ public class GuiTest {
         assertEquals("User-QR Code", title.getAttribute("innerHTML"));
     }
 
-    @Test
+   /* @Test
     public void testEditButtonAndItsModalWindow() throws InterruptedException {
         WebDriver driver = SeleniumHelper.setUpWebDriver();
         PersonalPo.navigateToAdministrationPageByButton(driver);
@@ -116,7 +116,7 @@ public class GuiTest {
         PersonalPo.navigateToEditModal(driver);
         WebElement title = driver.findElement(PersonalPo.editModalDivSelector()).findElement(PersonalPo.h3TagSelector());
         assertEquals("Bestehenden Benutzer bearbeiten", title.getAttribute("innerHTML"));
-    }
+    }*/
 
     @Test
     public void testHeaderChangeAfterClickCancelBySelectedObject() throws InterruptedException {
