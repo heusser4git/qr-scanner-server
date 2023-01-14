@@ -52,6 +52,7 @@ jobs:
           # CLIENT-URL - Selenium-Test has to navigate to this URL
           CLIENT_URL: http://localhost:5000
 
+
 #      - name: Start Spark-Server in Testmode
 #        run: |
 #          cd /home/runner/work/qr-scanner-server/qr-scanner-server/target
@@ -99,4 +100,3 @@ jobs:
             name: Test Resultate
             path: "**/surefire-reports/TEST-*.xml"
             reporter: java-junit
-
