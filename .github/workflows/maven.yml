@@ -52,6 +52,15 @@ jobs:
           # CLIENT-URL - Selenium-Test has to navigate to this URL
           CLIENT_URL: http://localhost:5000
 
+
+      - name: Test Reporter
+          #uses: dorny/test-reporter@v1.4.3
+          uses: phoenix-actions/test-reporting@v10
+          with:
+            name: Test Resultate
+            path: "**/surefire-reports/TEST-*.xml"
+            reporter: java-junit
+
 #      - name: Start Spark-Server in Testmode
 #        run: |
 #          cd /home/runner/work/qr-scanner-server/qr-scanner-server/target
@@ -90,13 +99,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify -Dmaven.test.skip org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=heusser4git_qr-scanner-server
-
-
-      - name: Test Reporter
-          #uses: dorny/test-reporter@v1.4.3
-          uses: phoenix-actions/test-reporting@v10
-          with:
-            name: Test Resultate
-            path: "**/surefire-reports/TEST-*.xml"
-            reporter: java-junit
 
