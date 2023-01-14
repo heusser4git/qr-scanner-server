@@ -51,9 +51,6 @@ jobs:
           # CLIENT-URL - Selenium-Test has to navigate to this URL
           CLIENT_URL: http://localhost:5000
 
-      - name: Start Tests
-        run: mvn -B -Dtest=ch.ibw.appl.restserver.functional.shared.functional.* test --file pom.xml
-
       - name: Start Spark-Server in Testmode
         run: |
           cd /home/runner/work/qr-scanner-server/qr-scanner-server/target
@@ -62,8 +59,11 @@ jobs:
           SERVER_PORT: 7778
           SERVER_TESTMODE: TRUE
 
-      - name: Start Tests
+      - name: Start E2E Tests
         run: mvn -B -Dtest=ch.ibw.appl.restserver.functional.shared.e2e.* test --file pom.xml
+
+      - name: Start Functional Tests
+        run: mvn -B -Dtest=ch.ibw.appl.restserver.functional.shared.functional.* test --file pom.xml
 
 
       - name: Test Reporter
