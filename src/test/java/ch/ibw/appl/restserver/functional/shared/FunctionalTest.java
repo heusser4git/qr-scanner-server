@@ -29,7 +29,7 @@ public class FunctionalTest {
   }
 
   @Rule
-  public SparkServer<PersonalApplication> httpClient = new SparkServer<>(PersonalApplication.class, 7778);
+  public SparkServer<PersonalApplication> httpClient = new SparkServer<>(PersonalApplication.class, 7777);
 
   public HttpResponse<String> executeGet(String path, String acceptType) {
     HttpRequest.Builder method = httpClient.get(path);
