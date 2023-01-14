@@ -56,7 +56,7 @@ jobs:
           cd /home/runner/work/qr-scanner-server/qr-scanner-server/target
           java -jar qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar
         env:
-          SERVER_PORT: 7778
+          SERVER_PORT: 9000
           SERVER_TESTMODE: TRUE
           # --test=true --server.port=7778
       - name: Test Reporter
