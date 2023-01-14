@@ -59,8 +59,8 @@ jobs:
           SERVER_PORT: 7778
           SERVER_TESTMODE: TRUE
 
-#      - name: Start Tests
-#        run: mvn -B test --file pom.xml
+      - name: Start Tests
+        run: mvn -B -Dtest=GuiTest test --file pom.xml
 
 
       
@@ -84,7 +84,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=heusser4git_qr-scanner-server
+        run: mvn -B verify -Dmaven.test.skip org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=heusser4git_qr-scanner-server
 
 
       - name: Test Reporter
