@@ -54,12 +54,12 @@ jobs:
 
 
       - name: Test Reporter
-          #uses: dorny/test-reporter@v1.4.3
-          uses: phoenix-actions/test-reporting@v10
-          with:
-            name: Test Resultate
-            path: "**/surefire-reports/TEST-*.xml"
-            reporter: java-junit
+        #uses: dorny/test-reporter@v1.4.3
+        uses: phoenix-actions/test-reporting@v10
+        with:
+          name: Test Resultate
+          path: "**/surefire-reports/TEST-*.xml"
+          reporter: java-junit
 
 #      - name: Start Spark-Server in Testmode
 #        run: |
