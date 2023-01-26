@@ -110,7 +110,7 @@ jobs:
         with:
           image: tcodemalans/qrscanner-client
           registry: docker.io
-          dockerfile: Dockerfile
+          dockerfile: client/Dockerfile
           addLatest: true
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
