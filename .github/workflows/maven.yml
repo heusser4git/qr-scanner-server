@@ -94,10 +94,12 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify -Dmaven.test.skip org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=heusser4git_qr-scanner-server
 
-      - name: Build an Push Docker Image
+
+      - name: Build an Push Docker Image Server
         uses: mr-smithers-excellent/docker-build-push@v4
-        width:
+        with:
           image: tcodemalans/qrscanner-server
           registry: docker.io
+          dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
