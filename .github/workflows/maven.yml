@@ -101,5 +101,16 @@ jobs:
           image: tcodemalans/qrscanner-server
           registry: docker.io
           dockerfile: Dockerfile
+          addLatest: true
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build an Push Docker Image Client
+        uses: mr-smithers-excellent/docker-build-push@v4
+        with:
+          image: tcodemalans/qrscanner-client
+          registry: docker.io
+          dockerfile: Dockerfile
+          addLatest: true
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
