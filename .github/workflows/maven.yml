@@ -101,7 +101,7 @@ jobs:
           image: tcodemalans/qrscanner-server
           registry: docker.io
           dockerfile: Dockerfile
-          addLatest: true
+          tags: latest
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
