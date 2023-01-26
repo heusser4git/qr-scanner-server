@@ -1,0 +1,27 @@
+version: "3.3"
+
+services:
+  client:
+    image: tcodemalans/qrscanner-client:latest
+    networks:
+      - scannernet
+    ports:
+      - 80:5000
+
+  server:
+    image: tcodemalans/qrscanner-server:latest
+    networks:
+      - scannernet
+    environment:
+      # db is the docker-network internal DNS name of the db service
+      - JDBC_URI=jdbc:mysql://db:3306/personal
+    ports:
+      - 7778:7778
+
+
+networks:
+  scannernet:
+    driver: bridge
+
+
+# docker-compose up -d
