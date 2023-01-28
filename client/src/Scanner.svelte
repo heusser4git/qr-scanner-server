@@ -14,7 +14,8 @@
             'Accept': 'application/json'
         });
         try {
-            const returnValue = await fetch(`http://localhost:7778/scanner/items/` + id, {
+            this.serverUrl = process.env.API_SERVER_URL != null ? process.env.API_SERVER_URL : 'http://localhost:7778'
+            const returnValue = await fetch(this.serverUrl + `/scanner/items/` + id, {
                 method: 'GET',
                 headers: httpHeaders,
                 credentials: 'same-origin'
