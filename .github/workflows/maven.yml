@@ -101,14 +101,16 @@ jobs:
 
       - name: Build an Push Docker Image Server
         run: |
+          tag = $(date +%Y%m%d%H%M) + ${{ github.sha }}
           docker build --tag tcodemalans/qrscanner-server:latest .
-          docker build --tag tcodemalans/qrscanner-server:${{ github.sha }} .
+          docker build --tag tcodemalans/qrscanner-server:$tag .
           docker push tcodemalans/qrscanner-server:latest
-          docker push tcodemalans/qrscanner-server:${{ github.sha }}
+          docker push tcodemalans/qrscanner-server:$tag
 
       - name: Build an Push Docker Image Client
         run: |
+          tag = $(date +%Y%m%d%H%M) + ${{ github.sha }}
           docker build --tag tcodemalans/qrscanner-client:latest .
-          docker build --tag tcodemalans/qrscanner-client:${{ github.sha }} .
+          docker build --tag tcodemalans/qrscanner-client:$tag .
           docker push tcodemalans/qrscanner-client:latest
-          docker push tcodemalans/qrscanner-client:${{ github.sha }}
+          docker push tcodemalans/qrscanner-client:$tag
