@@ -1,5 +1,16 @@
-# QR-Scanner
+QR-Scanner
 ---
+
+Um den QR-Scanner einfach zu Installieren und zu nutzen, stellen wir folgende Docker-Container via Dockerhub zur Verfügung:
+- [tcodemalans/qrscanner-client](https://hub.docker.com/repository/docker/tcodemalans/qrscanner-client)
+- [tcodemalans/qrscanner-server](https://hub.docker.com/repository/docker/tcodemalans/qrscanner-server)
+
+Pullen Sie folgendes Repository um mit Docker-Compose auf einfachste Art ihren persönlichen QR-Scanner laufen zu lassen:
+[https://github.com/heusser4git/qrscanner](https://github.com/heusser4git/qrscanner)
+
+
+---
+
 ## REST Server herunterladen
 ```bash
 https://github.com/heusser4git/qr-scanner-server/tree/master/target/qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar
