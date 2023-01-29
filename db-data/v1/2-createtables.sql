@@ -1,4 +1,5 @@
 USE personal;
+DROP TABLE IF EXISTS tblPerson;
 CREATE TABLE IF NOT EXISTS tblPerson (
     `id` BIGINT NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NULL,
