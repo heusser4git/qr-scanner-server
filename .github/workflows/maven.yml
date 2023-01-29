@@ -108,6 +108,8 @@ jobs:
 
       - name: Build an Push Docker Image Client
         run: |
+          cd client
+          ls -al
           docker build --tag tcodemalans/qrscanner-client:latest .
           docker build --tag tcodemalans/qrscanner-client:${{ github.sha }} .
           docker push tcodemalans/qrscanner-client:latest
