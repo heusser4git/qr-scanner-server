@@ -16,6 +16,7 @@ services:
       - scannernet
     environment:
       - JDBC_URI
+      - MYSQL_PASSWORD
       - SERVER_TESTMODE
     ports:
       - 7778:7778

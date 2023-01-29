@@ -83,7 +83,8 @@ public class GuiTest {
         PersonalPo.navigateToAdministrationPageByButton(driver);
         WebElement addButton = driver.findElement(PersonalPo.addItemButtonSelector());
         addButton.click();
-        Thread.sleep(200);
+        new WebDriverWait(driver, Duration.ofMillis(200))
+                .until(ExpectedConditions.elementToBeSelected(driver.findElement(PersonalPo.addModalDivSelector()).findElement(PersonalPo.h3TagSelector())));
         WebElement title = driver.findElement(PersonalPo.addModalDivSelector()).findElement(PersonalPo.h3TagSelector());
         assertEquals("Neuen Benutzer hinzufügen", title.getAttribute("innerHTML"));
     }
@@ -94,8 +95,8 @@ public class GuiTest {
         PersonalPo.navigateToAdministrationPageByButton(driver);
         PersonalPo.selectedObjectByRowNumber(driver,2);
         WebElement deleteButton = driver.findElement(PersonalPo.deleteItemButtonSelector());
-        Thread.sleep(200);
-        deleteButton.click();
+        new WebDriverWait(driver, Duration.ofMillis(200))
+                .until(ExpectedConditions.elementToBeClickable(deleteButton));
         WebElement title = driver.findElement(PersonalPo.deleteModalDivSelector()).findElement(PersonalPo.h3TagSelector());
         assertEquals("Benutzer Löschen", title.getAttribute("innerHTML"));
     }
@@ -108,7 +109,6 @@ public class GuiTest {
         WebElement qrButton = driver.findElement(PersonalPo.qrItemButtonSelector());
         new WebDriverWait(driver, Duration.ofMillis(200))
                 .until(ExpectedConditions.elementToBeClickable(qrButton));
-        //qrButton.click();
         WebElement title = driver.findElement(PersonalPo.qrModalDivSelector()).findElement(PersonalPo.h3TagSelector());
         assertEquals("User-QR Code", title.getAttribute("innerHTML"));
     }
@@ -129,8 +129,8 @@ public class GuiTest {
         PersonalPo.navigateToAdministrationPageByButton(driver);
         PersonalPo.selectedObjectByRowNumber(driver,2);
         WebElement cancelButton = driver.findElement(PersonalPo.cancelItemButtonSelector());
-        Thread.sleep(200);
-        cancelButton.click();
+        new WebDriverWait(driver, Duration.ofMillis(200))
+                .until(ExpectedConditions.elementToBeClickable(cancelButton));
         WebElement resultPtag = driver.findElement(PersonalPo.selectedPtagSelector());
         WebElement span = resultPtag.findElement(PersonalPo.spanTagSelector());
         assertEquals("0 items selected", span.getText());
@@ -144,50 +144,16 @@ public class GuiTest {
         PersonalPo.navigateToEditModal(driver);
         WebElement divEditModal = driver.findElement(PersonalPo.editModalDivSelector());
         WebElement notActiveRadio = divEditModal.findElement(PersonalPo.notActiveRadioByEditSelector());
-        Thread.sleep(200);
-        notActiveRadio.click();
+        new WebDriverWait(driver, Duration.ofMillis(200))
+                .until(ExpectedConditions.elementToBeClickable(notActiveRadio));
         WebElement updateButton = divEditModal.findElement(PersonalPo.primaryButtonSelector());
         updateButton.click();
-        Thread.sleep(200);
+        new WebDriverWait(driver, Duration.ofMillis(200))
+                .until(ExpectedConditions.elementToBeSelected(driver.findElement(PersonalPo.statusObjectByIdSelector(2))));
         WebElement statusObejct2 = driver.findElement(PersonalPo.statusObjectByIdSelector(2));
         assertEquals("Nicht-Aktiv",statusObejct2.getText());
     }
 
-//    @Test
-//    public void testSearchOnList() throws InterruptedException {
-//        driver = SeleniumHelper.setUpWebDriver();
-//        WebElement adminButton = driver.findElement(PersonalPo.adminButtonSelector());
-//        adminButton.click();
-//        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
-//        searchField.sendKeys("perko");
-//        Thread.sleep(2000);
-//        String tdFamiliyName = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[2]")).getAttribute("innerHTML");
-//        //System.out.println(tdFamiliyName.getLocation());
-//        //WebElement tdFamiliyName = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[1]/table/tbody/tr/td[2]"));
-//        //WebElement tdFirstname = driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[1]/table/tbody/tr/td[3]"));
-//        //WebElement tdBirthday = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[4]"));
-//        //WebElement tdStatus = driver.findElement(By.xpath("/html/body/main/div[1]/table/tbody/tr/td[5]"));
-//
-//        assertEquals("Perko ", tdFamiliyName);
-//        //assertEquals("Mitja", tdFirstname.getText());
-//        //assertEquals("Perko", tdFamiliyName.getText());
-//        //assertEquals("Perko", tdFamiliyName.getText());
-//        //assertEquals("Perko", tdFamiliyName.getText());
-//    }
-
-//    @Test
-//    public void testSearchOnList() {
-//        WebDriver driver = SeleniumHelper.setUpWebDriver();
-//        PersonalPo.navigateToAdministrationPageByButton(driver);
-//        WebElement searchField = driver.findElement(PersonalPo.searchInputSelector());
-//        searchField.sendKeys("perko");
-//
-//        WebElement listTable = driver.findElement(PersonalPo.listTableSelector());
-//        List<WebElement> listOfTdElements = listTable.findElements(PersonalPo.tdTagSelector());
-//        for(WebElement td: listOfTdElements) {
-//            assertEquals("Perko", td.getText());
-//        }
-//    }
 
     @AfterClass
     public static void tearDown(){
