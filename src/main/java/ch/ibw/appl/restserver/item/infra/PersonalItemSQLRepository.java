@@ -31,7 +31,7 @@ public class PersonalItemSQLRepository implements PersonalItemRepository<Persona
         if (jdbcURI == null || jdbcURI.isEmpty()) {
             jdbcURI = defaultURI;
         }
-        logger.info("Testmode: {}", jdbcURI);
+        logger.info("jdbcURI: {}", jdbcURI);
 
         String defaultPwd = "123456";
         String mysqlPwd = System.getenv("MYSQL_PASSWORD");
