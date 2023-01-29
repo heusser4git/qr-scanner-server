@@ -83,8 +83,7 @@ public class GuiTest {
         PersonalPo.navigateToAdministrationPageByButton(driver);
         WebElement addButton = driver.findElement(PersonalPo.addItemButtonSelector());
         addButton.click();
-        new WebDriverWait(driver, Duration.ofMillis(200))
-                .until(ExpectedConditions.elementToBeSelected(driver.findElement(PersonalPo.addModalDivSelector()).findElement(PersonalPo.h3TagSelector())));
+        Thread.sleep(200);
         WebElement title = driver.findElement(PersonalPo.addModalDivSelector()).findElement(PersonalPo.h3TagSelector());
         assertEquals("Neuen Benutzer hinzufügen", title.getAttribute("innerHTML"));
     }
