@@ -9,6 +9,7 @@ EXPOSE 7778
 
 # Allow to override default ENV with container start
 ENV JDBC_URI=""
+ENV MYSQL_PASSWORD=""
 ENV SERVER_TESTMODE=true
 
 # Start process inside the container

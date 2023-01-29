@@ -4,9 +4,7 @@ import ch.ibw.appl.restserver.item.model.PersonalItem;
 import ch.ibw.appl.restserver.item.service.PersonalItemRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ch.ibw.appl.restserver.item.shared.service.ReadJsonFile;
 
-import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +32,15 @@ public class PersonalItemSQLRepository implements PersonalItemRepository<Persona
             jdbcURI = defaultURI;
         }
         System.out.println("JDBC URI:" + jdbcURI);
+
+        String defaultPwd = "123456";
+        String mysqlPassword = System.getenv("MYSQL_PASSWORD");
+        if (mysqlPassword == null || mysqlPassword.isEmpty()) {
+            mysqlPassword = defaultPwd;
+        }
+
         try {
-            this.connection = DriverManager.getConnection(String.format("%s", jdbcURI), "personal", "123456");
+            this.connection = DriverManager.getConnection(String.format("%s", jdbcURI), "personal", mysqlPassword);
         } catch (SQLException e) {
             logger.error("SQLException while trying open Database-Connection", e);
         }
