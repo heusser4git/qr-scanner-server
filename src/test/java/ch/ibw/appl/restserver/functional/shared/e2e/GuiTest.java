@@ -5,10 +5,6 @@ import org.junit.AfterClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
 
@@ -94,8 +90,8 @@ public class GuiTest {
         PersonalPo.navigateToAdministrationPageByButton(driver);
         PersonalPo.selectedObjectByRowNumber(driver,2);
         WebElement deleteButton = driver.findElement(PersonalPo.deleteItemButtonSelector());
-        new WebDriverWait(driver, Duration.ofMillis(200))
-                .until(ExpectedConditions.elementToBeClickable(deleteButton));
+        Thread.sleep(200);
+        deleteButton.click();
         WebElement title = driver.findElement(PersonalPo.deleteModalDivSelector()).findElement(PersonalPo.h3TagSelector());
         assertEquals("Benutzer Löschen", title.getAttribute("innerHTML"));
     }
@@ -106,8 +102,8 @@ public class GuiTest {
         PersonalPo.navigateToAdministrationPageByButton(driver);
         PersonalPo.selectedObjectByRowNumber(driver,2);
         WebElement qrButton = driver.findElement(PersonalPo.qrItemButtonSelector());
-        new WebDriverWait(driver, Duration.ofMillis(200))
-                .until(ExpectedConditions.elementToBeClickable(qrButton));
+        Thread.sleep(200);
+        qrButton.click();
         WebElement title = driver.findElement(PersonalPo.qrModalDivSelector()).findElement(PersonalPo.h3TagSelector());
         assertEquals("User-QR Code", title.getAttribute("innerHTML"));
     }
@@ -128,8 +124,8 @@ public class GuiTest {
         PersonalPo.navigateToAdministrationPageByButton(driver);
         PersonalPo.selectedObjectByRowNumber(driver,2);
         WebElement cancelButton = driver.findElement(PersonalPo.cancelItemButtonSelector());
-        new WebDriverWait(driver, Duration.ofMillis(200))
-                .until(ExpectedConditions.elementToBeClickable(cancelButton));
+        Thread.sleep(200);
+        cancelButton.click();
         WebElement resultPtag = driver.findElement(PersonalPo.selectedPtagSelector());
         WebElement span = resultPtag.findElement(PersonalPo.spanTagSelector());
         assertEquals("0 items selected", span.getText());
@@ -143,12 +139,11 @@ public class GuiTest {
         PersonalPo.navigateToEditModal(driver);
         WebElement divEditModal = driver.findElement(PersonalPo.editModalDivSelector());
         WebElement notActiveRadio = divEditModal.findElement(PersonalPo.notActiveRadioByEditSelector());
-        new WebDriverWait(driver, Duration.ofMillis(200))
-                .until(ExpectedConditions.elementToBeClickable(notActiveRadio));
+        Thread.sleep(200);
+        notActiveRadio.click();
         WebElement updateButton = divEditModal.findElement(PersonalPo.primaryButtonSelector());
         updateButton.click();
-        new WebDriverWait(driver, Duration.ofMillis(200))
-                .until(ExpectedConditions.elementToBeSelected(driver.findElement(PersonalPo.statusObjectByIdSelector(2))));
+        Thread.sleep(200);
         WebElement statusObejct2 = driver.findElement(PersonalPo.statusObjectByIdSelector(2));
         assertEquals("Nicht-Aktiv",statusObejct2.getText());
     }
