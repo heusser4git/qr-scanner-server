@@ -4,7 +4,6 @@ import ch.ibw.appl.restserver.item.model.PersonalItem;
 import ch.ibw.appl.restserver.item.service.PersonalItemRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ch.ibw.appl.restserver.item.shared.model.DbConfiguration;
 import ch.ibw.appl.restserver.item.shared.service.ReadJsonFile;
 
 import java.io.File;
@@ -17,11 +16,9 @@ public class PersonalItemSQLRepository implements PersonalItemRepository<Persona
     public static final String SQLEXCEPTION_WHILE_DOING_A_PREPARED_STATEMENT = "SQLException while doing a preparedStatement.";
     private Connection connection;
     private Logger logger;
-    private DbConfiguration dbConfig;
 
     public PersonalItemSQLRepository(boolean isTest) {
         logger = LoggerFactory.getLogger(PersonalItemSQLRepository.class);
-        getDbConfigurationOffJsonFile();
 
         if(Boolean.TRUE.equals(isTest)) {
             logger.info("MySQL läuft nicht im Testmode!!!");
@@ -30,20 +27,15 @@ public class PersonalItemSQLRepository implements PersonalItemRepository<Persona
         }
     }
 
-    private void getDbConfigurationOffJsonFile() {
-        String path = new File("target/classes/META-INF/dbConfiguration.json").getAbsolutePath();
-        ReadJsonFile readJsonFile = new ReadJsonFile();
-        this.dbConfig = readJsonFile.getConfig(path);
-    }
-
     private void setupMySqlConnection() {
-        String defaultURI = dbConfig.getDefaultURI();
+        String defaultURI = "jdbc:mysql://localhost:3306/personal";
         String jdbcURI = System.getenv("JDBC_URI");
         if (jdbcURI == null || jdbcURI.isEmpty()) {
             jdbcURI = defaultURI;
         }
+        System.out.println("JDBC URI:" + jdbcURI);
         try {
-            this.connection = DriverManager.getConnection(String.format("%s/%s", jdbcURI, dbConfig.getDatabase()), dbConfig.getUser(), dbConfig.getPassword());
+            this.connection = DriverManager.getConnection(String.format("%s", jdbcURI), "personal", "123456");
         } catch (SQLException e) {
             logger.error("SQLException while trying open Database-Connection", e);
         }

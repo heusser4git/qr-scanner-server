@@ -70,8 +70,7 @@
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             })
-            this.serverUrl = process.env.API_SERVER_URL != null ? process.env.API_SERVER_URL : 'http://localhost:7778'
-            await fetch(this.serverUrl + '/personal/items', {
+            await fetch('http://localhost:7778/personal/items', {
                 method: 'POST',
                 mode: 'no-cors',
                 headers,

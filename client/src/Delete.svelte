@@ -16,8 +16,7 @@
             'Accept': 'application/json'
         })
         try {
-            this.serverUrl = process.env.API_SERVER_URL != null ? process.env.API_SERVER_URL : 'http://localhost:7778'
-            await fetch(this.serverUrl + '/personal/items/' + personObject.id, {
+            await fetch('http://localhost:7778/personal/items/' + personObject.id, {
                 method: 'Delete',
                 headers,
                 credentials: 'same-origin'

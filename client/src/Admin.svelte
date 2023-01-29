@@ -48,8 +48,7 @@
             'Accept': 'application/json'
         });
         try {
-            this.serverUrl = process.env.API_SERVER_URL != null ? process.env.API_SERVER_URL : 'http://localhost:7778'
-            const returnValue = await fetch(this.serverUrl + `/personal/items`, {
+            const returnValue = await fetch(`http://localhost:7778/personal/items`, {
                 method: 'GET',
                 headers: httpHeaders,
                 credentials: 'same-origin'

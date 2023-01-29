@@ -10,18 +10,33 @@ services:
 
   server:
     image: tcodemalans/qrscanner-server:latest
+    depends_on:
+      - db
     networks:
       - scannernet
     environment:
-      # db is the docker-network internal DNS name of the db service
-      - JDBC_URI=jdbc:mysql://db:3306/personal
+      - JDBC_URI
+      - SERVER_TESTMODE
     ports:
       - 7778:7778
 
+  db:
+    image: mysql:8.0
+    #ports:
+     # - 3306:3306
+    networks:
+      - scannernet
+    # Variables values have to be set from outside, e.g. via .env file
+    environment:
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD
+      - MYSQL_ALLOW_EMPTY_PASSWORD
+      - MYSQL_DATABASE
+    command: --skip-name-resolve=false
+    volumes:
+      - ./db-data/v1:/docker-entrypoint-initdb.d
 
 networks:
   scannernet:
     driver: bridge
-
-
-# docker-compose up -d
