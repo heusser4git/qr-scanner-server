@@ -11,6 +11,7 @@ EXPOSE 7778
 ENV JDBC_URI=""
 ENV MYSQL_PASSWORD=""
 ENV SERVER_TESTMODE=true
+ENV MYSQL_ROOT_PASSWORD="12345678"
 
 # Start process inside the container
 CMD ["java", "-jar", "./qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar"]
