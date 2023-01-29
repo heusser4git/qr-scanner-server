@@ -5,6 +5,10 @@ import org.junit.AfterClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
 
@@ -102,8 +106,9 @@ public class GuiTest {
         PersonalPo.navigateToAdministrationPageByButton(driver);
         PersonalPo.selectedObjectByRowNumber(driver,2);
         WebElement qrButton = driver.findElement(PersonalPo.qrItemButtonSelector());
-        Thread.sleep(200);
-        qrButton.click();
+        new WebDriverWait(driver, Duration.ofMillis(200))
+                .until(ExpectedConditions.elementToBeClickable(qrButton));
+        //qrButton.click();
         WebElement title = driver.findElement(PersonalPo.qrModalDivSelector()).findElement(PersonalPo.h3TagSelector());
         assertEquals("User-QR Code", title.getAttribute("innerHTML"));
     }
