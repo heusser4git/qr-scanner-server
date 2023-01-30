@@ -43,5 +43,5 @@ java -jar qrscanner-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
 
 
-# Client in Betrieb nehmen
+# Client installieren
 siehe separate Instruktionen hier [https://github.com/heusser4git/qr-scanner-server/tree/master/client](https://github.com/heusser4git/qr-scanner-server/tree/master/client)

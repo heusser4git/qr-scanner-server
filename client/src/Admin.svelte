@@ -9,7 +9,7 @@
     import AddIcon from "carbon-icons-svelte/lib/Add.svelte";
     import Add from "./Add.svelte";
     import Edit from "./Edit.svelte";
-    import QRCode from "svelte-qrcode";
+    import QRCode from "./template/svelte-qrcode/src/lib/index.svelte";
     import Delete from "./Delete.svelte";
 
 
@@ -105,7 +105,6 @@
         selectedRowIdToObject();
         openDelete = true;
     }
-
 </script>
 <Content>
     <h1>Administration</h1>
