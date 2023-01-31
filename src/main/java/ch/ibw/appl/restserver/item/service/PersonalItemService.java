@@ -43,7 +43,7 @@ public class PersonalItemService {
         if(id>0) {
             return repository.delete(id);
         } else {
-            throw new ValidationError("ID muss grösser als 0 sein.");
+            throw new ValidationError("ID muss groesser als 0 sein.");
         }
     }
 }

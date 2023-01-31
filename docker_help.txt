@@ -1,0 +1,7 @@
+docker login --username tcodemalans --password
+
+docker build --tag tcodemalans/qrscanner-client:latest .
+docker push tcodemalans/qrscanner-client:latest
+
+docker build --tag tcodemalans/qrscanner-server:latest .
+docker push tcodemalans/qrscanner-server:latest

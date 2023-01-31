@@ -27,9 +27,6 @@ public class PersonalPo {
     public static By imgScannerSelector(){
         return By.cssSelector("img[src='img/scanner.jpg']");
     }
-    public static By tdTagSelector() {
-        return By.tagName("td");
-    }
     public static By searchInputSelector() {
         return By.cssSelector(".bx--search-input");
     }
@@ -43,9 +40,6 @@ public class PersonalPo {
         return By.cssSelector("p[id='status"+id+"'");
     }
     
-    public static By listTableSelector() {
-        return By.cssSelector(".bx--data-table");
-    }
     public static By addItemButtonSelector() {
         return By.cssSelector(".addButton");
     }
@@ -115,7 +109,7 @@ public class PersonalPo {
 
     public static void navigateToEditModal(WebDriver driver) throws InterruptedException {
         WebElement editButton = driver.findElement(PersonalPo.editItemButtonSelector());
-Thread.sleep(200);
+        Thread.sleep(200);
         editButton.click();
     }
 }

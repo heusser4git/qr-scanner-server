@@ -52,7 +52,7 @@ public class GuiTest {
         assertEquals("Scanner", scannerTitle.getText());
     }
 
-    // Testing admin Page
+    // Testing Admin Page
     @Test
     public void testSearchOnList(){
         WebDriver driver = SeleniumHelper.setUpWebDriver();

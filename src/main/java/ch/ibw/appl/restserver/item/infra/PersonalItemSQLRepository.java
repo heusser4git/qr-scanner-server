@@ -85,7 +85,6 @@ public class PersonalItemSQLRepository implements PersonalItemRepository<Persona
         return personalItems;
     }
 
-
     @Override
     public List all() {
         connectDbifOffline();
@@ -119,7 +118,6 @@ public class PersonalItemSQLRepository implements PersonalItemRepository<Persona
         throw new NullPointerException(COULD_NOT_CONNECT_TO_DATABASE);
     }
 
-
     @Override
     public PersonalItem get(Long id) {
         connectDbifOffline();
@@ -132,7 +130,6 @@ public class PersonalItemSQLRepository implements PersonalItemRepository<Persona
         }
         throw new NullPointerException(COULD_NOT_CONNECT_TO_DATABASE);
     }
-
 
     @Override
     public Boolean update(PersonalItem personalItem) {

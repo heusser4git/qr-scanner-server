@@ -36,7 +36,6 @@ public class RestServer {
         server.before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
 
         server.before(((request, response) -> {
-            // exclude .../image from requiring to accept application/json
             String acceptHeader = request.headers("Accept");
             if(acceptHeader==null) {
                 logger.info("no accept header set by client");
@@ -63,7 +62,6 @@ public class RestServer {
             if (accessControlRequestMethod != null) {
                 response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
             }
-
             return "OK";
         }));
 

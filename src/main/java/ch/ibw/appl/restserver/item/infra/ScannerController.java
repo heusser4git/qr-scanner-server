@@ -6,7 +6,6 @@ import org.eclipse.jetty.http.HttpStatus;
 import spark.Service;
 import ch.ibw.appl.restserver.item.shared.service.JsonSerializer;
 
-
 public class ScannerController {
     private PersonalItemService personalItemService;
 
