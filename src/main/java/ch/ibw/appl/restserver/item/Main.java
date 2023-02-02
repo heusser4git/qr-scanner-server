@@ -20,7 +20,7 @@ public class Main {
         }
         Logger logger = LoggerFactory.getLogger(PersonalItemSQLRepository.class);
         logger.info("Testmode: {}", isTest);
-        // Aenderung am Programmcode
+
         new RestServer(port, isTest).run();
     }
 
